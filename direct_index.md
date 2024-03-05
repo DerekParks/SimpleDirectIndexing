@@ -12,7 +12,7 @@ url = "https://www.slickcharts.com/sp500"
 scraper = cloudscraper.create_scraper()
 soup = BeautifulSoup(scraper.get(url).text, 'html.parser')
 sap_table = soup.find('table', {'class':"table"})
-sap_list = pd.read_html(StringIO(str(sap_table)))[0]
+sap_list = pd.read_html(StringIO(str(sap_table)), flavor='html5lib')[0]
 sap = pd.DataFrame(sap_list)
 
 sap = sap[["Company", "Symbol", "Portfolio%"]]
@@ -50,19 +50,19 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
+      <td>7.14%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
+      <td>6.08%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
+      <td>4.70%</td>
     </tr>
     <tr>
       <th>3</th>
@@ -74,7 +74,7 @@ sap
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
+      <td>2.58%</td>
     </tr>
     <tr>
       <th>...</th>
@@ -152,7 +152,6 @@ sap
       <th>Company</th>
       <th>Symbol</th>
       <th>Portfolio%</th>
-      <th>PortfolioFraction</th>
     </tr>
   </thead>
   <tbody>
@@ -160,40 +159,34 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.0500</td>
+      <td>7.14%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.0500</td>
+      <td>6.08%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.0456</td>
+      <td>4.70%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Amazon.com Inc</td>
       <td>AMZN</td>
       <td>3.75%</td>
-      <td>0.0375</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
-      <td>0.0254</td>
+      <td>2.58%</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -203,39 +196,34 @@ sap
       <td>Mohawk Industries, Inc.</td>
       <td>MHK</td>
       <td>0.01%</td>
-      <td>0.0001</td>
     </tr>
     <tr>
       <th>497</th>
       <td>Whirlpool Corp.</td>
       <td>WHR</td>
       <td>0.01%</td>
-      <td>0.0001</td>
     </tr>
     <tr>
       <th>498</th>
       <td>Zions Bancorporation N.a.</td>
       <td>ZION</td>
       <td>0.01%</td>
-      <td>0.0001</td>
     </tr>
     <tr>
       <th>499</th>
       <td>V.F. Corporation</td>
       <td>VFC</td>
       <td>0.01%</td>
-      <td>0.0001</td>
     </tr>
     <tr>
       <th>500</th>
       <td>Paramount Global Class B</td>
       <td>PARA</td>
       <td>0.01%</td>
-      <td>0.0001</td>
     </tr>
   </tbody>
 </table>
-<p>500 rows × 4 columns</p>
+<p>500 rows × 3 columns</p>
 </div>
 
 
@@ -281,22 +269,22 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
+      <td>7.14%</td>
       <td>0.0500</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
+      <td>6.08%</td>
       <td>0.0500</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.0456</td>
+      <td>4.70%</td>
+      <td>0.0470</td>
     </tr>
     <tr>
       <th>3</th>
@@ -309,8 +297,8 @@ sap
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
-      <td>0.0254</td>
+      <td>2.58%</td>
+      <td>0.0258</td>
     </tr>
     <tr>
       <th>...</th>
@@ -402,36 +390,36 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.052626</td>
+      <td>7.14%</td>
+      <td>0.052395</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.052626</td>
+      <td>6.08%</td>
+      <td>0.052395</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.047995</td>
+      <td>4.70%</td>
+      <td>0.049251</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Amazon.com Inc</td>
       <td>AMZN</td>
       <td>3.75%</td>
-      <td>0.039470</td>
+      <td>0.039296</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
-      <td>0.026734</td>
+      <td>2.58%</td>
+      <td>0.027036</td>
     </tr>
     <tr>
       <th>...</th>
@@ -482,7 +470,7 @@ sap
 
 
 
-5) Import a dataframe of your current equity holdings & cash. You're a bit on your own here but my brockage allows me to download a CSV of all of my holding. I'm going to assume you have a simplified version of that.
+5) Import a dataframe of your current equity holdings & cash. You're a bit on your own here but my brokerage allows me to download a CSV of all of my holding. I'm going to assume you have a simplified version of that.
 
 
 ```python
@@ -578,7 +566,7 @@ import yfinance as yf
 
 def get_current_price(symbol):
     ticker = yf.Ticker(symbol.replace(".","-"))
-    todays_data = ticker.history(period='1d')
+    todays_data = ticker.history(period='2d')
     return todays_data['Close'].iloc[0]
 
 holdings["last$"] = holdings["symbol"].apply(get_current_price)
@@ -669,6 +657,11 @@ holdings
 
 
 
+
+```python
+
+```
+
 7) Also get lastest share price from all S&P 500 symbols
 
 
@@ -714,24 +707,24 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.052626</td>
+      <td>7.14%</td>
+      <td>0.052395</td>
       <td>414.920013</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.052626</td>
+      <td>6.08%</td>
+      <td>0.052395</td>
       <td>175.100006</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.047995</td>
+      <td>4.70%</td>
+      <td>0.049251</td>
       <td>852.369995</td>
     </tr>
     <tr>
@@ -739,15 +732,15 @@ sap
       <td>Amazon.com Inc</td>
       <td>AMZN</td>
       <td>3.75%</td>
-      <td>0.039470</td>
+      <td>0.039296</td>
       <td>177.580002</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
-      <td>0.026734</td>
+      <td>2.58%</td>
+      <td>0.027036</td>
       <td>498.190002</td>
     </tr>
     <tr>
@@ -849,30 +842,30 @@ sap
       <th>0</th>
       <td>Microsoft Corp</td>
       <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.052626</td>
+      <td>7.14%</td>
+      <td>0.052395</td>
       <td>414.920013</td>
-      <td>1594.500072</td>
+      <td>1587.499882</td>
       <td>3</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.052626</td>
+      <td>6.08%</td>
+      <td>0.052395</td>
       <td>175.100006</td>
-      <td>1594.500072</td>
+      <td>1587.499882</td>
       <td>9</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Nvidia Corp</td>
       <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.047995</td>
+      <td>4.70%</td>
+      <td>0.049251</td>
       <td>852.369995</td>
-      <td>1454.184065</td>
+      <td>1492.249889</td>
       <td>1</td>
     </tr>
     <tr>
@@ -880,19 +873,19 @@ sap
       <td>Amazon.com Inc</td>
       <td>AMZN</td>
       <td>3.75%</td>
-      <td>0.039470</td>
+      <td>0.039296</td>
       <td>177.580002</td>
-      <td>1195.875054</td>
+      <td>1190.624911</td>
       <td>6</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Meta Platforms, Inc. Class A</td>
       <td>META</td>
-      <td>2.54%</td>
-      <td>0.026734</td>
+      <td>2.58%</td>
+      <td>0.027036</td>
       <td>498.190002</td>
-      <td>810.006036</td>
+      <td>819.149939</td>
       <td>1</td>
     </tr>
     <tr>
@@ -912,7 +905,7 @@ sap
       <td>0.01%</td>
       <td>0.000105</td>
       <td>120.830002</td>
-      <td>3.189000</td>
+      <td>3.175000</td>
       <td>0</td>
     </tr>
     <tr>
@@ -922,7 +915,7 @@ sap
       <td>0.01%</td>
       <td>0.000105</td>
       <td>106.550003</td>
-      <td>3.189000</td>
+      <td>3.175000</td>
       <td>0</td>
     </tr>
     <tr>
@@ -932,7 +925,7 @@ sap
       <td>0.01%</td>
       <td>0.000105</td>
       <td>39.169998</td>
-      <td>3.189000</td>
+      <td>3.175000</td>
       <td>0</td>
     </tr>
     <tr>
@@ -942,7 +935,7 @@ sap
       <td>0.01%</td>
       <td>0.000105</td>
       <td>15.730000</td>
-      <td>3.189000</td>
+      <td>3.175000</td>
       <td>0</td>
     </tr>
     <tr>
@@ -952,7 +945,7 @@ sap
       <td>0.01%</td>
       <td>0.000105</td>
       <td>10.300000</td>
-      <td>3.189000</td>
+      <td>3.175000</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1009,1128 +1002,1128 @@ movesWithHoldings
   <tbody>
     <tr>
       <th>0</th>
-      <td>Agilent Technologies Inc.</td>
-      <td>A</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>142.860001</td>
-      <td>28.701001</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
+      <td>Microsoft Corp</td>
+      <td>MSFT</td>
+      <td>7.14%</td>
+      <td>0.052395</td>
+      <td>414.920013</td>
+      <td>1587.499882</td>
+      <td>3.0</td>
+      <td>MSFT</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>American Airlines Group Inc.</td>
-      <td>AAL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>14.810000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>Apple Inc.</td>
       <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.052626</td>
+      <td>6.08%</td>
+      <td>0.052395</td>
       <td>175.100006</td>
-      <td>1594.500072</td>
+      <td>1587.499882</td>
       <td>9.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Abbvie Inc.</td>
-      <td>ABBV</td>
-      <td>0.72%</td>
-      <td>0.007578</td>
-      <td>177.050003</td>
-      <td>229.608010</td>
+      <th>2</th>
+      <td>Nvidia Corp</td>
+      <td>NVDA</td>
+      <td>4.70%</td>
+      <td>0.049251</td>
+      <td>852.369995</td>
+      <td>1492.249889</td>
       <td>1.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
+      <td>NVDA</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Amazon.com Inc</td>
+      <td>AMZN</td>
+      <td>3.75%</td>
+      <td>0.039296</td>
+      <td>177.580002</td>
+      <td>1190.624911</td>
+      <td>6.0</td>
+      <td>AMZN</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Airbnb, Inc. Class A</td>
-      <td>ABNB</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>158.089996</td>
-      <td>51.024002</td>
-      <td>0.0</td>
+      <td>Meta Platforms, Inc. Class A</td>
+      <td>META</td>
+      <td>2.58%</td>
+      <td>0.027036</td>
+      <td>498.190002</td>
+      <td>819.149939</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Abbott Laboratories</td>
-      <td>ABT</td>
-      <td>0.48%</td>
-      <td>0.005052</td>
-      <td>120.040001</td>
-      <td>153.072007</td>
-      <td>1.0</td>
+      <td>Alphabet Inc. Class A</td>
+      <td>GOOGL</td>
+      <td>1.88%</td>
+      <td>0.019701</td>
+      <td>133.350006</td>
+      <td>596.899956</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Arch Capital Group Ltd</td>
-      <td>ACGL</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>87.139999</td>
-      <td>25.512001</td>
-      <td>0.0</td>
+      <td>Berkshire Hathaway Class B</td>
+      <td>BRK.B</td>
+      <td>1.71%</td>
+      <td>0.017919</td>
+      <td>403.390015</td>
+      <td>542.924960</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Accenture Plc</td>
-      <td>ACN</td>
-      <td>0.55%</td>
-      <td>0.005789</td>
-      <td>383.709991</td>
-      <td>175.395008</td>
-      <td>0.0</td>
+      <td>Alphabet Inc. Class C</td>
+      <td>GOOG</td>
+      <td>1.59%</td>
+      <td>0.016662</td>
+      <td>134.199997</td>
+      <td>504.824962</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Adobe Inc.</td>
-      <td>ADBE</td>
-      <td>0.59%</td>
-      <td>0.006210</td>
-      <td>567.940002</td>
-      <td>188.151008</td>
+      <td>Eli Lilly &amp; Co.</td>
+      <td>LLY</td>
+      <td>1.44%</td>
+      <td>0.015090</td>
+      <td>792.280029</td>
+      <td>457.199966</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Analog Devices, Inc.</td>
-      <td>ADI</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>194.660004</td>
-      <td>70.158003</td>
+      <td>Broadcom Inc.</td>
+      <td>AVGO</td>
+      <td>1.42%</td>
+      <td>0.014880</td>
+      <td>1402.260010</td>
+      <td>450.849966</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>Archer Daniels Midland Company</td>
-      <td>ADM</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>53.220001</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Jpmorgan Chase &amp; Co.</td>
+      <td>JPM</td>
+      <td>1.24%</td>
+      <td>0.012994</td>
+      <td>186.679993</td>
+      <td>393.699971</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>Automatic Data Processing</td>
-      <td>ADP</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>246.199997</td>
-      <td>76.536003</td>
+      <td>Unitedhealth Group Incorporated</td>
+      <td>UNH</td>
+      <td>1.05%</td>
+      <td>0.011003</td>
+      <td>481.869995</td>
+      <td>333.374975</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Autodesk Inc</td>
-      <td>ADSK</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>260.700012</td>
-      <td>41.457002</td>
-      <td>0.0</td>
+      <td>Visa Inc.</td>
+      <td>V</td>
+      <td>1.04%</td>
+      <td>0.010898</td>
+      <td>280.529999</td>
+      <td>330.199975</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Ameren Corporation</td>
-      <td>AEE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>72.669998</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Exxon Mobil Corporation</td>
+      <td>XOM</td>
+      <td>0.98%</td>
+      <td>0.010269</td>
+      <td>104.360001</td>
+      <td>311.149977</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>American Electric Power Company, Inc.</td>
-      <td>AEP</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>84.949997</td>
-      <td>31.890001</td>
+      <td>Mastercard Incorporated</td>
+      <td>MA</td>
+      <td>0.91%</td>
+      <td>0.009536</td>
+      <td>468.489990</td>
+      <td>288.924978</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>Aes Corporation</td>
-      <td>AES</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>16.070000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Johnson &amp; Johnson</td>
+      <td>JNJ</td>
+      <td>0.90%</td>
+      <td>0.009431</td>
+      <td>159.839996</td>
+      <td>285.749979</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Aflac Inc.</td>
-      <td>AFL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>79.739998</td>
-      <td>31.890001</td>
+      <td>Home Depot, Inc.</td>
+      <td>HD</td>
+      <td>0.89%</td>
+      <td>0.009326</td>
+      <td>380.369995</td>
+      <td>282.574979</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>American International Group, Inc.</td>
-      <td>AIG</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>73.169998</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Procter &amp; Gamble Company</td>
+      <td>PG</td>
+      <td>0.87%</td>
+      <td>0.009117</td>
+      <td>159.559998</td>
+      <td>276.224979</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Assurant, Inc.</td>
-      <td>AIZ</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.029999</td>
-      <td>6.378000</td>
+      <td>Costco Wholesale Corp</td>
+      <td>COST</td>
+      <td>0.77%</td>
+      <td>0.008069</td>
+      <td>759.179993</td>
+      <td>244.474982</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>Arthur J. Gallagher &amp; Co.</td>
-      <td>AJG</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>242.520004</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Advanced Micro Devices</td>
+      <td>AMD</td>
+      <td>0.76%</td>
+      <td>0.007964</td>
+      <td>205.360001</td>
+      <td>241.299982</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Akamai Technologies Inc</td>
-      <td>AKAM</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>110.760002</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Merck &amp; Co., Inc.</td>
+      <td>MRK</td>
+      <td>0.74%</td>
+      <td>0.007754</td>
+      <td>124.050003</td>
+      <td>234.949982</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>Albemarle Corporation</td>
-      <td>ALB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>133.199997</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Abbvie Inc.</td>
+      <td>ABBV</td>
+      <td>0.73%</td>
+      <td>0.007650</td>
+      <td>177.050003</td>
+      <td>231.774983</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>Align Technology Inc</td>
-      <td>ALGN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>308.040009</td>
-      <td>15.945001</td>
+      <td>Salesforce, Inc.</td>
+      <td>CRM</td>
+      <td>0.71%</td>
+      <td>0.007440</td>
+      <td>314.640015</td>
+      <td>225.424983</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>The Allstate Corporation</td>
-      <td>ALL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>156.380005</td>
-      <td>31.890001</td>
+      <td>Netflix Inc</td>
+      <td>NFLX</td>
+      <td>0.63%</td>
+      <td>0.006602</td>
+      <td>615.830017</td>
+      <td>200.024985</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>Allegion Public Limited Company</td>
-      <td>ALLE</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>128.789993</td>
-      <td>9.567000</td>
-      <td>0.0</td>
+      <td>Chevron Corporation</td>
+      <td>CVX</td>
+      <td>0.62%</td>
+      <td>0.006497</td>
+      <td>148.880005</td>
+      <td>196.849985</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>Applied Materials Inc</td>
-      <td>AMAT</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>209.490005</td>
-      <td>124.371006</td>
+      <td>Adobe Inc.</td>
+      <td>ADBE</td>
+      <td>0.60%</td>
+      <td>0.006287</td>
+      <td>567.940002</td>
+      <td>190.499986</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>Amcor Plcs</td>
-      <td>AMCR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>9.170000</td>
-      <td>9.567000</td>
-      <td>1.0</td>
+      <td>Walmart Inc.</td>
+      <td>WMT</td>
+      <td>0.58%</td>
+      <td>0.006078</td>
+      <td>59.299999</td>
+      <td>184.149986</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>Advanced Micro Devices</td>
-      <td>AMD</td>
-      <td>0.73%</td>
-      <td>0.007683</td>
-      <td>205.360001</td>
-      <td>232.797010</td>
-      <td>1.0</td>
+      <td>Accenture Plc</td>
+      <td>ACN</td>
+      <td>0.55%</td>
+      <td>0.005763</td>
+      <td>383.709991</td>
+      <td>174.624987</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>Ametek, Inc.</td>
-      <td>AME</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>181.100006</td>
-      <td>31.890001</td>
-      <td>0.0</td>
+      <td>Bank of America Corporation</td>
+      <td>BAC</td>
+      <td>0.55%</td>
+      <td>0.005763</td>
+      <td>35.150002</td>
+      <td>174.624987</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>Amgen Inc</td>
-      <td>AMGN</td>
-      <td>0.34%</td>
-      <td>0.003579</td>
-      <td>279.390015</td>
-      <td>108.426005</td>
-      <td>0.0</td>
+      <td>Coca-Cola Company</td>
+      <td>KO</td>
+      <td>0.54%</td>
+      <td>0.005659</td>
+      <td>59.810001</td>
+      <td>171.449987</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>Ameriprise Financial, Inc.</td>
-      <td>AMP</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>412.380005</td>
-      <td>31.890001</td>
+      <td>Pepsico, Inc.</td>
+      <td>PEP</td>
+      <td>0.52%</td>
+      <td>0.005449</td>
+      <td>165.369995</td>
+      <td>165.099988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>American Tower Corporation</td>
-      <td>AMT</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>206.149994</td>
-      <td>70.158003</td>
+      <td>Thermo Fisher Scientific, Inc.</td>
+      <td>TMO</td>
+      <td>0.52%</td>
+      <td>0.005449</td>
+      <td>581.640015</td>
+      <td>165.099988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>Amazon.com Inc</td>
-      <td>AMZN</td>
-      <td>3.75%</td>
-      <td>0.039470</td>
-      <td>177.580002</td>
-      <td>1195.875054</td>
-      <td>6.0</td>
-      <td>AMZN</td>
-      <td>10.0</td>
+      <td>Linde Plc</td>
+      <td>LIN</td>
+      <td>0.50%</td>
+      <td>0.005239</td>
+      <td>455.600006</td>
+      <td>158.749988</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>Arista Networks</td>
-      <td>ANET</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>287.940002</td>
-      <td>51.024002</td>
+      <td>Mcdonald's Corporation</td>
+      <td>MCD</td>
+      <td>0.49%</td>
+      <td>0.005135</td>
+      <td>290.940002</td>
+      <td>155.574988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>Ansys Inc</td>
-      <td>ANSS</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>340.480011</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Abbott Laboratories</td>
+      <td>ABT</td>
+      <td>0.48%</td>
+      <td>0.005030</td>
+      <td>120.040001</td>
+      <td>152.399989</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>Aon Plc Class A</td>
-      <td>AON</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>316.010010</td>
-      <td>47.835002</td>
-      <td>0.0</td>
+      <td>The Walt Disney Company</td>
+      <td>DIS</td>
+      <td>0.47%</td>
+      <td>0.004925</td>
+      <td>113.690002</td>
+      <td>149.224989</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>A.O. Smith Corporation</td>
-      <td>AOS</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>85.099998</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Wells Fargo &amp; Co.</td>
+      <td>WFC</td>
+      <td>0.46%</td>
+      <td>0.004820</td>
+      <td>55.810001</td>
+      <td>146.049989</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>Apa Corporation</td>
-      <td>APA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>30.030001</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Cisco Systems, Inc.</td>
+      <td>CSCO</td>
+      <td>0.45%</td>
+      <td>0.004716</td>
+      <td>49.130001</td>
+      <td>142.874989</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>Air Products &amp; Chemicals, Inc.</td>
-      <td>APD</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>238.410004</td>
-      <td>38.268002</td>
+      <td>Intuit Inc</td>
+      <td>INTU</td>
+      <td>0.43%</td>
+      <td>0.004506</td>
+      <td>668.409973</td>
+      <td>136.524990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>Amphenol Corporation</td>
-      <td>APH</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>111.919998</td>
-      <td>47.835002</td>
-      <td>0.0</td>
+      <td>Intel Corp</td>
+      <td>INTC</td>
+      <td>0.43%</td>
+      <td>0.004506</td>
+      <td>45.610001</td>
+      <td>136.524990</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>Aptiv Plc</td>
-      <td>APTV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>78.489998</td>
-      <td>15.945001</td>
+      <td>Qualcomm Inc</td>
+      <td>QCOM</td>
+      <td>0.42%</td>
+      <td>0.004401</td>
+      <td>166.559998</td>
+      <td>133.349990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>Alexandria Real Estate Equities, Inc.</td>
-      <td>ARE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>126.010002</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Oracle Corp</td>
+      <td>ORCL</td>
+      <td>0.42%</td>
+      <td>0.004401</td>
+      <td>114.059998</td>
+      <td>133.349990</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>Atmos Energy Corporation</td>
-      <td>ATO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>114.680000</td>
-      <td>12.756001</td>
+      <td>Applied Materials Inc</td>
+      <td>AMAT</td>
+      <td>0.41%</td>
+      <td>0.004296</td>
+      <td>209.490005</td>
+      <td>130.174990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>Avalonbay Communities, Inc.</td>
-      <td>AVB</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>185.169998</td>
-      <td>19.134001</td>
+      <td>General Electric Company</td>
+      <td>GE</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>161.009995</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>Broadcom Inc.</td>
-      <td>AVGO</td>
-      <td>1.33%</td>
-      <td>0.013999</td>
-      <td>1402.260010</td>
-      <td>424.137019</td>
-      <td>0.0</td>
+      <td>Comcast Corp</td>
+      <td>CMCSA</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>41.849998</td>
+      <td>126.999991</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>Avery Dennison Corp.</td>
-      <td>AVY</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>216.130005</td>
-      <td>12.756001</td>
+      <td>Caterpillar Inc.</td>
+      <td>CAT</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>338.649994</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>American Water Works Company, Inc</td>
-      <td>AWK</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>121.699997</td>
-      <td>15.945001</td>
+      <td>International Business Machines Corporation</td>
+      <td>IBM</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>193.059998</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>Axon Enterprise, Inc.</td>
-      <td>AXON</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>319.880005</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Verizon Communications</td>
+      <td>VZ</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>40.310001</td>
+      <td>123.824991</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>American Express Company</td>
-      <td>AXP</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>218.910004</td>
-      <td>92.481004</td>
+      <td>Danaher Corporation</td>
+      <td>DHR</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>256.190002</td>
+      <td>123.824991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>Autozone, Inc.</td>
-      <td>AZO</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>3079.939941</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Uber Technologies, Inc.</td>
+      <td>UBER</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>81.300003</td>
+      <td>123.824991</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>50</th>
-      <td>Boeing Company</td>
-      <td>BA</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>200.539993</td>
-      <td>86.103004</td>
+      <td>Servicenow, Inc.</td>
+      <td>NOW</td>
+      <td>0.37%</td>
+      <td>0.003877</td>
+      <td>776.090027</td>
+      <td>117.474991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>51</th>
-      <td>Bank of America Corporation</td>
-      <td>BAC</td>
-      <td>0.55%</td>
-      <td>0.005789</td>
-      <td>35.150002</td>
-      <td>175.395008</td>
-      <td>4.0</td>
+      <td>Texas Instruments Incorporated</td>
+      <td>TXN</td>
+      <td>0.36%</td>
+      <td>0.003772</td>
+      <td>172.440002</td>
+      <td>114.299991</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>52</th>
-      <td>Ball Corporation</td>
-      <td>BALL</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>64.519997</td>
-      <td>15.945001</td>
+      <td>Union Pacific Corp.</td>
+      <td>UNP</td>
+      <td>0.36%</td>
+      <td>0.003772</td>
+      <td>253.470001</td>
+      <td>114.299991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>53</th>
-      <td>Baxter International Inc.</td>
-      <td>BAX</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>42.500000</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Pfizer Inc.</td>
+      <td>PFE</td>
+      <td>0.35%</td>
+      <td>0.003668</td>
+      <td>25.889999</td>
+      <td>111.124992</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>54</th>
-      <td>Bath &amp; Body Works, Inc.</td>
-      <td>BBWI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>45.650002</td>
-      <td>6.378000</td>
+      <td>Amgen Inc</td>
+      <td>AMGN</td>
+      <td>0.35%</td>
+      <td>0.003668</td>
+      <td>279.390015</td>
+      <td>111.124992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>55</th>
-      <td>Best Buy Company, Inc.</td>
-      <td>BBY</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>77.540001</td>
-      <td>12.756001</td>
+      <td>Lowe's Companies Inc.</td>
+      <td>LOW</td>
+      <td>0.33%</td>
+      <td>0.003458</td>
+      <td>242.100006</td>
+      <td>104.774992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>56</th>
-      <td>Becton, Dickinson and Co.</td>
-      <td>BDX</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>235.649994</td>
-      <td>51.024002</td>
+      <td>Intuitive Surgical Inc.</td>
+      <td>ISRG</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>400.589996</td>
+      <td>101.599992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>57</th>
-      <td>Franklin Resources, Inc.</td>
-      <td>BEN</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>27.730000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Philip Morris International Inc.</td>
+      <td>PM</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>90.309998</td>
+      <td>101.599992</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>58</th>
-      <td>Brown-Forman Corporation Class B</td>
-      <td>BF.B</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>60.259998</td>
-      <td>9.567000</td>
+      <td>S&amp;p Global Inc.</td>
+      <td>SPGI</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>425.440002</td>
+      <td>101.599992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>59</th>
-      <td>Bunge Global Sa</td>
-      <td>BG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>90.089996</td>
-      <td>9.567000</td>
+      <td>Conocophillips</td>
+      <td>COP</td>
+      <td>0.31%</td>
+      <td>0.003248</td>
+      <td>111.639999</td>
+      <td>98.424993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>60</th>
-      <td>Biogen Inc.</td>
-      <td>BIIB</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>221.020004</td>
-      <td>22.323001</td>
+      <td>Honeywell International, Inc.</td>
+      <td>HON</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>199.240005</td>
+      <td>95.249993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>61</th>
-      <td>Bio-Rad Laboratories, Inc.Class A</td>
-      <td>BIO</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>334.670013</td>
-      <td>6.378000</td>
+      <td>Lam Research Corp</td>
+      <td>LRCX</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>977.520020</td>
+      <td>95.249993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>62</th>
-      <td>Bank of New York Mellon Corporation</td>
-      <td>BK</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>55.490002</td>
-      <td>31.890001</td>
-      <td>0.0</td>
+      <td>Rtx Corporation</td>
+      <td>RTX</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>89.910004</td>
+      <td>95.249993</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>63</th>
-      <td>Booking Holdings Inc.</td>
-      <td>BKNG</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>3461.399902</td>
-      <td>89.292004</td>
+      <td>Goldman Sachs Group Inc.</td>
+      <td>GS</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>392.250000</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>64</th>
-      <td>Baker Hughes Company</td>
-      <td>BKR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.430000</td>
-      <td>22.323001</td>
+      <td>American Express Company</td>
+      <td>AXP</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>218.910004</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>65</th>
-      <td>Builders Firstsource, Inc.</td>
-      <td>BLDR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>200.839996</td>
-      <td>19.134001</td>
+      <td>Nike, Inc.</td>
+      <td>NKE</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>99.540001</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>66</th>
-      <td>Blackrock, Inc.</td>
-      <td>BLK</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>834.469971</td>
-      <td>82.914004</td>
+      <td>Prologis, Inc.</td>
+      <td>PLD</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>133.610001</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>67</th>
-      <td>Bristol-Myers Squibb Co.</td>
-      <td>BMY</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>50.919998</td>
-      <td>76.536003</td>
-      <td>1.0</td>
+      <td>Booking Holdings Inc.</td>
+      <td>BKNG</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>3461.399902</td>
+      <td>88.899993</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>68</th>
-      <td>Broadridge Financial Solutions Inc</td>
-      <td>BR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>205.559998</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>At&amp;t Inc.</td>
+      <td>T</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>16.799999</td>
+      <td>88.899993</td>
+      <td>5.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>69</th>
-      <td>Berkshire Hathaway Class B</td>
-      <td>BRK.B</td>
-      <td>1.74%</td>
-      <td>0.018314</td>
-      <td>403.390015</td>
-      <td>554.886025</td>
-      <td>1.0</td>
+      <td>Stryker Corporation</td>
+      <td>SYK</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>355.850006</td>
+      <td>88.899993</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>70</th>
-      <td>Brown &amp; Brown, Inc.</td>
-      <td>BRO</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>83.949997</td>
-      <td>15.945001</td>
+      <td>Eaton Corporation, Plcs</td>
+      <td>ETN</td>
+      <td>0.27%</td>
+      <td>0.002829</td>
+      <td>296.579987</td>
+      <td>85.724994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>71</th>
-      <td>Boston Scientific Corp.</td>
-      <td>BSX</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>67.430000</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>Elevance Health, Inc.</td>
+      <td>ELV</td>
+      <td>0.27%</td>
+      <td>0.002829</td>
+      <td>504.359985</td>
+      <td>85.724994</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>72</th>
-      <td>Borgwarner Inc.</td>
-      <td>BWA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>30.830000</td>
-      <td>6.378000</td>
+      <td>Blackrock, Inc.</td>
+      <td>BLK</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>834.469971</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>73</th>
-      <td>Blackstone Inc.</td>
-      <td>BX</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>126.599998</td>
-      <td>66.969003</td>
+      <td>Boeing Company</td>
+      <td>BA</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>200.539993</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>74</th>
-      <td>Boston Properties, Inc.</td>
-      <td>BXP</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>65.809998</td>
-      <td>6.378000</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>Citigroup Inc.</td>
-      <td>C</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>56.139999</td>
-      <td>79.725004</td>
+      <td>Nextra Energy, Inc.</td>
+      <td>NEE</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>54.970001</td>
+      <td>82.549994</td>
       <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
+      <th>75</th>
+      <td>Tjx Companies, Inc.</td>
+      <td>TJX</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>97.940002</td>
+      <td>82.549994</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
       <th>76</th>
-      <td>Conagra Brands, Inc.</td>
-      <td>CAG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>27.700001</td>
-      <td>9.567000</td>
+      <td>Vertex Pharmaceuticals Inc</td>
+      <td>VRTX</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>424.029999</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>77</th>
-      <td>Cardinal Health, Inc.</td>
-      <td>CAH</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>112.639999</td>
-      <td>19.134001</td>
+      <td>Medtronic Plc</td>
+      <td>MDT</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>85.059998</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>78</th>
-      <td>Carrier Global Corporation</td>
-      <td>CARR</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>57.150002</td>
-      <td>35.079002</td>
+      <td>Progressive Corporation</td>
+      <td>PGR</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>189.240005</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>79</th>
-      <td>Caterpillar Inc.</td>
-      <td>CAT</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>338.649994</td>
-      <td>127.560006</td>
+      <td>Morgan Stanley</td>
+      <td>MS</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>90.040001</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>80</th>
-      <td>Chubb Limited</td>
-      <td>CB</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>248.259995</td>
-      <td>76.536003</td>
+      <td>United Parcel Service, Inc. Class B</td>
+      <td>UPS</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>150.610001</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>81</th>
-      <td>Cboe Global Markets, Inc.</td>
-      <td>CBOE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>189.360001</td>
-      <td>15.945001</td>
+      <td>Starbucks Corp</td>
+      <td>SBUX</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>92.459999</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>82</th>
-      <td>Cbre Group, Inc.</td>
-      <td>CBRE</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>92.160004</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Citigroup Inc.</td>
+      <td>C</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>56.139999</td>
+      <td>79.374994</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>83</th>
-      <td>Crown Castle Inc.</td>
-      <td>CCI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>112.800003</td>
-      <td>35.079002</td>
+      <td>Regeneron Pharmaceuticals Inc</td>
+      <td>REGN</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>971.190002</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>84</th>
-      <td>Carnival Corporation</td>
-      <td>CCL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>16.070000</td>
-      <td>12.756001</td>
+      <td>Micron Technology, Inc.</td>
+      <td>MU</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>95.769997</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>85</th>
-      <td>Cadence Design Systems</td>
-      <td>CDNS</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>317.309998</td>
-      <td>60.591003</td>
-      <td>0.0</td>
+      <td>Bristol-Myers Squibb Co.</td>
+      <td>BMY</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>50.919998</td>
+      <td>76.199994</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>86</th>
-      <td>Cdw Corporation</td>
-      <td>CDW</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>246.669998</td>
-      <td>25.512001</td>
+      <td>Automatic Data Processing</td>
+      <td>ADP</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>246.199997</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>87</th>
-      <td>Celanese Corporation</td>
-      <td>CE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>154.889999</td>
-      <td>12.756001</td>
+      <td>Chubb Limited</td>
+      <td>CB</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>248.259995</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>88</th>
-      <td>Constellation Energy Corporation</td>
-      <td>CEG</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>175.990005</td>
-      <td>41.457002</td>
+      <td>Marsh &amp; Mclennan Companies, Inc.</td>
+      <td>MMC</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>201.880005</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>89</th>
-      <td>Cf Industries Holding, Inc.</td>
-      <td>CF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>79.860001</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>The Charles Schwab Corporation</td>
+      <td>SCHW</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>67.639999</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>90</th>
-      <td>Citizens Financial Group, Inc.</td>
-      <td>CFG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>31.930000</td>
-      <td>9.567000</td>
+      <td>Deere &amp; Company</td>
+      <td>DE</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>364.420013</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>91</th>
-      <td>Church &amp; Dwight Co., Inc.</td>
-      <td>CHD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>100.940002</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>Mondelez International, Inc. Class A</td>
+      <td>MDLZ</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>71.510002</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>92</th>
-      <td>C.H. Robinson Worldwide, Inc.</td>
-      <td>CHRW</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>70.449997</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Boston Scientific Corp.</td>
+      <td>BSX</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>67.430000</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>93</th>
-      <td>Charter Comm Inc Del Cl a</td>
-      <td>CHTR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>279.059998</td>
-      <td>22.323001</td>
+      <td>Kla Corporation</td>
+      <td>KLAC</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>717.809998</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -2140,3262 +2133,3262 @@ movesWithHoldings
       <td>The Cigna Group</td>
       <td>CI</td>
       <td>0.23%</td>
-      <td>0.002421</td>
+      <td>0.002410</td>
       <td>336.799988</td>
-      <td>73.347003</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>95</th>
-      <td>Cincinnati Financial Corp</td>
-      <td>CINF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>112.419998</td>
-      <td>12.756001</td>
+      <td>Analog Devices, Inc.</td>
+      <td>ADI</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>194.660004</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Colgate-Palmolive Company</td>
-      <td>CL</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>86.830002</td>
-      <td>54.213002</td>
+      <td>Cvs Health Corporation</td>
+      <td>CVS</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>73.889999</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Clorox Company</td>
-      <td>CLX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>150.940002</td>
-      <td>12.756001</td>
+      <td>Lockheed Martin Corp.</td>
+      <td>LMT</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>431.940002</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Comerica Incorporated</td>
-      <td>CMA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>49.860001</td>
-      <td>6.378000</td>
+      <td>American Tower Corporation</td>
+      <td>AMT</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>206.149994</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>Comcast Corp</td>
-      <td>CMCSA</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>41.849998</td>
-      <td>127.560006</td>
-      <td>3.0</td>
+      <td>Palo Alto Networks, Inc.</td>
+      <td>PANW</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>299.440002</td>
+      <td>69.849995</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>100</th>
-      <td>Cme Group Inc.</td>
-      <td>CME</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>221.350006</td>
-      <td>60.591003</td>
+      <td>Blackstone Inc.</td>
+      <td>BX</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>126.599998</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>101</th>
-      <td>Chipotle Mexican Grill, Inc.</td>
-      <td>CMG</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>2720.300049</td>
-      <td>54.213002</td>
+      <td>Fiserv, Inc.</td>
+      <td>FI</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>149.990005</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>Cummins Inc.</td>
-      <td>CMI</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>271.309998</td>
-      <td>28.701001</td>
+      <td>Gilead Sciences Inc</td>
+      <td>GILD</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>72.250000</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>103</th>
-      <td>Cms Energy Corporation</td>
-      <td>CMS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>58.970001</td>
-      <td>12.756001</td>
+      <td>Synopsys Inc</td>
+      <td>SNPS</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>594.320007</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>104</th>
-      <td>Centene Corporation</td>
-      <td>CNC</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>78.320000</td>
-      <td>31.890001</td>
+      <td>Zoetis Inc.</td>
+      <td>ZTS</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>187.860001</td>
+      <td>63.499995</td>
       <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
+      <td>ZTS</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>105</th>
-      <td>Centerpoint Energy, Inc.</td>
-      <td>CNP</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>27.940001</td>
-      <td>12.756001</td>
+      <td>Cadence Design Systems</td>
+      <td>CDNS</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>317.309998</td>
+      <td>63.499995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>106</th>
-      <td>Capital One Financial</td>
-      <td>COF</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>135.990005</td>
-      <td>38.268002</td>
+      <td>Equinix, Inc. Reit</td>
+      <td>EQIX</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>913.659973</td>
+      <td>63.499995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>107</th>
-      <td>The Cooper Companies, Inc.</td>
-      <td>COO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>102.769997</td>
-      <td>12.756001</td>
+      <td>T-Mobile Us, Inc.</td>
+      <td>TMUS</td>
+      <td>0.19%</td>
+      <td>0.001991</td>
+      <td>163.339996</td>
+      <td>60.324996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>108</th>
-      <td>Conocophillips</td>
-      <td>COP</td>
-      <td>0.31%</td>
-      <td>0.003263</td>
-      <td>111.639999</td>
-      <td>98.859004</td>
+      <td>Intercontinental Exchange Inc.</td>
+      <td>ICE</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>138.070007</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>109</th>
-      <td>Cencora, Inc.</td>
-      <td>COR</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>235.800003</td>
-      <td>28.701001</td>
+      <td>The Sherwin-Williams Company</td>
+      <td>SHW</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>337.100006</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>110</th>
-      <td>Costco Wholesale Corp</td>
-      <td>COST</td>
-      <td>0.77%</td>
-      <td>0.008104</td>
-      <td>759.179993</td>
-      <td>245.553011</td>
+      <td>Cme Group Inc.</td>
+      <td>CME</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>221.350006</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>111</th>
-      <td>Campbell Soup Company</td>
-      <td>CPB</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>43.279999</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Csx Corporation</td>
+      <td>CSX</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>38.380001</td>
+      <td>53.974996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>112</th>
-      <td>Copart Inc</td>
-      <td>CPRT</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>54.099998</td>
-      <td>35.079002</td>
+      <td>Waste Management, Inc.</td>
+      <td>WM</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>206.800003</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>113</th>
-      <td>Camden Property Trust</td>
-      <td>CPT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>96.739998</td>
-      <td>6.378000</td>
+      <td>Chipotle Mexican Grill, Inc.</td>
+      <td>CMG</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>2720.300049</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>114</th>
-      <td>Charles River Laboratories International, Inc.</td>
-      <td>CRL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>258.920013</td>
-      <td>9.567000</td>
+      <td>The Southern Company</td>
+      <td>SO</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>68.199997</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>115</th>
-      <td>Salesforce, Inc.</td>
-      <td>CRM</td>
-      <td>0.70%</td>
-      <td>0.007368</td>
-      <td>314.640015</td>
-      <td>223.230010</td>
+      <td>Arista Networks</td>
+      <td>ANET</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>287.940002</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>116</th>
-      <td>Cisco Systems, Inc.</td>
-      <td>CSCO</td>
-      <td>0.46%</td>
-      <td>0.004842</td>
-      <td>49.130001</td>
-      <td>146.694007</td>
-      <td>2.0</td>
+      <td>Altria Group, Inc.</td>
+      <td>MO</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>39.730000</td>
+      <td>53.974996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>117</th>
-      <td>Costar Group Inc</td>
-      <td>CSGP</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>88.589996</td>
-      <td>25.512001</td>
+      <td>Target Corporation</td>
+      <td>TGT</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>150.490005</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>118</th>
-      <td>Csx Corporation</td>
-      <td>CSX</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>38.380001</td>
-      <td>54.213002</td>
-      <td>1.0</td>
+      <td>Illinois Tool Works Inc.</td>
+      <td>ITW</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>259.070007</td>
+      <td>50.799996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>119</th>
-      <td>Cintas Corp</td>
-      <td>CTAS</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>629.239990</td>
-      <td>41.457002</td>
+      <td>Colgate-Palmolive Company</td>
+      <td>CL</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>86.830002</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>120</th>
-      <td>Catalent, Inc.</td>
-      <td>CTLT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>56.950001</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Schlumberger Limited</td>
+      <td>SLB</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>49.419998</td>
+      <td>50.799996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>121</th>
-      <td>Coterra Energy Inc.</td>
-      <td>CTRA</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>26.500000</td>
-      <td>15.945001</td>
+      <td>Duke Energy Corporation</td>
+      <td>DUK</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>92.419998</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>122</th>
-      <td>Cognizant Technology Solutions</td>
-      <td>CTSH</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>79.080002</td>
-      <td>28.701001</td>
+      <td>Mckesson Corporation</td>
+      <td>MCK</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>534.179993</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>123</th>
-      <td>Corteva, Inc.</td>
-      <td>CTVA</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>53.610001</td>
-      <td>28.701001</td>
+      <td>Airbnb, Inc. Class A</td>
+      <td>ABNB</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>158.089996</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>124</th>
-      <td>Cvs Health Corporation</td>
-      <td>CVS</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>73.889999</td>
-      <td>70.158003</td>
+      <td>Parker-Hannifin Corporation</td>
+      <td>PH</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>535.510010</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>125</th>
-      <td>Chevron Corporation</td>
-      <td>CVX</td>
-      <td>0.62%</td>
-      <td>0.006526</td>
-      <td>148.880005</td>
-      <td>197.718009</td>
-      <td>1.0</td>
+      <td>Becton, Dickinson and Co.</td>
+      <td>BDX</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>235.649994</td>
+      <td>50.799996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>126</th>
-      <td>Caesars Entertainment, Inc.</td>
-      <td>CZR</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>41.570000</td>
-      <td>6.378000</td>
+      <td>Eog Resources, Inc.</td>
+      <td>EOG</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>115.830002</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>127</th>
-      <td>Dominion Energy, Inc</td>
-      <td>D</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>46.700001</td>
-      <td>28.701001</td>
+      <td>Nxp Semiconductors N.v.</td>
+      <td>NXPI</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>254.300003</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>128</th>
-      <td>Delta Air Lines, Inc.</td>
-      <td>DAL</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>41.570000</td>
-      <td>19.134001</td>
+      <td>Amphenol Corporation</td>
+      <td>APH</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>111.919998</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>129</th>
-      <td>Dayforce, Inc.</td>
-      <td>DAY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>66.610001</td>
-      <td>6.378000</td>
+      <td>Marathon Petroleum Corporation</td>
+      <td>MPC</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>173.750000</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>130</th>
-      <td>Dupont De Nemours, Inc.</td>
-      <td>DD</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>69.639999</td>
-      <td>22.323001</td>
+      <td>Transdigm Group Incorporated</td>
+      <td>TDG</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>1173.410034</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>131</th>
-      <td>Deere &amp; Company</td>
-      <td>DE</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>364.420013</td>
-      <td>73.347003</td>
+      <td>Trane Technologies Plc</td>
+      <td>TT</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>288.130005</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>132</th>
-      <td>Discover Financial Services</td>
-      <td>DFS</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>120.070000</td>
-      <td>22.323001</td>
+      <td>Paypal Holdings, Inc.</td>
+      <td>PYPL</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>59.980000</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>133</th>
-      <td>Dollar General Corp.</td>
-      <td>DG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>148.440002</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>U.S. Bancorp</td>
+      <td>USB</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>42.700001</td>
+      <td>47.624996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>134</th>
-      <td>Quest Diagnostics Inc.</td>
-      <td>DGX</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>125.309998</td>
-      <td>9.567000</td>
+      <td>Northrop Grumman Corp.</td>
+      <td>NOC</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>460.079987</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>135</th>
-      <td>D.R. Horton Inc.</td>
-      <td>DHI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>152.470001</td>
-      <td>35.079002</td>
+      <td>O'reilly Automotive, Inc.</td>
+      <td>ORLY</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>1077.979980</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>136</th>
-      <td>Danaher Corporation</td>
-      <td>DHR</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>256.190002</td>
-      <td>124.371006</td>
+      <td>Phillips 66</td>
+      <td>PSX</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>144.259995</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>137</th>
-      <td>The Walt Disney Company</td>
-      <td>DIS</td>
-      <td>0.48%</td>
-      <td>0.005052</td>
-      <td>113.690002</td>
-      <td>153.072007</td>
-      <td>1.0</td>
+      <td>Aon Plc Class A</td>
+      <td>AON</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>316.010010</td>
+      <td>47.624996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>138</th>
-      <td>Digital Realty Trust, Inc.</td>
-      <td>DLR</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>153.710007</td>
-      <td>31.890001</td>
+      <td>Hca Healthcare, Inc.</td>
+      <td>HCA</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>314.079987</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>139</th>
-      <td>Dollar Tree Inc.</td>
-      <td>DLTR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>146.419998</td>
-      <td>22.323001</td>
+      <td>Marriot International Class A</td>
+      <td>MAR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>247.419998</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>140</th>
-      <td>Dover Corporation</td>
-      <td>DOV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>167.860001</td>
-      <td>15.945001</td>
+      <td>Emerson Electric Co.</td>
+      <td>EMR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>109.510002</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>141</th>
-      <td>Dow Inc.</td>
-      <td>DOW</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>57.020000</td>
-      <td>28.701001</td>
+      <td>General Dynamics Corporation</td>
+      <td>GD</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>274.709991</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>142</th>
-      <td>Domino's Pizza Inc.</td>
-      <td>DPZ</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>449.989990</td>
-      <td>12.756001</td>
+      <td>Moody's Corporation</td>
+      <td>MCO</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>382.500000</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>143</th>
-      <td>Darden Restaurants, Inc.</td>
-      <td>DRI</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>174.050003</td>
-      <td>15.945001</td>
+      <td>Paccar Inc</td>
+      <td>PCAR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>112.290001</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>144</th>
-      <td>Dte Energy Company</td>
-      <td>DTE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>109.800003</td>
-      <td>15.945001</td>
+      <td>Pnc Financial Services Group</td>
+      <td>PNC</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>153.740005</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>145</th>
-      <td>Duke Energy Corporation</td>
-      <td>DUK</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>92.419998</td>
-      <td>54.213002</td>
+      <td>Roper Technologies, Inc.</td>
+      <td>ROP</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>547.219971</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>Davita Inc.</td>
-      <td>DVA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>125.730003</td>
-      <td>6.378000</td>
+      <td>Norfolk Southern Corp.</td>
+      <td>NSC</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>259.170013</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>Devon Energy Corporation</td>
-      <td>DVN</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>44.369999</td>
-      <td>22.323001</td>
+      <td>Ecolab, Inc.</td>
+      <td>ECL</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>225.899994</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>Dexcom, Inc.</td>
-      <td>DXCM</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>122.300003</td>
-      <td>31.890001</td>
+      <td>Fedex Corporation</td>
+      <td>FDX</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>246.770004</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>Electronic Arts Inc</td>
-      <td>EA</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>138.809998</td>
-      <td>25.512001</td>
+      <td>Autodesk Inc</td>
+      <td>ADSK</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>260.700012</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>150</th>
-      <td>Ebay Inc</td>
-      <td>EBAY</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>48.910000</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>General Motors Company</td>
+      <td>GM</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>40.930000</td>
+      <td>41.274997</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>151</th>
-      <td>Ecolab, Inc.</td>
-      <td>ECL</td>
+      <td>Motorola Solutions, Inc.</td>
+      <td>MSI</td>
       <td>0.13%</td>
-      <td>0.001368</td>
-      <td>225.899994</td>
-      <td>41.457002</td>
+      <td>0.001362</td>
+      <td>335.769989</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>152</th>
-      <td>Consolidated Edison, Inc.</td>
-      <td>ED</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>89.129997</td>
-      <td>22.323001</td>
+      <td>Pioneer Natural Resource Co.</td>
+      <td>PXD</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>234.699997</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>153</th>
-      <td>Equifax, Incorporated</td>
-      <td>EFX</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>269.170013</td>
-      <td>25.512001</td>
-      <td>0.0</td>
+      <td>Freeport-Mcmoran Inc.</td>
+      <td>FCX</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>38.320000</td>
+      <td>41.274997</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>154</th>
-      <td>Everest Group, Ltd.</td>
-      <td>EG</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>367.500000</td>
-      <td>12.756001</td>
+      <td>Cintas Corp</td>
+      <td>CTAS</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>629.239990</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>155</th>
-      <td>Edison International</td>
-      <td>EIX</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>67.459999</td>
-      <td>19.134001</td>
+      <td>Constellation Energy Corporation</td>
+      <td>CEG</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>175.990005</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>156</th>
-      <td>The Estee Lauder Companies Inc. Class A</td>
-      <td>EL</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>147.779999</td>
-      <td>25.512001</td>
+      <td>Autozone, Inc.</td>
+      <td>AZO</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>3079.939941</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>157</th>
-      <td>Elevance Health, Inc.</td>
-      <td>ELV</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>504.359985</td>
-      <td>86.103004</td>
+      <td>Lululemon Athletica Inc.</td>
+      <td>LULU</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>450.790009</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>158</th>
-      <td>Eastman Chemical Company</td>
-      <td>EMN</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>88.209999</td>
-      <td>6.378000</td>
+      <td>Hilton Worldwide Holdings Inc.</td>
+      <td>HLT</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>202.410004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>159</th>
-      <td>Emerson Electric Co.</td>
-      <td>EMR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>109.510002</td>
-      <td>44.646002</td>
+      <td>Air Products &amp; Chemicals, Inc.</td>
+      <td>APD</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>238.410004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>160</th>
-      <td>Enphase Energy, Inc.</td>
-      <td>ENPH</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>123.970001</td>
-      <td>12.756001</td>
+      <td>Arthur J. Gallagher &amp; Co.</td>
+      <td>AJG</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>242.520004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>161</th>
-      <td>Eog Resources, Inc.</td>
-      <td>EOG</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>115.830002</td>
-      <td>51.024002</td>
+      <td>Capital One Financial</td>
+      <td>COF</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>135.990005</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>162</th>
-      <td>Epam Systems, Inc.</td>
-      <td>EPAM</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>307.920013</td>
-      <td>12.756001</td>
+      <td>Edwards Lifesciences Corp</td>
+      <td>EW</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>87.019997</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>163</th>
-      <td>Equinix, Inc. Reit</td>
-      <td>EQIX</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>913.659973</td>
-      <td>60.591003</td>
+      <td>Welltower Inc.</td>
+      <td>WELL</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>93.400002</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>164</th>
-      <td>Equity Residential</td>
-      <td>EQR</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>62.860001</td>
-      <td>15.945001</td>
+      <td>American International Group, Inc.</td>
+      <td>AIG</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>73.169998</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>165</th>
-      <td>Eqt Corp</td>
-      <td>EQT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>37.540001</td>
-      <td>12.756001</td>
+      <td>3m Company</td>
+      <td>MMM</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>91.440002</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>166</th>
-      <td>Eversource Energy</td>
-      <td>ES</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>58.910000</td>
-      <td>15.945001</td>
+      <td>Ross Stores Inc</td>
+      <td>ROST</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>149.960007</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>167</th>
-      <td>Essex Property Trust, Inc</td>
-      <td>ESS</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>243.580002</td>
-      <td>9.567000</td>
+      <td>The Travelers Companies, Inc.</td>
+      <td>TRV</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>219.070007</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>168</th>
-      <td>Eaton Corporation, Plcs</td>
-      <td>ETN</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>296.579987</td>
-      <td>86.103004</td>
+      <td>Simon Property Group, Inc.</td>
+      <td>SPG</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>152.410004</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>169</th>
-      <td>Entergy Corporation</td>
-      <td>ETR</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>102.019997</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Ford Motor Company</td>
+      <td>F</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>12.740000</td>
+      <td>34.924997</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>170</th>
-      <td>Etsy, Inc.</td>
-      <td>ETSY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>67.709999</td>
-      <td>6.378000</td>
+      <td>Valero Energy Corporation</td>
+      <td>VLO</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>144.699997</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>171</th>
-      <td>Evergy, Inc.</td>
-      <td>EVRG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>49.990002</td>
-      <td>9.567000</td>
+      <td>Crown Castle Inc.</td>
+      <td>CCI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>112.800003</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>172</th>
-      <td>Edwards Lifesciences Corp</td>
-      <td>EW</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>87.019997</td>
-      <td>38.268002</td>
+      <td>Idexx Laboratories Inc</td>
+      <td>IDXX</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>571.280029</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>173</th>
-      <td>Exelon Corporation</td>
-      <td>EXC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>36.200001</td>
-      <td>25.512001</td>
+      <td>United Rentals, Inc.</td>
+      <td>URI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>712.309998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>174</th>
-      <td>Expeditors International of Washington, Inc.</td>
-      <td>EXPD</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>119.959999</td>
-      <td>12.756001</td>
+      <td>Carrier Global Corporation</td>
+      <td>CARR</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>57.150002</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>175</th>
-      <td>Expedia Group, Inc.</td>
-      <td>EXPE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>135.520004</td>
-      <td>12.756001</td>
+      <td>Microchip Technology Inc</td>
+      <td>MCHP</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>86.919998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>176</th>
-      <td>Extra Space Storage, Inc.</td>
-      <td>EXR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>147.479996</td>
-      <td>22.323001</td>
+      <td>Dexcom, Inc.</td>
+      <td>DXCM</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>122.300003</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>177</th>
-      <td>Ford Motor Company</td>
-      <td>F</td>
+      <td>Truist Financial Corporation</td>
+      <td>TFC</td>
       <td>0.11%</td>
-      <td>0.001158</td>
-      <td>12.740000</td>
-      <td>35.079002</td>
-      <td>2.0</td>
+      <td>0.001153</td>
+      <td>36.169998</td>
+      <td>34.924997</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>178</th>
-      <td>Diamondback Energy, Inc.</td>
-      <td>FANG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>178.889999</td>
-      <td>25.512001</td>
+      <td>Nucor Corporation</td>
+      <td>NUE</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>187.160004</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>179</th>
-      <td>Fastenal Co</td>
-      <td>FAST</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>74.790001</td>
-      <td>31.890001</td>
+      <td>Copart Inc</td>
+      <td>CPRT</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>54.099998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>180</th>
-      <td>Freeport-Mcmoran Inc.</td>
-      <td>FCX</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>38.320000</td>
-      <td>41.457002</td>
-      <td>1.0</td>
+      <td>Iqvia Holdings Inc.</td>
+      <td>IQV</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>251.559998</td>
+      <td>34.924997</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>181</th>
-      <td>Factset Research Systems</td>
-      <td>FDS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>464.980011</td>
-      <td>12.756001</td>
+      <td>D.R. Horton Inc.</td>
+      <td>DHI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>152.470001</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>182</th>
-      <td>Fedex Corporation</td>
-      <td>FDX</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>246.770004</td>
-      <td>41.457002</td>
+      <td>Digital Realty Trust, Inc.</td>
+      <td>DLR</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>153.710007</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>183</th>
-      <td>Firstenergy Corp.</td>
-      <td>FE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>37.270000</td>
-      <td>12.756001</td>
+      <td>Fortinet, Inc.</td>
+      <td>FTNT</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>71.389999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>184</th>
-      <td>F5, Inc.</td>
-      <td>FFIV</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>193.300003</td>
-      <td>9.567000</td>
+      <td>Public Storage</td>
+      <td>PSA</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>285.079987</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>185</th>
-      <td>Fiserv, Inc.</td>
-      <td>FI</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>149.990005</td>
-      <td>66.969003</td>
+      <td>Msci, Inc.</td>
+      <td>MSCI</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>558.369995</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>186</th>
-      <td>Fair Isaac Corporation</td>
-      <td>FICO</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>1301.250000</td>
-      <td>22.323001</td>
+      <td>American Electric Power Company, Inc.</td>
+      <td>AEP</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>84.949997</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>187</th>
-      <td>Fidelity National Information Services, Inc.</td>
-      <td>FIS</td>
+      <td>Te Connectivity Ltd</td>
+      <td>TEL</td>
       <td>0.10%</td>
-      <td>0.001053</td>
-      <td>69.449997</td>
-      <td>31.890001</td>
+      <td>0.001048</td>
+      <td>143.059998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>188</th>
-      <td>Fifth Third Bancorp</td>
-      <td>FITB</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>35.480000</td>
-      <td>15.945001</td>
+      <td>Williams Companies Inc.</td>
+      <td>WMB</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>36.369999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>189</th>
-      <td>Fleetcor Technologies, Inc.</td>
-      <td>FLT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>281.670013</td>
-      <td>15.945001</td>
+      <td>Sempra</td>
+      <td>SRE</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>70.739998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>190</th>
-      <td>Fmc Corporation</td>
-      <td>FMC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>58.799999</td>
-      <td>6.378000</td>
+      <td>Oneok, Inc.</td>
+      <td>OKE</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>76.559998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>191</th>
-      <td>Fox Corporation Class A</td>
-      <td>FOXA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>29.040001</td>
-      <td>6.378000</td>
+      <td>Monster Beverage Corporation</td>
+      <td>MNST</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>58.500000</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>192</th>
-      <td>Federal Realty Investment Trust</td>
-      <td>FRT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>101.699997</td>
-      <td>6.378000</td>
+      <td>Realty Income Corporation</td>
+      <td>O</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>52.709999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>193</th>
-      <td>First Solar, Inc.</td>
-      <td>FSLR</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>156.699997</td>
-      <td>12.756001</td>
+      <td>Metlife, Inc.</td>
+      <td>MET</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>69.910004</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>194</th>
-      <td>Fortinet, Inc.</td>
-      <td>FTNT</td>
+      <td>Humana Inc.</td>
+      <td>HUM</td>
       <td>0.10%</td>
-      <td>0.001053</td>
-      <td>71.389999</td>
-      <td>31.890001</td>
+      <td>0.001048</td>
+      <td>346.829987</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>195</th>
-      <td>Fortive Corporation</td>
-      <td>FTV</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>84.790001</td>
-      <td>22.323001</td>
+      <td>W.W. Grainger, Inc.</td>
+      <td>GWW</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>987.599976</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>196</th>
-      <td>General Dynamics Corporation</td>
-      <td>GD</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>274.709991</td>
-      <td>44.646002</td>
+      <td>Aflac Inc.</td>
+      <td>AFL</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>79.739998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>197</th>
-      <td>General Electric Company</td>
-      <td>GE</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>161.009995</td>
-      <td>127.560006</td>
+      <td>Bank of New York Mellon Corporation</td>
+      <td>BK</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>55.490002</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>198</th>
-      <td>Ge Healthcare Technologies Inc.</td>
-      <td>GEHC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>92.730003</td>
-      <td>25.512001</td>
+      <td>Ametek, Inc.</td>
+      <td>AME</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>181.100006</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>199</th>
-      <td>Gen Digital Inc.</td>
-      <td>GEN</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>21.700001</td>
-      <td>9.567000</td>
+      <td>Centene Corporation</td>
+      <td>CNC</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>78.320000</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>200</th>
-      <td>Gilead Sciences Inc</td>
-      <td>GILD</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>72.250000</td>
-      <td>66.969003</td>
+      <td>Fastenal Co</td>
+      <td>FAST</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>74.790001</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>201</th>
-      <td>General Mills, Inc.</td>
-      <td>GIS</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>64.370003</td>
-      <td>28.701001</td>
+      <td>Ameriprise Financial, Inc.</td>
+      <td>AMP</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>412.380005</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>202</th>
-      <td>Globe Life Inc.</td>
-      <td>GL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>126.300003</td>
-      <td>9.567000</td>
+      <td>Kimberly-Clark Corp.</td>
+      <td>KMB</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>123.489998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>203</th>
-      <td>Corning Incorporated</td>
-      <td>GLW</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>33.380001</td>
-      <td>19.134001</td>
+      <td>Fidelity National Information Services, Inc.</td>
+      <td>FIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>69.449997</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>204</th>
-      <td>General Motors Company</td>
-      <td>GM</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>40.930000</td>
-      <td>41.457002</td>
-      <td>1.0</td>
+      <td>Hess Corporation</td>
+      <td>HES</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>145.610001</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>205</th>
-      <td>NaN</td>
-      <td>GME</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Johnson Controls International Plc</td>
+      <td>JCI</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>60.360001</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>GME</td>
-      <td>100.0</td>
     </tr>
     <tr>
       <th>206</th>
-      <td>Generac Holdings Inc</td>
-      <td>GNRC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>113.220001</td>
-      <td>6.378000</td>
+      <td>Agilent Technologies Inc.</td>
+      <td>A</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>142.860001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>207</th>
-      <td>Alphabet Inc. Class C</td>
-      <td>GOOG</td>
-      <td>1.62%</td>
-      <td>0.017051</td>
-      <td>134.199997</td>
-      <td>516.618023</td>
-      <td>3.0</td>
+      <td>The Allstate Corporation</td>
+      <td>ALL</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>156.380005</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>208</th>
-      <td>Alphabet Inc. Class A</td>
-      <td>GOOGL</td>
-      <td>1.91%</td>
-      <td>0.020103</td>
-      <td>133.350006</td>
-      <td>609.099027</td>
-      <td>4.0</td>
+      <td>Occidental Petroleum Corporation</td>
+      <td>OXY</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>60.680000</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>209</th>
-      <td>Genuine Parts Company</td>
-      <td>GPC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>149.970001</td>
-      <td>15.945001</td>
+      <td>Constellation Brands, Inc.</td>
+      <td>STZ</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>248.029999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>210</th>
-      <td>Global Payments, Inc.</td>
-      <td>GPN</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>128.550003</td>
-      <td>25.512001</td>
+      <td>Lennar Corporation Class A</td>
+      <td>LEN</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>160.529999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>211</th>
-      <td>Garmin Ltd</td>
-      <td>GRMN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>139.669998</td>
-      <td>15.945001</td>
+      <td>Sysco Corporation</td>
+      <td>SYY</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>79.510002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>212</th>
-      <td>Goldman Sachs Group Inc.</td>
-      <td>GS</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>392.250000</td>
-      <td>95.670004</td>
+      <td>L3harris Technologies, Inc.</td>
+      <td>LHX</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>215.960007</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>213</th>
-      <td>W.W. Grainger, Inc.</td>
-      <td>GWW</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>987.599976</td>
-      <td>31.890001</td>
+      <td>Old Dominion Freight Line</td>
+      <td>ODFL</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>446.230011</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>214</th>
-      <td>Halliburton Company</td>
-      <td>HAL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>35.180000</td>
-      <td>22.323001</td>
+      <td>Cencora, Inc.</td>
+      <td>COR</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>235.800003</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>215</th>
-      <td>Hasbro, Inc.</td>
-      <td>HAS</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>50.369999</td>
-      <td>3.189000</td>
+      <td>Cognizant Technology Solutions</td>
+      <td>CTSH</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>79.080002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>216</th>
-      <td>Huntington Bancshares Inc</td>
-      <td>HBAN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>13.360000</td>
-      <td>12.756001</td>
+      <td>Paychex Inc</td>
+      <td>PAYX</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>122.339996</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>217</th>
-      <td>Hca Healthcare, Inc.</td>
-      <td>HCA</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>314.079987</td>
-      <td>44.646002</td>
+      <td>Otis Worldwide Corporation</td>
+      <td>OTIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>95.389999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>218</th>
-      <td>Home Depot, Inc.</td>
-      <td>HD</td>
-      <td>0.89%</td>
-      <td>0.009367</td>
-      <td>380.369995</td>
-      <td>283.821013</td>
+      <td>Dow Inc.</td>
+      <td>DOW</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>57.020000</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>219</th>
-      <td>Hess Corporation</td>
-      <td>HES</td>
+      <td>Prudential Financial, Inc.</td>
+      <td>PRU</td>
       <td>0.09%</td>
-      <td>0.000947</td>
-      <td>145.610001</td>
-      <td>28.701001</td>
+      <td>0.000943</td>
+      <td>107.089996</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>220</th>
-      <td>The Hartford Financial Services Group, Inc.</td>
-      <td>HIG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>94.809998</td>
-      <td>22.323001</td>
+      <td>Yum! Brands, Inc.</td>
+      <td>YUM</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>138.550003</td>
+      <td>28.574998</td>
       <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
+      <td>YUM</td>
+      <td>100.0</td>
     </tr>
     <tr>
       <th>221</th>
-      <td>Huntington Ingalls Industries, Inc.</td>
-      <td>HII</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>296.429993</td>
-      <td>9.567000</td>
+      <td>Cummins Inc.</td>
+      <td>CMI</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>271.309998</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>222</th>
-      <td>Hilton Worldwide Holdings Inc.</td>
-      <td>HLT</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>202.410004</td>
-      <td>38.268002</td>
+      <td>Corteva, Inc.</td>
+      <td>CTVA</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>53.610001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>223</th>
-      <td>Hologic Inc</td>
-      <td>HOLX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>74.599998</td>
-      <td>12.756001</td>
+      <td>Republic Services Inc.</td>
+      <td>RSG</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>184.940002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>224</th>
-      <td>Honeywell International, Inc.</td>
-      <td>HON</td>
-      <td>0.31%</td>
-      <td>0.003263</td>
-      <td>199.240005</td>
-      <td>98.859004</td>
+      <td>Dominion Energy, Inc</td>
+      <td>D</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>46.700001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>225</th>
-      <td>Hewlett Packard Enterprise Company</td>
-      <td>HPE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>17.150000</td>
-      <td>15.945001</td>
+      <td>General Mills, Inc.</td>
+      <td>GIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>64.370003</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>226</th>
-      <td>Hp Inc.</td>
-      <td>HPQ</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>29.059999</td>
-      <td>19.134001</td>
+      <td>Ingersoll Rand Inc.</td>
+      <td>IR</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>91.540001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>227</th>
-      <td>Hormel Foods Corporation</td>
-      <td>HRL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>33.770000</td>
-      <td>6.378000</td>
+      <td>Gartner, Inc.</td>
+      <td>IT</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>469.750000</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>228</th>
-      <td>Henry Schein Inc</td>
-      <td>HSIC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>76.790001</td>
-      <td>6.378000</td>
+      <td>Newmont Corporation</td>
+      <td>NEM</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>33.480000</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>229</th>
-      <td>Host Hotels &amp; Resorts, Inc.</td>
-      <td>HST</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>21.070000</td>
-      <td>9.567000</td>
+      <td>Martin Marietta Materials</td>
+      <td>MLM</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>601.900024</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>230</th>
-      <td>The Hershey Company</td>
-      <td>HSY</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>184.000000</td>
-      <td>22.323001</td>
+      <td>Ge Healthcare Technologies Inc.</td>
+      <td>GEHC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>92.730003</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>231</th>
-      <td>Hubbell Incorporated</td>
-      <td>HUBB</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>387.739990</td>
-      <td>15.945001</td>
+      <td>Costar Group Inc</td>
+      <td>CSGP</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>88.589996</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>232</th>
-      <td>Humana Inc.</td>
-      <td>HUM</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>346.829987</td>
-      <td>31.890001</td>
+      <td>Monolithic Power Systems, Inc.</td>
+      <td>MPWR</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>735.679993</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>233</th>
-      <td>Howmet Aerospace Inc.</td>
-      <td>HWM</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>67.790001</td>
-      <td>19.134001</td>
+      <td>Vulcan Materials Company</td>
+      <td>VMC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>267.850006</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>234</th>
-      <td>International Business Machines Corporation</td>
-      <td>IBM</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>193.059998</td>
-      <td>124.371006</td>
+      <td>Exelon Corporation</td>
+      <td>EXC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>36.200001</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>235</th>
-      <td>Intercontinental Exchange Inc.</td>
-      <td>ICE</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>138.070007</td>
-      <td>57.402003</td>
+      <td>Verisk Analytics, Inc.</td>
+      <td>VRSK</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>239.929993</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>236</th>
-      <td>Idexx Laboratories Inc</td>
-      <td>IDXX</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>571.280029</td>
-      <td>35.079002</td>
+      <td>Quanta Services, Inc.</td>
+      <td>PWR</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>243.339996</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>237</th>
-      <td>Idex Corporation</td>
-      <td>IEX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>237.619995</td>
-      <td>12.756001</td>
+      <td>On Semiconductor Corp</td>
+      <td>ON</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>79.879997</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>238</th>
-      <td>International Flavors &amp; Fragrances Inc.</td>
-      <td>IFF</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>76.040001</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Pg&amp;e Corporation</td>
+      <td>PCG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>16.840000</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>239</th>
-      <td>Illumina Inc</td>
-      <td>ILMN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>137.699997</td>
-      <td>15.945001</td>
+      <td>The Estee Lauder Companies Inc. Class A</td>
+      <td>EL</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>147.779999</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>240</th>
-      <td>Incyte Genomics Inc</td>
-      <td>INCY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>59.720001</td>
-      <td>9.567000</td>
+      <td>Electronic Arts Inc</td>
+      <td>EA</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>138.809998</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>241</th>
-      <td>Intel Corp</td>
-      <td>INTC</td>
-      <td>0.42%</td>
-      <td>0.004421</td>
-      <td>45.610001</td>
-      <td>133.938006</td>
-      <td>2.0</td>
+      <td>Global Payments, Inc.</td>
+      <td>GPN</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>128.550003</td>
+      <td>25.399998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>242</th>
-      <td>Intuit Inc</td>
-      <td>INTU</td>
-      <td>0.43%</td>
-      <td>0.004526</td>
-      <td>668.409973</td>
-      <td>137.127006</td>
-      <td>0.0</td>
+      <td>Kinder Morgan, Inc.</td>
+      <td>KMI</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>17.570000</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>243</th>
-      <td>Invitation Homes Inc.</td>
-      <td>INVH</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>35.410000</td>
-      <td>15.945001</td>
+      <td>Equifax, Incorporated</td>
+      <td>EFX</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>269.170013</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>244</th>
-      <td>International Paper Co.</td>
-      <td>IP</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>35.889999</td>
-      <td>9.567000</td>
+      <td>Rockwell Automation, Inc.</td>
+      <td>ROK</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>288.170013</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>245</th>
-      <td>The Interpublic Group of Companies, Inc.</td>
-      <td>IPG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>31.940001</td>
-      <td>9.567000</td>
+      <td>Cdw Corporation</td>
+      <td>CDW</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>246.669998</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>246</th>
-      <td>Iqvia Holdings Inc.</td>
-      <td>IQV</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>251.559998</td>
-      <td>35.079002</td>
+      <td>Ppg Industries, Inc.</td>
+      <td>PPG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>139.220001</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>247</th>
-      <td>Ingersoll Rand Inc.</td>
-      <td>IR</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>91.540001</td>
-      <td>28.701001</td>
+      <td>Dollar General Corp.</td>
+      <td>DG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>148.440002</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>248</th>
-      <td>Iron Mountain Inc.</td>
-      <td>IRM</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>78.930000</td>
-      <td>15.945001</td>
+      <td>Diamondback Energy, Inc.</td>
+      <td>FANG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>178.889999</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>249</th>
-      <td>Intuitive Surgical Inc.</td>
-      <td>ISRG</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>400.589996</td>
-      <td>102.048005</td>
-      <td>0.0</td>
+      <td>Kenvue Inc.</td>
+      <td>KVUE</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>18.959999</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>250</th>
-      <td>Gartner, Inc.</td>
-      <td>IT</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>469.750000</td>
-      <td>25.512001</td>
+      <td>Arch Capital Group Ltd</td>
+      <td>ACGL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>87.139999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>251</th>
-      <td>Illinois Tool Works Inc.</td>
-      <td>ITW</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>259.070007</td>
-      <td>54.213002</td>
+      <td>The Kroger Co.</td>
+      <td>KR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>49.369999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>252</th>
-      <td>Invesco Ltd</td>
-      <td>IVZ</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>15.630000</td>
-      <td>6.378000</td>
+      <td>Fair Isaac Corporation</td>
+      <td>FICO</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>1301.250000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>253</th>
-      <td>Jacobs Solutions Inc.</td>
-      <td>J</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>147.139999</td>
-      <td>12.756001</td>
+      <td>Biogen Inc.</td>
+      <td>BIIB</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>221.020004</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>254</th>
-      <td>Jb Hunt Transport Services Inc</td>
-      <td>JBHT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>201.360001</td>
-      <td>12.756001</td>
+      <td>Halliburton Company</td>
+      <td>HAL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>35.180000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>255</th>
-      <td>Jabil Inc.</td>
-      <td>JBL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>148.619995</td>
-      <td>12.756001</td>
+      <td>Moderna, Inc.</td>
+      <td>MRNA</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>96.000000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>256</th>
-      <td>Johnson Controls International Plc</td>
-      <td>JCI</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>60.360001</td>
-      <td>28.701001</td>
+      <td>Public Service Enterprise Group Incorporated</td>
+      <td>PEG</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>63.360001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>257</th>
-      <td>Henry (Jack) &amp; Associates</td>
-      <td>JKHY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>173.550003</td>
-      <td>9.567000</td>
+      <td>Dollar Tree Inc.</td>
+      <td>DLTR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>146.419998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>258</th>
-      <td>Johnson &amp; Johnson</td>
-      <td>JNJ</td>
-      <td>0.91%</td>
-      <td>0.009578</td>
-      <td>159.839996</td>
-      <td>290.199013</td>
-      <td>1.0</td>
+      <td>Xylem Inc</td>
+      <td>XYL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>127.849998</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>259</th>
-      <td>Juniper Networks Inc</td>
-      <td>JNPR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>37.639999</td>
-      <td>9.567000</td>
+      <td>Vici Properties Inc.</td>
+      <td>VICI</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.719999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>260</th>
-      <td>Jpmorgan Chase &amp; Co.</td>
-      <td>JPM</td>
-      <td>1.25%</td>
-      <td>0.013157</td>
-      <td>186.679993</td>
-      <td>398.625018</td>
-      <td>2.0</td>
+      <td>Extra Space Storage, Inc.</td>
+      <td>EXR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>147.479996</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>261</th>
-      <td>Kellanova</td>
-      <td>K</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>53.720001</td>
-      <td>9.567000</td>
+      <td>Discover Financial Services</td>
+      <td>DFS</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>120.070000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>262</th>
-      <td>Keurig Dr Pepper Inc.</td>
-      <td>KDP</td>
+      <td>Fortive Corporation</td>
+      <td>FTV</td>
       <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.100000</td>
-      <td>22.323001</td>
+      <td>0.000734</td>
+      <td>84.790001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>263</th>
-      <td>Keycorp</td>
-      <td>KEY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>14.580000</td>
-      <td>9.567000</td>
+      <td>Baker Hughes Company</td>
+      <td>BKR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.430000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>264</th>
-      <td>Keysight Technologies, Inc.</td>
-      <td>KEYS</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>157.500000</td>
-      <td>19.134001</td>
+      <td>Consolidated Edison, Inc.</td>
+      <td>ED</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>89.129997</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>265</th>
-      <td>The Kraft Heinz Company</td>
-      <td>KHC</td>
+      <td>Dupont De Nemours, Inc.</td>
+      <td>DD</td>
       <td>0.07%</td>
-      <td>0.000737</td>
-      <td>35.040001</td>
-      <td>22.323001</td>
+      <td>0.000734</td>
+      <td>69.639999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>266</th>
-      <td>Kimco Realty Corp.</td>
-      <td>KIM</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>19.620001</td>
-      <td>9.567000</td>
+      <td>Keurig Dr Pepper Inc.</td>
+      <td>KDP</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.100000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>267</th>
-      <td>Kla Corporation</td>
-      <td>KLAC</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>717.809998</td>
-      <td>70.158003</td>
+      <td>Ansys Inc</td>
+      <td>ANSS</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>340.480011</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>268</th>
-      <td>Kimberly-Clark Corp.</td>
-      <td>KMB</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>123.489998</td>
-      <td>31.890001</td>
+      <td>Charter Comm Inc Del Cl a</td>
+      <td>CHTR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>279.059998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>269</th>
-      <td>Kinder Morgan, Inc.</td>
-      <td>KMI</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>17.570000</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Royal Caribbean Group</td>
+      <td>RCL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>125.300003</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>Carmax Inc.</td>
-      <td>KMX</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>79.580002</td>
-      <td>9.567000</td>
+      <td>Archer Daniels Midland Company</td>
+      <td>ADM</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>53.220001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>271</th>
-      <td>Coca-Cola Company</td>
-      <td>KO</td>
-      <td>0.54%</td>
-      <td>0.005684</td>
-      <td>59.810001</td>
-      <td>172.206008</td>
-      <td>2.0</td>
+      <td>Devon Energy Corporation</td>
+      <td>DVN</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>44.369999</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>272</th>
-      <td>The Kroger Co.</td>
-      <td>KR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>49.369999</td>
-      <td>25.512001</td>
+      <td>The Hartford Financial Services Group, Inc.</td>
+      <td>HIG</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>94.809998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>273</th>
-      <td>Kenvue Inc.</td>
-      <td>KVUE</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>18.959999</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Cbre Group, Inc.</td>
+      <td>CBRE</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>92.160004</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>274</th>
-      <td>Loews Corporation</td>
-      <td>L</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>74.349998</td>
-      <td>9.567000</td>
+      <td>The Hershey Company</td>
+      <td>HSY</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>184.000000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>275</th>
-      <td>Leidos Holdings, Inc.</td>
-      <td>LDOS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>129.520004</td>
-      <td>12.756001</td>
+      <td>Willis Towers Watson Public Limited Companys</td>
+      <td>WTW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>272.089996</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>276</th>
-      <td>Lennar Corporation Class A</td>
-      <td>LEN</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>160.529999</td>
-      <td>28.701001</td>
+      <td>The Kraft Heinz Company</td>
+      <td>KHC</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>35.040001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>277</th>
-      <td>Laboratory Corporation of America Holdings</td>
-      <td>LH</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>219.100006</td>
-      <td>12.756001</td>
+      <td>Cardinal Health, Inc.</td>
+      <td>CAH</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>112.639999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>278</th>
-      <td>L3harris Technologies, Inc.</td>
-      <td>LHX</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>215.960007</td>
-      <td>28.701001</td>
+      <td>Keysight Technologies, Inc.</td>
+      <td>KEYS</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>157.500000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>279</th>
-      <td>Linde Plc</td>
-      <td>LIN</td>
-      <td>0.51%</td>
-      <td>0.005368</td>
-      <td>455.600006</td>
-      <td>162.639007</td>
+      <td>Mettler-Toledo International</td>
+      <td>MTD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>1286.540039</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>280</th>
-      <td>Lkq Corporation</td>
-      <td>LKQ</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>52.090000</td>
-      <td>9.567000</td>
+      <td>Tractor Supply Co</td>
+      <td>TSCO</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>253.259995</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>281</th>
-      <td>Eli Lilly &amp; Co.</td>
-      <td>LLY</td>
-      <td>1.40%</td>
-      <td>0.014735</td>
-      <td>792.280029</td>
-      <td>446.460020</td>
+      <td>Xcel Energy, Inc.</td>
+      <td>XEL</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>51.060001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>282</th>
-      <td>Lockheed Martin Corp.</td>
-      <td>LMT</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>431.940002</td>
-      <td>70.158003</td>
+      <td>Delta Air Lines, Inc.</td>
+      <td>DAL</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>41.570000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>283</th>
-      <td>Alliant Energy Corporation</td>
-      <td>LNT</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>48.540001</td>
-      <td>9.567000</td>
+      <td>Ulta Beauty, Inc.</td>
+      <td>ULTA</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>546.539978</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>284</th>
-      <td>Lowe's Companies Inc.</td>
-      <td>LOW</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>242.100006</td>
-      <td>102.048005</td>
+      <td>West Pharmaceutical Services, Inc.</td>
+      <td>WST</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>358.790009</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>285</th>
-      <td>Lam Research Corp</td>
-      <td>LRCX</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>977.520020</td>
-      <td>92.481004</td>
+      <td>Howmet Aerospace Inc.</td>
+      <td>HWM</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>67.790001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>286</th>
-      <td>Lululemon Athletica Inc.</td>
-      <td>LULU</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>450.790009</td>
-      <td>41.457002</td>
+      <td>Zimmer Biomet Holdings, Inc.</td>
+      <td>ZBH</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>125.510002</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>287</th>
-      <td>Southwest Airlines Co.</td>
-      <td>LUV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>34.110001</td>
-      <td>15.945001</td>
+      <td>Resmed Inc.</td>
+      <td>RMD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>180.720001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>288</th>
-      <td>Las Vegas Sands Corp.</td>
-      <td>LVS</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>50.700001</td>
-      <td>15.945001</td>
+      <td>Hp Inc.</td>
+      <td>HPQ</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>29.059999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>289</th>
-      <td>Lamb Weston Holdings, Inc.</td>
-      <td>LW</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>102.239998</td>
-      <td>9.567000</td>
+      <td>Weyerhaeuser Company</td>
+      <td>WY</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>35.360001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>290</th>
-      <td>Lyondellbasell Industries N.v. Class A</td>
-      <td>LYB</td>
+      <td>Wabtec Inc.</td>
+      <td>WAB</td>
       <td>0.06%</td>
-      <td>0.000632</td>
-      <td>101.660004</td>
-      <td>19.134001</td>
+      <td>0.000629</td>
+      <td>142.070007</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>291</th>
-      <td>Live Nation Entertainment Inc.</td>
-      <td>LYV</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>98.699997</td>
-      <td>9.567000</td>
+      <td>Edison International</td>
+      <td>EIX</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>67.459999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>292</th>
-      <td>Mastercard Incorporated</td>
-      <td>MA</td>
-      <td>0.92%</td>
-      <td>0.009683</td>
-      <td>468.489990</td>
-      <td>293.388013</td>
+      <td>T Rowe Price Group Inc</td>
+      <td>TROW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>116.550003</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>293</th>
-      <td>Mid-America Apartment Communities, Inc.</td>
-      <td>MAA</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>129.300003</td>
-      <td>9.567000</td>
+      <td>Lyondellbasell Industries N.v. Class A</td>
+      <td>LYB</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>101.660004</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>294</th>
-      <td>Marriot International Class A</td>
-      <td>MAR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>247.419998</td>
-      <td>44.646002</td>
+      <td>Avalonbay Communities, Inc.</td>
+      <td>AVB</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>185.169998</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>295</th>
-      <td>Masco Corporation</td>
-      <td>MAS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>77.879997</td>
-      <td>12.756001</td>
+      <td>Ebay Inc</td>
+      <td>EBAY</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>48.910000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>296</th>
-      <td>Mcdonald's Corporation</td>
-      <td>MCD</td>
-      <td>0.49%</td>
-      <td>0.005157</td>
-      <td>290.940002</td>
-      <td>156.261007</td>
+      <td>Corning Incorporated</td>
+      <td>GLW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>33.380001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>297</th>
-      <td>Microchip Technology Inc</td>
-      <td>MCHP</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>86.919998</td>
-      <td>35.079002</td>
+      <td>Wec Energy Group, Inc.</td>
+      <td>WEC</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>79.720001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>298</th>
-      <td>Mckesson Corporation</td>
-      <td>MCK</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>534.179993</td>
-      <td>51.024002</td>
+      <td>Builders Firstsource, Inc.</td>
+      <td>BLDR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>200.839996</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>299</th>
-      <td>Moody's Corporation</td>
-      <td>MCO</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>382.500000</td>
-      <td>44.646002</td>
+      <td>Church &amp; Dwight Co., Inc.</td>
+      <td>CHD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>100.940002</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>300</th>
-      <td>Mondelez International, Inc. Class A</td>
-      <td>MDLZ</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>71.510002</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>Nvr, Inc.</td>
+      <td>NVR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>7651.830078</td>
+      <td>19.049999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>301</th>
-      <td>Medtronic Plc</td>
-      <td>MDT</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>85.059998</td>
-      <td>82.914004</td>
+      <td>Broadridge Financial Solutions Inc</td>
+      <td>BR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>205.559998</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>302</th>
-      <td>Metlife, Inc.</td>
-      <td>MET</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>69.910004</td>
-      <td>31.890001</td>
+      <td>Pultegroup, Inc.</td>
+      <td>PHM</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>111.029999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>303</th>
-      <td>Meta Platforms, Inc. Class A</td>
-      <td>META</td>
-      <td>2.54%</td>
-      <td>0.026734</td>
-      <td>498.190002</td>
-      <td>810.006036</td>
-      <td>1.0</td>
+      <td>Take-Two Interactive Software Inc</td>
+      <td>TTWO</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>146.330002</td>
+      <td>19.049999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>304</th>
-      <td>Mgm Resorts International</td>
-      <td>MGM</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>42.009998</td>
-      <td>9.567000</td>
+      <td>Iron Mountain Inc.</td>
+      <td>IRM</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>78.930000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>305</th>
-      <td>Mohawk Industries, Inc.</td>
-      <td>MHK</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>120.830002</td>
-      <td>3.189000</td>
+      <td>Fifth Third Bancorp</td>
+      <td>FITB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>35.480000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>306</th>
-      <td>Mccormick &amp; Company, Incorporated Non-Vtg Cs</td>
-      <td>MKC</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>68.480003</td>
-      <td>12.756001</td>
+      <td>Dover Corporation</td>
+      <td>DOV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>167.860001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>307</th>
-      <td>Marketaxess Holdings Inc.</td>
-      <td>MKTX</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>214.770004</td>
-      <td>6.378000</td>
+      <td>American Water Works Company, Inc</td>
+      <td>AWK</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>121.699997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>308</th>
-      <td>Martin Marietta Materials</td>
-      <td>MLM</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>601.900024</td>
-      <td>25.512001</td>
+      <td>Steris Plc</td>
+      <td>STE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>233.270004</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>309</th>
-      <td>Marsh &amp; Mclennan Companies, Inc.</td>
-      <td>MMC</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>201.880005</td>
-      <td>73.347003</td>
+      <td>State Street Corporation</td>
+      <td>STT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>74.000000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>310</th>
-      <td>3m Company</td>
-      <td>MMM</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>91.440002</td>
-      <td>38.268002</td>
+      <td>M&amp;t Bank Corp.</td>
+      <td>MTB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>139.949997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>311</th>
-      <td>Monster Beverage Corporation</td>
-      <td>MNST</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>58.500000</td>
-      <td>31.890001</td>
+      <td>Raymond James Financial, Inc.</td>
+      <td>RJF</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>120.870003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>312</th>
-      <td>Altria Group, Inc.</td>
-      <td>MO</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>39.730000</td>
-      <td>54.213002</td>
-      <td>1.0</td>
+      <td>Molina Healthcare, Inc.</td>
+      <td>MOH</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>386.549988</td>
+      <td>15.874999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>313</th>
-      <td>Molina Healthcare, Inc.</td>
-      <td>MOH</td>
+      <td>Sba Communications Corp</td>
+      <td>SBAC</td>
       <td>0.05%</td>
-      <td>0.000526</td>
-      <td>386.549988</td>
-      <td>15.945001</td>
+      <td>0.000524</td>
+      <td>212.050003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>314</th>
-      <td>The Mosaic Company</td>
-      <td>MOS</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>31.290001</td>
-      <td>6.378000</td>
+      <td>Aptiv Plc</td>
+      <td>APTV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>78.489998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>315</th>
-      <td>Marathon Petroleum Corporation</td>
-      <td>MPC</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>173.750000</td>
-      <td>47.835002</td>
+      <td>Ptc, Inc</td>
+      <td>PTC</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>187.220001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>316</th>
-      <td>Monolithic Power Systems, Inc.</td>
-      <td>MPWR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>735.679993</td>
-      <td>25.512001</td>
+      <td>Dte Energy Company</td>
+      <td>DTE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>109.800003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>317</th>
-      <td>Merck &amp; Co., Inc.</td>
-      <td>MRK</td>
-      <td>0.75%</td>
-      <td>0.007894</td>
-      <td>124.050003</td>
-      <td>239.175011</td>
-      <td>1.0</td>
+      <td>Axon Enterprise, Inc.</td>
+      <td>AXON</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>319.880005</td>
+      <td>15.874999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>318</th>
-      <td>Moderna, Inc.</td>
-      <td>MRNA</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>96.000000</td>
-      <td>22.323001</td>
+      <td>Illumina Inc</td>
+      <td>ILMN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>137.699997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>319</th>
-      <td>Marathon Oil Corporation</td>
-      <td>MRO</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>24.260000</td>
-      <td>9.567000</td>
+      <td>Targa Resources Corp.</td>
+      <td>TRGP</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>100.989998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>320</th>
-      <td>Morgan Stanley</td>
-      <td>MS</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>90.040001</td>
-      <td>79.725004</td>
+      <td>Netapp, Inc</td>
+      <td>NTAP</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>103.330002</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>321</th>
-      <td>Msci, Inc.</td>
-      <td>MSCI</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>558.369995</td>
-      <td>31.890001</td>
+      <td>Align Technology Inc</td>
+      <td>ALGN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>308.040009</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>322</th>
-      <td>Microsoft Corp</td>
-      <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.052626</td>
-      <td>414.920013</td>
-      <td>1594.500072</td>
-      <td>3.0</td>
-      <td>MSFT</td>
-      <td>1.0</td>
+      <td>Entergy Corporation</td>
+      <td>ETR</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>102.019997</td>
+      <td>15.874999</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>323</th>
-      <td>Motorola Solutions, Inc.</td>
-      <td>MSI</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>335.769989</td>
-      <td>41.457002</td>
+      <td>Garmin Ltd</td>
+      <td>GRMN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>139.669998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>324</th>
-      <td>M&amp;t Bank Corp.</td>
-      <td>MTB</td>
+      <td>Genuine Parts Company</td>
+      <td>GPC</td>
       <td>0.05%</td>
-      <td>0.000526</td>
-      <td>139.949997</td>
-      <td>15.945001</td>
+      <td>0.000524</td>
+      <td>149.970001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>325</th>
-      <td>Match Group, Inc</td>
-      <td>MTCH</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>35.060001</td>
-      <td>6.378000</td>
+      <td>Equity Residential</td>
+      <td>EQR</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>62.860001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>326</th>
-      <td>Mettler-Toledo International</td>
-      <td>MTD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>1286.540039</td>
-      <td>19.134001</td>
+      <td>Baxter International Inc.</td>
+      <td>BAX</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>42.500000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>327</th>
-      <td>Micron Technology, Inc.</td>
-      <td>MU</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>95.769997</td>
-      <td>73.347003</td>
+      <td>Hubbell Incorporated</td>
+      <td>HUBB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>387.739990</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>328</th>
-      <td>Norwegian Cruise Line Holdings Ltd.s</td>
-      <td>NCLH</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>19.420000</td>
-      <td>6.378000</td>
+      <td>Western Digital Corp.</td>
+      <td>WDC</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>64.320000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>329</th>
-      <td>Nasdaq, Inc.</td>
-      <td>NDAQ</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>56.970001</td>
-      <td>12.756001</td>
+      <td>Darden Restaurants, Inc.</td>
+      <td>DRI</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>174.050003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>330</th>
-      <td>Nordson Corp</td>
-      <td>NDSN</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>265.320007</td>
-      <td>9.567000</td>
+      <td>Waters Corp</td>
+      <td>WAT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>346.760010</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>331</th>
-      <td>Nextra Energy, Inc.</td>
-      <td>NEE</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>54.970001</td>
-      <td>82.914004</td>
-      <td>1.0</td>
+      <td>Steel Dynamics Inc</td>
+      <td>STLD</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>130.240005</td>
+      <td>15.874999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>332</th>
-      <td>Newmont Corporation</td>
-      <td>NEM</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>33.480000</td>
-      <td>25.512001</td>
+      <td>The Cooper Companies, Inc.</td>
+      <td>COO</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>102.769997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>333</th>
-      <td>Netflix Inc</td>
-      <td>NFLX</td>
-      <td>0.62%</td>
-      <td>0.006526</td>
-      <td>615.830017</td>
-      <td>197.718009</td>
+      <td>Southwest Airlines Co.</td>
+      <td>LUV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>34.110001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>334</th>
-      <td>Nisource Inc.</td>
-      <td>NI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>26.610001</td>
-      <td>6.378000</td>
+      <td>Ball Corporation</td>
+      <td>BALL</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>64.519997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>335</th>
-      <td>Nike, Inc.</td>
-      <td>NKE</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>99.540001</td>
-      <td>95.670004</td>
+      <td>Eversource Energy</td>
+      <td>ES</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>58.910000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>336</th>
-      <td>Northrop Grumman Corp.</td>
-      <td>NOC</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>460.079987</td>
-      <td>47.835002</td>
+      <td>Teledyne Technologies Incorporated</td>
+      <td>TDY</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>428.450012</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>337</th>
-      <td>Servicenow, Inc.</td>
-      <td>NOW</td>
-      <td>0.37%</td>
-      <td>0.003894</td>
-      <td>776.090027</td>
-      <td>117.993005</td>
+      <td>Fleetcor Technologies, Inc.</td>
+      <td>FLT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>281.670013</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>338</th>
-      <td>Nrg Energy, Inc.</td>
-      <td>NRG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>57.689999</td>
-      <td>9.567000</td>
+      <td>Hewlett Packard Enterprise Company</td>
+      <td>HPE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>17.150000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>339</th>
-      <td>Norfolk Southern Corp.</td>
-      <td>NSC</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>259.170013</td>
-      <td>41.457002</td>
+      <td>Invitation Homes Inc.</td>
+      <td>INVH</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>35.410000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>340</th>
-      <td>Netapp, Inc</td>
-      <td>NTAP</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>103.330002</td>
-      <td>12.756001</td>
+      <td>Brown &amp; Brown, Inc.</td>
+      <td>BRO</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>83.949997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>341</th>
-      <td>Northern Trust Corp</td>
-      <td>NTRS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>84.550003</td>
-      <td>12.756001</td>
+      <td>Cboe Global Markets, Inc.</td>
+      <td>CBOE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>189.360001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>342</th>
-      <td>Nucor Corporation</td>
-      <td>NUE</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>187.160004</td>
-      <td>35.079002</td>
+      <td>Coterra Energy Inc.</td>
+      <td>CTRA</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>26.500000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>343</th>
-      <td>Nvidia Corp</td>
-      <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.047995</td>
-      <td>852.369995</td>
-      <td>1454.184065</td>
-      <td>1.0</td>
-      <td>NVDA</td>
-      <td>1.0</td>
+      <td>International Flavors &amp; Fragrances Inc.</td>
+      <td>IFF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>76.040001</td>
+      <td>12.699999</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>344</th>
-      <td>Nvr, Inc.</td>
-      <td>NVR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>7651.830078</td>
-      <td>19.134001</td>
+      <td>Alexandria Real Estate Equities, Inc.</td>
+      <td>ARE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>126.010002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>345</th>
-      <td>News Corporation Class A</td>
-      <td>NWSA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>25.930000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Warner Bros. Discovery, Inc. Series a</td>
+      <td>WBD</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>8.110000</td>
+      <td>12.699999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>346</th>
-      <td>Nxp Semiconductors N.v.</td>
-      <td>NXPI</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>254.300003</td>
-      <td>47.835002</td>
+      <td>Ppl Corporation</td>
+      <td>PPL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>26.740000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>347</th>
-      <td>Realty Income Corporation</td>
-      <td>O</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>52.709999</td>
-      <td>31.890001</td>
+      <td>Nasdaq, Inc.</td>
+      <td>NDAQ</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>56.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>348</th>
-      <td>Old Dominion Freight Line</td>
-      <td>ODFL</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>446.230011</td>
-      <td>28.701001</td>
+      <td>Veralto Corporation</td>
+      <td>VLTO</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>87.739998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>349</th>
-      <td>Oneok, Inc.</td>
-      <td>OKE</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>76.559998</td>
-      <td>31.890001</td>
+      <td>Las Vegas Sands Corp.</td>
+      <td>LVS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>50.700001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>350</th>
-      <td>Omnicom Group Inc.</td>
-      <td>OMC</td>
+      <td>Firstenergy Corp.</td>
+      <td>FE</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>89.199997</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>37.270000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>351</th>
-      <td>On Semiconductor Corp</td>
-      <td>ON</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>79.879997</td>
-      <td>25.512001</td>
+      <td>Clorox Company</td>
+      <td>CLX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>150.940002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>352</th>
-      <td>Oracle Corp</td>
-      <td>ORCL</td>
-      <td>0.41%</td>
-      <td>0.004315</td>
-      <td>114.059998</td>
-      <td>130.749006</td>
-      <td>1.0</td>
+      <td>Jabil Inc.</td>
+      <td>JBL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>148.619995</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>353</th>
-      <td>O'reilly Automotive, Inc.</td>
-      <td>ORLY</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>1077.979980</td>
-      <td>47.835002</td>
+      <td>Seagate Technology Holdings Plcs</td>
+      <td>STX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>98.379997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>354</th>
-      <td>Otis Worldwide Corporation</td>
-      <td>OTIS</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>95.389999</td>
-      <td>28.701001</td>
+      <td>Huntington Bancshares Inc</td>
+      <td>HBAN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>13.360000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>355</th>
-      <td>Occidental Petroleum Corporation</td>
-      <td>OXY</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>60.680000</td>
-      <td>28.701001</td>
+      <td>Laboratory Corporation of America Holdings</td>
+      <td>LH</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>219.100006</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>356</th>
-      <td>Palo Alto Networks, Inc.</td>
-      <td>PANW</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>299.440002</td>
-      <td>73.347003</td>
+      <td>Jacobs Solutions Inc.</td>
+      <td>J</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>147.139999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>357</th>
-      <td>Paramount Global Class B</td>
-      <td>PARA</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>10.300000</td>
-      <td>3.189000</td>
+      <td>Ameren Corporation</td>
+      <td>AEE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>72.669998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>358</th>
-      <td>Paycom Software, Inc.</td>
-      <td>PAYC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.050003</td>
-      <td>6.378000</td>
+      <td>Tyler Technologies, Inc.</td>
+      <td>TYL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>438.140015</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>359</th>
-      <td>Paychex Inc</td>
-      <td>PAYX</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>122.339996</td>
-      <td>28.701001</td>
+      <td>Expedia Group, Inc.</td>
+      <td>EXPE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>135.520004</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>360</th>
-      <td>Paccar Inc</td>
-      <td>PCAR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>112.290001</td>
-      <td>44.646002</td>
+      <td>Hologic Inc</td>
+      <td>HOLX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>74.599998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>361</th>
-      <td>Pg&amp;e Corporation</td>
-      <td>PCG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>16.840000</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Idex Corporation</td>
+      <td>IEX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>237.619995</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>362</th>
-      <td>Healthpeak Properties, Inc.</td>
-      <td>PEAK</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>16.850000</td>
-      <td>9.567000</td>
+      <td>Cincinnati Financial Corp</td>
+      <td>CINF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>112.419998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>363</th>
-      <td>Public Service Enterprise Group Incorporated</td>
-      <td>PEG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>63.360001</td>
-      <td>22.323001</td>
+      <td>Enphase Energy, Inc.</td>
+      <td>ENPH</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>123.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>364</th>
-      <td>Pepsico, Inc.</td>
-      <td>PEP</td>
-      <td>0.53%</td>
-      <td>0.005578</td>
-      <td>165.369995</td>
-      <td>169.017008</td>
-      <td>1.0</td>
+      <td>Ventas, Inc.</td>
+      <td>VTR</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>44.099998</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>365</th>
-      <td>Pfizer Inc.</td>
-      <td>PFE</td>
-      <td>0.35%</td>
-      <td>0.003684</td>
-      <td>25.889999</td>
-      <td>111.615005</td>
-      <td>4.0</td>
+      <td>Epam Systems, Inc.</td>
+      <td>EPAM</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>307.920013</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
@@ -5404,1065 +5397,1065 @@ movesWithHoldings
       <td>Principal Financial Group, Inc.</td>
       <td>PFG</td>
       <td>0.04%</td>
-      <td>0.000421</td>
+      <td>0.000419</td>
       <td>80.680000</td>
-      <td>12.756001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>367</th>
-      <td>Procter &amp; Gamble Company</td>
-      <td>PG</td>
-      <td>0.87%</td>
-      <td>0.009157</td>
-      <td>159.559998</td>
-      <td>277.443012</td>
-      <td>1.0</td>
+      <td>Expeditors International of Washington, Inc.</td>
+      <td>EXPD</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>119.959999</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>368</th>
-      <td>Progressive Corporation</td>
-      <td>PGR</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>189.240005</td>
-      <td>82.914004</td>
+      <td>Factset Research Systems</td>
+      <td>FDS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>464.980011</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>369</th>
-      <td>Parker-Hannifin Corporation</td>
-      <td>PH</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>535.510010</td>
-      <td>51.024002</td>
+      <td>Omnicom Group Inc.</td>
+      <td>OMC</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>89.199997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>370</th>
-      <td>Pultegroup, Inc.</td>
-      <td>PHM</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>111.029999</td>
-      <td>15.945001</td>
+      <td>Avery Dennison Corp.</td>
+      <td>AVY</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>216.130005</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>371</th>
-      <td>Packaging Corp of America</td>
-      <td>PKG</td>
+      <td>Masco Corporation</td>
+      <td>MAS</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>185.429993</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>77.879997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>372</th>
-      <td>Prologis, Inc.</td>
-      <td>PLD</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>133.610001</td>
-      <td>92.481004</td>
+      <td>Leidos Holdings, Inc.</td>
+      <td>LDOS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>129.520004</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>373</th>
-      <td>Philip Morris International Inc.</td>
-      <td>PM</td>
-      <td>0.33%</td>
-      <td>0.003473</td>
-      <td>90.309998</td>
-      <td>105.237005</td>
-      <td>1.0</td>
+      <td>Textron, Inc.</td>
+      <td>TXT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>89.389999</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>374</th>
-      <td>Pnc Financial Services Group</td>
-      <td>PNC</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>153.740005</td>
-      <td>44.646002</td>
+      <td>Centerpoint Energy, Inc.</td>
+      <td>CNP</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>27.940001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>375</th>
-      <td>Pentair Plc</td>
-      <td>PNR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>78.470001</td>
-      <td>9.567000</td>
+      <td>Verisign Inc</td>
+      <td>VRSN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>192.179993</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>376</th>
-      <td>Pinnacle West Capital Corporation</td>
-      <td>PNW</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>68.889999</td>
-      <td>6.378000</td>
+      <td>Regions Financial Corp.</td>
+      <td>RF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>19.020000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>377</th>
-      <td>Insulet Corporation</td>
-      <td>PODD</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>167.820007</td>
-      <td>9.567000</td>
+      <td>Northern Trust Corp</td>
+      <td>NTRS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>84.550003</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>378</th>
-      <td>Pool Corporation</td>
-      <td>POOL</td>
+      <td>Mccormick &amp; Company, Incorporated Non-Vtg Cs</td>
+      <td>MKC</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>402.140015</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>68.480003</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>379</th>
-      <td>Ppg Industries, Inc.</td>
-      <td>PPG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>139.220001</td>
-      <td>25.512001</td>
+      <td>Cms Energy Corporation</td>
+      <td>CMS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>58.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>380</th>
-      <td>Ppl Corporation</td>
-      <td>PPL</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>26.740000</td>
-      <td>15.945001</td>
+      <td>Skyworks Solutions Inc</td>
+      <td>SWKS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>104.900002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>381</th>
-      <td>Prudential Financial, Inc.</td>
-      <td>PRU</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>107.089996</td>
-      <td>28.701001</td>
+      <td>Synchrony Financial</td>
+      <td>SYF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>40.630001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>382</th>
-      <td>Public Storage</td>
-      <td>PSA</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>285.079987</td>
-      <td>31.890001</td>
+      <td>First Solar, Inc.</td>
+      <td>FSLR</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>156.699997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>383</th>
-      <td>Phillips 66</td>
-      <td>PSX</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>144.259995</td>
-      <td>47.835002</td>
+      <td>W.R. Berkley Corporation</td>
+      <td>WRB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>83.610001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>384</th>
-      <td>Ptc, Inc</td>
-      <td>PTC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>187.220001</td>
-      <td>15.945001</td>
+      <td>Albemarle Corporation</td>
+      <td>ALB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>133.199997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>385</th>
-      <td>Quanta Services, Inc.</td>
-      <td>PWR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>243.339996</td>
-      <td>25.512001</td>
+      <td>Atmos Energy Corporation</td>
+      <td>ATO</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>114.680000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>386</th>
-      <td>Pioneer Natural Resource Co.</td>
-      <td>PXD</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>234.699997</td>
-      <td>41.457002</td>
+      <td>Akamai Technologies Inc</td>
+      <td>AKAM</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>110.760002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>387</th>
-      <td>Paypal Holdings, Inc.</td>
-      <td>PYPL</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>59.980000</td>
-      <td>47.835002</td>
+      <td>Jb Hunt Transport Services Inc</td>
+      <td>JBHT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>201.360001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>388</th>
-      <td>Qualcomm Inc</td>
-      <td>QCOM</td>
-      <td>0.41%</td>
-      <td>0.004315</td>
-      <td>166.559998</td>
-      <td>130.749006</td>
+      <td>Teradyne, Inc.</td>
+      <td>TER</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>105.830002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>389</th>
-      <td>Qorvo, Inc.</td>
-      <td>QRVO</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>120.220001</td>
-      <td>9.567000</td>
+      <td>Packaging Corp of America</td>
+      <td>PKG</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>185.429993</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>390</th>
-      <td>Royal Caribbean Group</td>
-      <td>RCL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>125.300003</td>
-      <td>22.323001</td>
+      <td>Carnival Corporation</td>
+      <td>CCL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>16.070000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>391</th>
-      <td>Regency Centers Corporation</td>
-      <td>REG</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>62.900002</td>
-      <td>6.378000</td>
+      <td>Everest Group, Ltd.</td>
+      <td>EG</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>367.500000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>392</th>
-      <td>Regeneron Pharmaceuticals Inc</td>
-      <td>REGN</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>971.190002</td>
-      <td>76.536003</td>
+      <td>Cf Industries Holding, Inc.</td>
+      <td>CF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>79.860001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>393</th>
-      <td>Regions Financial Corp.</td>
-      <td>RF</td>
+      <td>Pool Corporation</td>
+      <td>POOL</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>19.020000</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>402.140015</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>394</th>
-      <td>Robert Half Inc.</td>
-      <td>RHI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>81.739998</td>
-      <td>6.378000</td>
+      <td>Domino's Pizza Inc.</td>
+      <td>DPZ</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>449.989990</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>395</th>
-      <td>Raymond James Financial, Inc.</td>
-      <td>RJF</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>120.870003</td>
-      <td>15.945001</td>
+      <td>Trimble Inc.</td>
+      <td>TRMB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>62.549999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>396</th>
-      <td>Ralph Lauren Corporation</td>
-      <td>RL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.179993</td>
-      <td>6.378000</td>
+      <td>Walgreens Boots Alliance, Inc</td>
+      <td>WBA</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>20.580000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>397</th>
-      <td>Resmed Inc.</td>
-      <td>RMD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>180.720001</td>
-      <td>19.134001</td>
+      <td>Celanese Corporation</td>
+      <td>CE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>154.889999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>398</th>
-      <td>Rockwell Automation, Inc.</td>
-      <td>ROK</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>288.170013</td>
-      <td>25.512001</td>
+      <td>Eqt Corp</td>
+      <td>EQT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>37.540001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>399</th>
-      <td>Rollins, Inc.</td>
-      <td>ROL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>45.080002</td>
-      <td>9.567000</td>
+      <td>Tyson Foods, Inc.</td>
+      <td>TSN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>53.380001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>400</th>
-      <td>Roper Technologies, Inc.</td>
-      <td>ROP</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>547.219971</td>
-      <td>44.646002</td>
-      <td>0.0</td>
+      <td>Viatris Inc.</td>
+      <td>VTRS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>12.360000</td>
+      <td>12.699999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>401</th>
-      <td>Ross Stores Inc</td>
-      <td>ROST</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>149.960007</td>
-      <td>38.268002</td>
+      <td>Best Buy Company, Inc.</td>
+      <td>BBY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>77.540001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>402</th>
-      <td>Republic Services Inc.</td>
-      <td>RSG</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>184.940002</td>
-      <td>28.701001</td>
+      <td>Essex Property Trust, Inc</td>
+      <td>ESS</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>243.580002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>403</th>
-      <td>Rtx Corporation</td>
-      <td>RTX</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>89.910004</td>
-      <td>95.670004</td>
-      <td>1.0</td>
+      <td>Zebra Technologies Corporation</td>
+      <td>ZBRA</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>291.649994</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>404</th>
-      <td>Revvity, Inc.</td>
-      <td>RVTY</td>
+      <td>Mid-America Apartment Communities, Inc.</td>
+      <td>MAA</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>108.510002</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>129.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>405</th>
-      <td>Sba Communications Corp</td>
-      <td>SBAC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>212.050003</td>
-      <td>15.945001</td>
+      <td>Host Hotels &amp; Resorts, Inc.</td>
+      <td>HST</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>21.070000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>406</th>
-      <td>Starbucks Corp</td>
-      <td>SBUX</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>92.459999</td>
-      <td>79.725004</td>
+      <td>Citizens Financial Group, Inc.</td>
+      <td>CFG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>31.930000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>407</th>
-      <td>The Charles Schwab Corporation</td>
-      <td>SCHW</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>67.639999</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>United Airlines Holdings, Inc.</td>
+      <td>UAL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>44.139999</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>408</th>
-      <td>The Sherwin-Williams Company</td>
-      <td>SHW</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>337.100006</td>
-      <td>57.402003</td>
+      <td>Snap-on Incorporated</td>
+      <td>SNA</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>284.510010</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>409</th>
-      <td>The J.M. Smucker Company</td>
-      <td>SJM</td>
+      <td>Lamb Weston Holdings, Inc.</td>
+      <td>LW</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>121.959999</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>102.239998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>410</th>
-      <td>Schlumberger Limited</td>
-      <td>SLB</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>49.419998</td>
-      <td>51.024002</td>
-      <td>1.0</td>
+      <td>Kellanova</td>
+      <td>K</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>53.720001</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>411</th>
-      <td>Snap-on Incorporated</td>
-      <td>SNA</td>
+      <td>Marathon Oil Corporation</td>
+      <td>MRO</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>284.510010</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>24.260000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>412</th>
-      <td>Synopsys Inc</td>
-      <td>SNPS</td>
-      <td>0.20%</td>
-      <td>0.002105</td>
-      <td>594.320007</td>
-      <td>63.780003</td>
+      <td>Nordson Corp</td>
+      <td>NDSN</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>265.320007</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>413</th>
-      <td>The Southern Company</td>
-      <td>SO</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>68.199997</td>
-      <td>54.213002</td>
+      <td>Lkq Corporation</td>
+      <td>LKQ</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>52.090000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>414</th>
-      <td>Simon Property Group, Inc.</td>
-      <td>SPG</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>152.410004</td>
-      <td>35.079002</td>
+      <td>Quest Diagnostics Inc.</td>
+      <td>DGX</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>125.309998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>415</th>
-      <td>S&amp;p Global Inc.</td>
-      <td>SPGI</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>425.440002</td>
-      <td>102.048005</td>
+      <td>Stanley Black &amp; Decker, Inc.</td>
+      <td>SWK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>89.610001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>416</th>
-      <td>Sempra</td>
-      <td>SRE</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>70.739998</td>
-      <td>31.890001</td>
+      <td>Live Nation Entertainment Inc.</td>
+      <td>LYV</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>98.699997</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>417</th>
-      <td>Steris Plc</td>
-      <td>STE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>233.270004</td>
-      <td>15.945001</td>
+      <td>Loews Corporation</td>
+      <td>L</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>74.349998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>418</th>
-      <td>Steel Dynamics Inc</td>
-      <td>STLD</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>130.240005</td>
-      <td>15.945001</td>
+      <td>Bunge Global Sa</td>
+      <td>BG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>90.089996</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>419</th>
-      <td>State Street Corporation</td>
-      <td>STT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>74.000000</td>
-      <td>15.945001</td>
+      <td>Charles River Laboratories International, Inc.</td>
+      <td>CRL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>258.920013</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>420</th>
-      <td>Seagate Technology Holdings Plcs</td>
-      <td>STX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>98.379997</td>
-      <td>12.756001</td>
+      <td>Keycorp</td>
+      <td>KEY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>14.580000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>421</th>
-      <td>Constellation Brands, Inc.</td>
-      <td>STZ</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>248.029999</td>
-      <td>28.701001</td>
+      <td>Revvity, Inc.</td>
+      <td>RVTY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>108.510002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>422</th>
-      <td>Stanley Black &amp; Decker, Inc.</td>
-      <td>SWK</td>
+      <td>Conagra Brands, Inc.</td>
+      <td>CAG</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>89.610001</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>27.700001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>423</th>
-      <td>Skyworks Solutions Inc</td>
-      <td>SWKS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>104.900002</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Amcor Plcs</td>
+      <td>AMCR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>9.170000</td>
+      <td>9.524999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>424</th>
-      <td>Synchrony Financial</td>
-      <td>SYF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>40.630001</td>
-      <td>12.756001</td>
+      <td>Pentair Plc</td>
+      <td>PNR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>78.470001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>425</th>
-      <td>Stryker Corporation</td>
-      <td>SYK</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>355.850006</td>
-      <td>89.292004</td>
+      <td>Nrg Energy, Inc.</td>
+      <td>NRG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>57.689999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>426</th>
-      <td>Sysco Corporation</td>
-      <td>SYY</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>79.510002</td>
-      <td>31.890001</td>
+      <td>Carmax Inc.</td>
+      <td>KMX</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>79.580002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>427</th>
-      <td>At&amp;t Inc.</td>
-      <td>T</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>16.799999</td>
-      <td>89.292004</td>
-      <td>5.0</td>
+      <td>The J.M. Smucker Company</td>
+      <td>SJM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>121.959999</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>428</th>
-      <td>Molson Coors Beverage Company Class B</td>
-      <td>TAP</td>
+      <td>Henry (Jack) &amp; Associates</td>
+      <td>JKHY</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>62.340000</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>173.550003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>429</th>
-      <td>Transdigm Group Incorporated</td>
-      <td>TDG</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>1173.410034</td>
-      <td>47.835002</td>
+      <td>Rollins, Inc.</td>
+      <td>ROL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>45.080002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>430</th>
-      <td>Teledyne Technologies Incorporated</td>
-      <td>TDY</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>428.450012</td>
-      <td>15.945001</td>
+      <td>Gen Digital Inc.</td>
+      <td>GEN</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>21.700001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>431</th>
-      <td>Bio-Techne Corp.</td>
-      <td>TECH</td>
+      <td>International Paper Co.</td>
+      <td>IP</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>74.879997</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>35.889999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>432</th>
-      <td>Te Connectivity Ltd</td>
-      <td>TEL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>143.059998</td>
-      <td>31.890001</td>
+      <td>Symbol Not Found</td>
+      <td>PEAK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>16.850000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>433</th>
-      <td>Teradyne, Inc.</td>
-      <td>TER</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>105.830002</td>
-      <td>12.756001</td>
+      <td>Kimco Realty Corp.</td>
+      <td>KIM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>19.620001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>434</th>
-      <td>Truist Financial Corporation</td>
-      <td>TFC</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>36.169998</td>
-      <td>35.079002</td>
+      <td>Alliant Energy Corporation</td>
+      <td>LNT</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>48.540001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>435</th>
-      <td>Teleflex Incorporated</td>
-      <td>TFX</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>225.000000</td>
-      <td>6.378000</td>
+      <td>The Interpublic Group of Companies, Inc.</td>
+      <td>IPG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>31.940001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>436</th>
-      <td>Target Corporation</td>
-      <td>TGT</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>150.490005</td>
-      <td>51.024002</td>
+      <td>Juniper Networks Inc</td>
+      <td>JNPR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>37.639999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>437</th>
-      <td>Tjx Companies, Inc.</td>
-      <td>TJX</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>97.940002</td>
-      <td>82.914004</td>
+      <td>Insulet Corporation</td>
+      <td>PODD</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>167.820007</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>438</th>
-      <td>Thermo Fisher Scientific, Inc.</td>
-      <td>TMO</td>
-      <td>0.51%</td>
-      <td>0.005368</td>
-      <td>581.640015</td>
-      <td>162.639007</td>
+      <td>Bio-Techne Corp.</td>
+      <td>TECH</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>74.879997</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>439</th>
-      <td>T-Mobile Us, Inc.</td>
-      <td>TMUS</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>163.339996</td>
-      <td>60.591003</td>
+      <td>Mgm Resorts International</td>
+      <td>MGM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>42.009998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>440</th>
-      <td>Tapestry, Inc.</td>
-      <td>TPR</td>
+      <td>Qorvo, Inc.</td>
+      <td>QRVO</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>47.279999</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>120.220001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>441</th>
-      <td>Targa Resources Corp.</td>
-      <td>TRGP</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>100.989998</td>
-      <td>15.945001</td>
+      <td>Huntington Ingalls Industries, Inc.</td>
+      <td>HII</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>296.429993</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>442</th>
-      <td>Trimble Inc.</td>
-      <td>TRMB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>62.549999</td>
-      <td>12.756001</td>
+      <td>Molson Coors Beverage Company Class B</td>
+      <td>TAP</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>62.340000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>443</th>
-      <td>T Rowe Price Group Inc</td>
-      <td>TROW</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>116.550003</td>
-      <td>19.134001</td>
+      <td>Westrock Company</td>
+      <td>WRK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>44.970001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>444</th>
-      <td>The Travelers Companies, Inc.</td>
-      <td>TRV</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>219.070007</td>
-      <td>38.268002</td>
+      <td>Evergy, Inc.</td>
+      <td>EVRG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>49.990002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>445</th>
-      <td>Tractor Supply Co</td>
-      <td>TSCO</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>253.259995</td>
-      <td>19.134001</td>
+      <td>F5, Inc.</td>
+      <td>FFIV</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>193.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>446</th>
-      <td>Tyson Foods, Inc.</td>
-      <td>TSN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>53.380001</td>
-      <td>12.756001</td>
+      <td>Allegion Public Limited Company</td>
+      <td>ALLE</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>128.789993</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>447</th>
-      <td>Trane Technologies Plc</td>
-      <td>TT</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>288.130005</td>
-      <td>47.835002</td>
+      <td>Incyte Genomics Inc</td>
+      <td>INCY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>59.720001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>448</th>
-      <td>Take-Two Interactive Software Inc</td>
-      <td>TTWO</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>146.330002</td>
-      <td>15.945001</td>
+      <td>Brown-Forman Corporation Class B</td>
+      <td>BF.B</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>60.259998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>449</th>
-      <td>Texas Instruments Incorporated</td>
-      <td>TXN</td>
-      <td>0.35%</td>
-      <td>0.003684</td>
-      <td>172.440002</td>
-      <td>111.615005</td>
+      <td>Udr, Inc.</td>
+      <td>UDR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>37.279999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>450</th>
-      <td>Textron, Inc.</td>
-      <td>TXT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>89.389999</td>
-      <td>12.756001</td>
+      <td>Tapestry, Inc.</td>
+      <td>TPR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>47.279999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>451</th>
-      <td>Tyler Technologies, Inc.</td>
-      <td>TYL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>438.140015</td>
-      <td>12.756001</td>
+      <td>Globe Life Inc.</td>
+      <td>GL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>126.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>452</th>
-      <td>United Airlines Holdings, Inc.</td>
-      <td>UAL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>44.139999</td>
-      <td>9.567000</td>
+      <td>Nisource Inc.</td>
+      <td>NI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>26.610001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>453</th>
-      <td>Uber Technologies, Inc.</td>
-      <td>UBER</td>
-      <td>0.38%</td>
-      <td>0.004000</td>
-      <td>81.300003</td>
-      <td>121.182005</td>
-      <td>1.0</td>
+      <td>Teleflex Incorporated</td>
+      <td>TFX</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>225.000000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>454</th>
-      <td>Udr, Inc.</td>
-      <td>UDR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>37.279999</td>
-      <td>9.567000</td>
+      <td>Dayforce, Inc.</td>
+      <td>DAY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>66.610001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -6472,552 +6465,552 @@ movesWithHoldings
       <td>Universal Health Services, Inc. Class B</td>
       <td>UHS</td>
       <td>0.02%</td>
-      <td>0.000211</td>
+      <td>0.000210</td>
       <td>174.600006</td>
-      <td>6.378000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>456</th>
-      <td>Ulta Beauty, Inc.</td>
-      <td>ULTA</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>546.539978</td>
-      <td>19.134001</td>
+      <td>Bath &amp; Body Works, Inc.</td>
+      <td>BBWI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>45.650002</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>457</th>
-      <td>Unitedhealth Group Incorporated</td>
-      <td>UNH</td>
-      <td>1.06%</td>
-      <td>0.011157</td>
-      <td>481.869995</td>
-      <td>338.034015</td>
+      <td>Aes Corporation</td>
+      <td>AES</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>16.070000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>458</th>
-      <td>Union Pacific Corp.</td>
-      <td>UNP</td>
-      <td>0.36%</td>
-      <td>0.003789</td>
-      <td>253.470001</td>
-      <td>114.804005</td>
+      <td>Catalent, Inc.</td>
+      <td>CTLT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>56.950001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>459</th>
-      <td>United Parcel Service, Inc. Class B</td>
-      <td>UPS</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>150.610001</td>
-      <td>79.725004</td>
+      <td>Eastman Chemical Company</td>
+      <td>EMN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>88.209999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>460</th>
-      <td>United Rentals, Inc.</td>
-      <td>URI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>712.309998</td>
-      <td>35.079002</td>
+      <td>The Mosaic Company</td>
+      <td>MOS</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>31.290001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>461</th>
-      <td>U.S. Bancorp</td>
-      <td>USB</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>42.700001</td>
-      <td>47.835002</td>
-      <td>1.0</td>
+      <td>A.O. Smith Corporation</td>
+      <td>AOS</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>85.099998</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>462</th>
-      <td>Visa Inc.</td>
-      <td>V</td>
-      <td>1.05%</td>
-      <td>0.011051</td>
-      <td>280.529999</td>
-      <td>334.845015</td>
-      <td>1.0</td>
+      <td>Camden Property Trust</td>
+      <td>CPT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>96.739998</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>463</th>
-      <td>V.F. Corporation</td>
-      <td>VFC</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>15.730000</td>
-      <td>3.189000</td>
+      <td>American Airlines Group Inc.</td>
+      <td>AAL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>14.810000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>464</th>
-      <td>Vici Properties Inc.</td>
-      <td>VICI</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.719999</td>
-      <td>22.323001</td>
+      <td>Regency Centers Corporation</td>
+      <td>REG</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>62.900002</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>465</th>
-      <td>Valero Energy Corporation</td>
-      <td>VLO</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>144.699997</td>
-      <td>35.079002</td>
+      <td>Henry Schein Inc</td>
+      <td>HSIC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>76.790001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>466</th>
-      <td>Veralto Corporation</td>
-      <td>VLTO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>87.739998</td>
-      <td>12.756001</td>
+      <td>News Corporation Class A</td>
+      <td>NWSA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>25.930000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>467</th>
-      <td>Vulcan Materials Company</td>
-      <td>VMC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>267.850006</td>
-      <td>25.512001</td>
+      <td>Match Group, Inc</td>
+      <td>MTCH</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>35.060001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>468</th>
-      <td>Verisk Analytics, Inc.</td>
-      <td>VRSK</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>239.929993</td>
-      <td>25.512001</td>
+      <td>Wynn Resorts Ltd</td>
+      <td>WYNN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>99.730003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>469</th>
-      <td>Verisign Inc</td>
-      <td>VRSN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>192.179993</td>
-      <td>12.756001</td>
+      <td>Hormel Foods Corporation</td>
+      <td>HRL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>33.770000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>470</th>
-      <td>Vertex Pharmaceuticals Inc</td>
-      <td>VRTX</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>424.029999</td>
-      <td>79.725004</td>
+      <td>Assurant, Inc.</td>
+      <td>AIZ</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.029999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>471</th>
-      <td>Ventas, Inc.</td>
-      <td>VTR</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>44.099998</td>
-      <td>12.756001</td>
+      <td>Apa Corporation</td>
+      <td>APA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>30.030001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>472</th>
-      <td>Viatris Inc.</td>
-      <td>VTRS</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>12.360000</td>
-      <td>9.567000</td>
+      <td>Boston Properties, Inc.</td>
+      <td>BXP</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>65.809998</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>473</th>
-      <td>Verizon Communications</td>
-      <td>VZ</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>40.310001</td>
-      <td>124.371006</td>
-      <td>3.0</td>
+      <td>Caesars Entertainment, Inc.</td>
+      <td>CZR</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>41.570000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>474</th>
-      <td>Wabtec Inc.</td>
-      <td>WAB</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>142.070007</td>
-      <td>19.134001</td>
+      <td>Paycom Software, Inc.</td>
+      <td>PAYC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.050003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>475</th>
-      <td>Waters Corp</td>
-      <td>WAT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>346.760010</td>
-      <td>15.945001</td>
+      <td>C.H. Robinson Worldwide, Inc.</td>
+      <td>CHRW</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>70.449997</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>476</th>
-      <td>Walgreens Boots Alliance, Inc</td>
-      <td>WBA</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>20.580000</td>
-      <td>12.756001</td>
+      <td>Robert Half Inc.</td>
+      <td>RHI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>81.739998</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>477</th>
-      <td>Warner Bros. Discovery, Inc. Series a</td>
-      <td>WBD</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>8.110000</td>
-      <td>15.945001</td>
-      <td>1.0</td>
+      <td>Campbell Soup Company</td>
+      <td>CPB</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>43.279999</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>478</th>
-      <td>Western Digital Corp.</td>
-      <td>WDC</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>64.320000</td>
-      <td>12.756001</td>
+      <td>Etsy, Inc.</td>
+      <td>ETSY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>67.709999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>479</th>
-      <td>Wec Energy Group, Inc.</td>
-      <td>WEC</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>79.720001</td>
-      <td>19.134001</td>
+      <td>Marketaxess Holdings Inc.</td>
+      <td>MKTX</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>214.770004</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>480</th>
-      <td>Welltower Inc.</td>
-      <td>WELL</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>93.400002</td>
-      <td>38.268002</td>
+      <td>Norwegian Cruise Line Holdings Ltd.s</td>
+      <td>NCLH</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>19.420000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>481</th>
-      <td>Wells Fargo &amp; Co.</td>
-      <td>WFC</td>
-      <td>0.47%</td>
-      <td>0.004947</td>
-      <td>55.810001</td>
-      <td>149.883007</td>
-      <td>2.0</td>
+      <td>Franklin Resources, Inc.</td>
+      <td>BEN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>27.730000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>482</th>
-      <td>Whirlpool Corp.</td>
-      <td>WHR</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>106.550003</td>
-      <td>3.189000</td>
+      <td>Pinnacle West Capital Corporation</td>
+      <td>PNW</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>68.889999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>483</th>
-      <td>Waste Management, Inc.</td>
-      <td>WM</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>206.800003</td>
-      <td>57.402003</td>
+      <td>Ralph Lauren Corporation</td>
+      <td>RL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.179993</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>484</th>
-      <td>Williams Companies Inc.</td>
-      <td>WMB</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>36.369999</td>
-      <td>31.890001</td>
+      <td>Borgwarner Inc.</td>
+      <td>BWA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>30.830000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>485</th>
-      <td>Walmart Inc.</td>
-      <td>WMT</td>
-      <td>0.58%</td>
-      <td>0.006105</td>
-      <td>59.299999</td>
-      <td>184.962008</td>
-      <td>3.0</td>
+      <td>Federal Realty Investment Trust</td>
+      <td>FRT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>101.699997</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>486</th>
-      <td>W.R. Berkley Corporation</td>
-      <td>WRB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>83.610001</td>
-      <td>12.756001</td>
+      <td>Fox Corporation Class A</td>
+      <td>FOXA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>29.040001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>487</th>
-      <td>Westrock Company</td>
-      <td>WRK</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>44.970001</td>
-      <td>9.567000</td>
+      <td>Fmc Corporation</td>
+      <td>FMC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>58.799999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>488</th>
-      <td>West Pharmaceutical Services, Inc.</td>
-      <td>WST</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>358.790009</td>
-      <td>19.134001</td>
+      <td>Dentsply Sirona Inc.</td>
+      <td>XRAY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>33.279999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>489</th>
-      <td>Willis Towers Watson Public Limited Companys</td>
-      <td>WTW</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>272.089996</td>
-      <td>22.323001</td>
+      <td>Generac Holdings Inc</td>
+      <td>GNRC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>113.220001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>490</th>
-      <td>Weyerhaeuser Company</td>
-      <td>WY</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>35.360001</td>
-      <td>19.134001</td>
+      <td>Invesco Ltd</td>
+      <td>IVZ</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>15.630000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>491</th>
-      <td>Wynn Resorts Ltd</td>
-      <td>WYNN</td>
+      <td>Bio-Rad Laboratories, Inc.Class A</td>
+      <td>BIO</td>
       <td>0.02%</td>
-      <td>0.000211</td>
-      <td>99.730003</td>
-      <td>6.378000</td>
+      <td>0.000210</td>
+      <td>334.670013</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>492</th>
-      <td>Xcel Energy, Inc.</td>
-      <td>XEL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>51.060001</td>
-      <td>22.323001</td>
+      <td>Davita Inc.</td>
+      <td>DVA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>125.730003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>493</th>
-      <td>Exxon Mobil Corporation</td>
-      <td>XOM</td>
-      <td>0.98%</td>
-      <td>0.010315</td>
-      <td>104.360001</td>
-      <td>312.522014</td>
-      <td>2.0</td>
+      <td>Comerica Incorporated</td>
+      <td>CMA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>49.860001</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>494</th>
-      <td>Dentsply Sirona Inc.</td>
-      <td>XRAY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>33.279999</td>
-      <td>6.378000</td>
+      <td>Hasbro, Inc.</td>
+      <td>HAS</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>50.369999</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>495</th>
-      <td>Xylem Inc</td>
-      <td>XYL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>127.849998</td>
-      <td>22.323001</td>
+      <td>Mohawk Industries, Inc.</td>
+      <td>MHK</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>120.830002</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>496</th>
-      <td>Yum! Brands, Inc.</td>
-      <td>YUM</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>138.550003</td>
-      <td>28.701001</td>
+      <td>Whirlpool Corp.</td>
+      <td>WHR</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>106.550003</td>
+      <td>3.175000</td>
       <td>0.0</td>
-      <td>YUM</td>
-      <td>100.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>497</th>
-      <td>Zimmer Biomet Holdings, Inc.</td>
-      <td>ZBH</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>125.510002</td>
-      <td>19.134001</td>
+      <td>Zions Bancorporation N.a.</td>
+      <td>ZION</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>39.169998</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>498</th>
-      <td>Zebra Technologies Corporation</td>
-      <td>ZBRA</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>291.649994</td>
-      <td>9.567000</td>
+      <td>V.F. Corporation</td>
+      <td>VFC</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>15.730000</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>499</th>
-      <td>Zions Bancorporation N.a.</td>
-      <td>ZION</td>
+      <td>Paramount Global Class B</td>
+      <td>PARA</td>
       <td>0.01%</td>
       <td>0.000105</td>
-      <td>39.169998</td>
-      <td>3.189000</td>
+      <td>10.300000</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>500</th>
-      <td>Zoetis Inc.</td>
-      <td>ZTS</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>187.860001</td>
-      <td>66.969003</td>
+      <td>NaN</td>
+      <td>GME</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>0.0</td>
-      <td>ZTS</td>
-      <td>10.0</td>
+      <td>GME</td>
+      <td>100.0</td>
     </tr>
   </tbody>
 </table>
@@ -7069,116 +7062,116 @@ movesWithHoldings
   <tbody>
     <tr>
       <th>0</th>
-      <td>Agilent Technologies Inc.</td>
-      <td>A</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>142.860001</td>
-      <td>28.701001</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>Microsoft Corp</td>
+      <td>MSFT</td>
+      <td>7.14%</td>
+      <td>0.052395</td>
+      <td>414.920013</td>
+      <td>1587.499882</td>
+      <td>3.0</td>
+      <td>MSFT</td>
+      <td>1.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>American Airlines Group Inc.</td>
-      <td>AAL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>14.810000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Apple Inc.</td>
+      <td>AAPL</td>
+      <td>6.08%</td>
+      <td>0.052395</td>
+      <td>175.100006</td>
+      <td>1587.499882</td>
+      <td>9.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Apple Inc.</td>
-      <td>AAPL</td>
-      <td>6.16%</td>
-      <td>0.052626</td>
-      <td>175.100006</td>
-      <td>1594.500072</td>
-      <td>9.0</td>
-      <td>NaN</td>
+      <td>Nvidia Corp</td>
+      <td>NVDA</td>
+      <td>4.70%</td>
+      <td>0.049251</td>
+      <td>852.369995</td>
+      <td>1492.249889</td>
+      <td>1.0</td>
+      <td>NVDA</td>
+      <td>1.0</td>
       <td>0.0</td>
-      <td>9.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Abbvie Inc.</td>
-      <td>ABBV</td>
-      <td>0.72%</td>
-      <td>0.007578</td>
-      <td>177.050003</td>
-      <td>229.608010</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>Amazon.com Inc</td>
+      <td>AMZN</td>
+      <td>3.75%</td>
+      <td>0.039296</td>
+      <td>177.580002</td>
+      <td>1190.624911</td>
+      <td>6.0</td>
+      <td>AMZN</td>
+      <td>10.0</td>
+      <td>-4.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Airbnb, Inc. Class A</td>
-      <td>ABNB</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>158.089996</td>
-      <td>51.024002</td>
-      <td>0.0</td>
+      <td>Meta Platforms, Inc. Class A</td>
+      <td>META</td>
+      <td>2.58%</td>
+      <td>0.027036</td>
+      <td>498.190002</td>
+      <td>819.149939</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Abbott Laboratories</td>
-      <td>ABT</td>
-      <td>0.48%</td>
-      <td>0.005052</td>
-      <td>120.040001</td>
-      <td>153.072007</td>
-      <td>1.0</td>
+      <td>Alphabet Inc. Class A</td>
+      <td>GOOGL</td>
+      <td>1.88%</td>
+      <td>0.019701</td>
+      <td>133.350006</td>
+      <td>596.899956</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Arch Capital Group Ltd</td>
-      <td>ACGL</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>87.139999</td>
-      <td>25.512001</td>
-      <td>0.0</td>
+      <td>Berkshire Hathaway Class B</td>
+      <td>BRK.B</td>
+      <td>1.71%</td>
+      <td>0.017919</td>
+      <td>403.390015</td>
+      <td>542.924960</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Accenture Plc</td>
-      <td>ACN</td>
-      <td>0.55%</td>
-      <td>0.005789</td>
-      <td>383.709991</td>
-      <td>175.395008</td>
-      <td>0.0</td>
+      <td>Alphabet Inc. Class C</td>
+      <td>GOOG</td>
+      <td>1.59%</td>
+      <td>0.016662</td>
+      <td>134.199997</td>
+      <td>504.824962</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Adobe Inc.</td>
-      <td>ADBE</td>
-      <td>0.59%</td>
-      <td>0.006210</td>
-      <td>567.940002</td>
-      <td>188.151008</td>
+      <td>Eli Lilly &amp; Co.</td>
+      <td>LLY</td>
+      <td>1.44%</td>
+      <td>0.015090</td>
+      <td>792.280029</td>
+      <td>457.199966</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7186,12 +7179,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>9</th>
-      <td>Analog Devices, Inc.</td>
-      <td>ADI</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>194.660004</td>
-      <td>70.158003</td>
+      <td>Broadcom Inc.</td>
+      <td>AVGO</td>
+      <td>1.42%</td>
+      <td>0.014880</td>
+      <td>1402.260010</td>
+      <td>450.849966</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7199,25 +7192,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>10</th>
-      <td>Archer Daniels Midland Company</td>
-      <td>ADM</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>53.220001</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Jpmorgan Chase &amp; Co.</td>
+      <td>JPM</td>
+      <td>1.24%</td>
+      <td>0.012994</td>
+      <td>186.679993</td>
+      <td>393.699971</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>Automatic Data Processing</td>
-      <td>ADP</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>246.199997</td>
-      <td>76.536003</td>
+      <td>Unitedhealth Group Incorporated</td>
+      <td>UNH</td>
+      <td>1.05%</td>
+      <td>0.011003</td>
+      <td>481.869995</td>
+      <td>333.374975</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7225,38 +7218,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>12</th>
-      <td>Autodesk Inc</td>
-      <td>ADSK</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>260.700012</td>
-      <td>41.457002</td>
-      <td>0.0</td>
+      <td>Visa Inc.</td>
+      <td>V</td>
+      <td>1.04%</td>
+      <td>0.010898</td>
+      <td>280.529999</td>
+      <td>330.199975</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>Ameren Corporation</td>
-      <td>AEE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>72.669998</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Exxon Mobil Corporation</td>
+      <td>XOM</td>
+      <td>0.98%</td>
+      <td>0.010269</td>
+      <td>104.360001</td>
+      <td>311.149977</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>American Electric Power Company, Inc.</td>
-      <td>AEP</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>84.949997</td>
-      <td>31.890001</td>
+      <td>Mastercard Incorporated</td>
+      <td>MA</td>
+      <td>0.91%</td>
+      <td>0.009536</td>
+      <td>468.489990</td>
+      <td>288.924978</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7264,25 +7257,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>15</th>
-      <td>Aes Corporation</td>
-      <td>AES</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>16.070000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Johnson &amp; Johnson</td>
+      <td>JNJ</td>
+      <td>0.90%</td>
+      <td>0.009431</td>
+      <td>159.839996</td>
+      <td>285.749979</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Aflac Inc.</td>
-      <td>AFL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>79.739998</td>
-      <td>31.890001</td>
+      <td>Home Depot, Inc.</td>
+      <td>HD</td>
+      <td>0.89%</td>
+      <td>0.009326</td>
+      <td>380.369995</td>
+      <td>282.574979</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7290,25 +7283,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>17</th>
-      <td>American International Group, Inc.</td>
-      <td>AIG</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>73.169998</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Procter &amp; Gamble Company</td>
+      <td>PG</td>
+      <td>0.87%</td>
+      <td>0.009117</td>
+      <td>159.559998</td>
+      <td>276.224979</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Assurant, Inc.</td>
-      <td>AIZ</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.029999</td>
-      <td>6.378000</td>
+      <td>Costco Wholesale Corp</td>
+      <td>COST</td>
+      <td>0.77%</td>
+      <td>0.008069</td>
+      <td>759.179993</td>
+      <td>244.474982</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7316,51 +7309,51 @@ movesWithHoldings
     </tr>
     <tr>
       <th>19</th>
-      <td>Arthur J. Gallagher &amp; Co.</td>
-      <td>AJG</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>242.520004</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Advanced Micro Devices</td>
+      <td>AMD</td>
+      <td>0.76%</td>
+      <td>0.007964</td>
+      <td>205.360001</td>
+      <td>241.299982</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Akamai Technologies Inc</td>
-      <td>AKAM</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>110.760002</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Merck &amp; Co., Inc.</td>
+      <td>MRK</td>
+      <td>0.74%</td>
+      <td>0.007754</td>
+      <td>124.050003</td>
+      <td>234.949982</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>Albemarle Corporation</td>
-      <td>ALB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>133.199997</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Abbvie Inc.</td>
+      <td>ABBV</td>
+      <td>0.73%</td>
+      <td>0.007650</td>
+      <td>177.050003</td>
+      <td>231.774983</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>Align Technology Inc</td>
-      <td>ALGN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>308.040009</td>
-      <td>15.945001</td>
+      <td>Salesforce, Inc.</td>
+      <td>CRM</td>
+      <td>0.71%</td>
+      <td>0.007440</td>
+      <td>314.640015</td>
+      <td>225.424983</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7368,12 +7361,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>23</th>
-      <td>The Allstate Corporation</td>
-      <td>ALL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>156.380005</td>
-      <td>31.890001</td>
+      <td>Netflix Inc</td>
+      <td>NFLX</td>
+      <td>0.63%</td>
+      <td>0.006602</td>
+      <td>615.830017</td>
+      <td>200.024985</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7381,25 +7374,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>24</th>
-      <td>Allegion Public Limited Company</td>
-      <td>ALLE</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>128.789993</td>
-      <td>9.567000</td>
-      <td>0.0</td>
+      <td>Chevron Corporation</td>
+      <td>CVX</td>
+      <td>0.62%</td>
+      <td>0.006497</td>
+      <td>148.880005</td>
+      <td>196.849985</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>Applied Materials Inc</td>
-      <td>AMAT</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>209.490005</td>
-      <td>124.371006</td>
+      <td>Adobe Inc.</td>
+      <td>ADBE</td>
+      <td>0.60%</td>
+      <td>0.006287</td>
+      <td>567.940002</td>
+      <td>190.499986</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7407,64 +7400,64 @@ movesWithHoldings
     </tr>
     <tr>
       <th>26</th>
-      <td>Amcor Plcs</td>
-      <td>AMCR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>9.170000</td>
-      <td>9.567000</td>
-      <td>1.0</td>
+      <td>Walmart Inc.</td>
+      <td>WMT</td>
+      <td>0.58%</td>
+      <td>0.006078</td>
+      <td>59.299999</td>
+      <td>184.149986</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>Advanced Micro Devices</td>
-      <td>AMD</td>
-      <td>0.73%</td>
-      <td>0.007683</td>
-      <td>205.360001</td>
-      <td>232.797010</td>
-      <td>1.0</td>
+      <td>Accenture Plc</td>
+      <td>ACN</td>
+      <td>0.55%</td>
+      <td>0.005763</td>
+      <td>383.709991</td>
+      <td>174.624987</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>Ametek, Inc.</td>
-      <td>AME</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>181.100006</td>
-      <td>31.890001</td>
-      <td>0.0</td>
+      <td>Bank of America Corporation</td>
+      <td>BAC</td>
+      <td>0.55%</td>
+      <td>0.005763</td>
+      <td>35.150002</td>
+      <td>174.624987</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>Amgen Inc</td>
-      <td>AMGN</td>
-      <td>0.34%</td>
-      <td>0.003579</td>
-      <td>279.390015</td>
-      <td>108.426005</td>
-      <td>0.0</td>
+      <td>Coca-Cola Company</td>
+      <td>KO</td>
+      <td>0.54%</td>
+      <td>0.005659</td>
+      <td>59.810001</td>
+      <td>171.449987</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>Ameriprise Financial, Inc.</td>
-      <td>AMP</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>412.380005</td>
-      <td>31.890001</td>
+      <td>Pepsico, Inc.</td>
+      <td>PEP</td>
+      <td>0.52%</td>
+      <td>0.005449</td>
+      <td>165.369995</td>
+      <td>165.099988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7472,12 +7465,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>31</th>
-      <td>American Tower Corporation</td>
-      <td>AMT</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>206.149994</td>
-      <td>70.158003</td>
+      <td>Thermo Fisher Scientific, Inc.</td>
+      <td>TMO</td>
+      <td>0.52%</td>
+      <td>0.005449</td>
+      <td>581.640015</td>
+      <td>165.099988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7485,25 +7478,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>32</th>
-      <td>Amazon.com Inc</td>
-      <td>AMZN</td>
-      <td>3.75%</td>
-      <td>0.039470</td>
-      <td>177.580002</td>
-      <td>1195.875054</td>
-      <td>6.0</td>
-      <td>AMZN</td>
-      <td>10.0</td>
-      <td>-4.0</td>
+      <td>Linde Plc</td>
+      <td>LIN</td>
+      <td>0.50%</td>
+      <td>0.005239</td>
+      <td>455.600006</td>
+      <td>158.749988</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>Arista Networks</td>
-      <td>ANET</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>287.940002</td>
-      <td>51.024002</td>
+      <td>Mcdonald's Corporation</td>
+      <td>MCD</td>
+      <td>0.49%</td>
+      <td>0.005135</td>
+      <td>290.940002</td>
+      <td>155.574988</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7511,64 +7504,64 @@ movesWithHoldings
     </tr>
     <tr>
       <th>34</th>
-      <td>Ansys Inc</td>
-      <td>ANSS</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>340.480011</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Abbott Laboratories</td>
+      <td>ABT</td>
+      <td>0.48%</td>
+      <td>0.005030</td>
+      <td>120.040001</td>
+      <td>152.399989</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>Aon Plc Class A</td>
-      <td>AON</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>316.010010</td>
-      <td>47.835002</td>
-      <td>0.0</td>
+      <td>The Walt Disney Company</td>
+      <td>DIS</td>
+      <td>0.47%</td>
+      <td>0.004925</td>
+      <td>113.690002</td>
+      <td>149.224989</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>A.O. Smith Corporation</td>
-      <td>AOS</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>85.099998</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Wells Fargo &amp; Co.</td>
+      <td>WFC</td>
+      <td>0.46%</td>
+      <td>0.004820</td>
+      <td>55.810001</td>
+      <td>146.049989</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>Apa Corporation</td>
-      <td>APA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>30.030001</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Cisco Systems, Inc.</td>
+      <td>CSCO</td>
+      <td>0.45%</td>
+      <td>0.004716</td>
+      <td>49.130001</td>
+      <td>142.874989</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>Air Products &amp; Chemicals, Inc.</td>
-      <td>APD</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>238.410004</td>
-      <td>38.268002</td>
+      <td>Intuit Inc</td>
+      <td>INTU</td>
+      <td>0.43%</td>
+      <td>0.004506</td>
+      <td>668.409973</td>
+      <td>136.524990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7576,25 +7569,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>39</th>
-      <td>Amphenol Corporation</td>
-      <td>APH</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>111.919998</td>
-      <td>47.835002</td>
-      <td>0.0</td>
+      <td>Intel Corp</td>
+      <td>INTC</td>
+      <td>0.43%</td>
+      <td>0.004506</td>
+      <td>45.610001</td>
+      <td>136.524990</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>Aptiv Plc</td>
-      <td>APTV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>78.489998</td>
-      <td>15.945001</td>
+      <td>Qualcomm Inc</td>
+      <td>QCOM</td>
+      <td>0.42%</td>
+      <td>0.004401</td>
+      <td>166.559998</td>
+      <td>133.349990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7602,25 +7595,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>41</th>
-      <td>Alexandria Real Estate Equities, Inc.</td>
-      <td>ARE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>126.010002</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Oracle Corp</td>
+      <td>ORCL</td>
+      <td>0.42%</td>
+      <td>0.004401</td>
+      <td>114.059998</td>
+      <td>133.349990</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>Atmos Energy Corporation</td>
-      <td>ATO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>114.680000</td>
-      <td>12.756001</td>
+      <td>Applied Materials Inc</td>
+      <td>AMAT</td>
+      <td>0.41%</td>
+      <td>0.004296</td>
+      <td>209.490005</td>
+      <td>130.174990</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7628,12 +7621,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>43</th>
-      <td>Avalonbay Communities, Inc.</td>
-      <td>AVB</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>185.169998</td>
-      <td>19.134001</td>
+      <td>General Electric Company</td>
+      <td>GE</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>161.009995</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7641,25 +7634,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>44</th>
-      <td>Broadcom Inc.</td>
-      <td>AVGO</td>
-      <td>1.33%</td>
-      <td>0.013999</td>
-      <td>1402.260010</td>
-      <td>424.137019</td>
-      <td>0.0</td>
+      <td>Comcast Corp</td>
+      <td>CMCSA</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>41.849998</td>
+      <td>126.999991</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>Avery Dennison Corp.</td>
-      <td>AVY</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>216.130005</td>
-      <td>12.756001</td>
+      <td>Caterpillar Inc.</td>
+      <td>CAT</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>338.649994</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7667,12 +7660,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>46</th>
-      <td>American Water Works Company, Inc</td>
-      <td>AWK</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>121.699997</td>
-      <td>15.945001</td>
+      <td>International Business Machines Corporation</td>
+      <td>IBM</td>
+      <td>0.40%</td>
+      <td>0.004192</td>
+      <td>193.059998</td>
+      <td>126.999991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7680,25 +7673,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>47</th>
-      <td>Axon Enterprise, Inc.</td>
-      <td>AXON</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>319.880005</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Verizon Communications</td>
+      <td>VZ</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>40.310001</td>
+      <td>123.824991</td>
+      <td>3.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>American Express Company</td>
-      <td>AXP</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>218.910004</td>
-      <td>92.481004</td>
+      <td>Danaher Corporation</td>
+      <td>DHR</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>256.190002</td>
+      <td>123.824991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7706,25 +7699,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>49</th>
-      <td>Autozone, Inc.</td>
-      <td>AZO</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>3079.939941</td>
-      <td>38.268002</td>
-      <td>0.0</td>
+      <td>Uber Technologies, Inc.</td>
+      <td>UBER</td>
+      <td>0.39%</td>
+      <td>0.004087</td>
+      <td>81.300003</td>
+      <td>123.824991</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>50</th>
-      <td>Boeing Company</td>
-      <td>BA</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>200.539993</td>
-      <td>86.103004</td>
+      <td>Servicenow, Inc.</td>
+      <td>NOW</td>
+      <td>0.37%</td>
+      <td>0.003877</td>
+      <td>776.090027</td>
+      <td>117.474991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7732,25 +7725,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>51</th>
-      <td>Bank of America Corporation</td>
-      <td>BAC</td>
-      <td>0.55%</td>
-      <td>0.005789</td>
-      <td>35.150002</td>
-      <td>175.395008</td>
-      <td>4.0</td>
+      <td>Texas Instruments Incorporated</td>
+      <td>TXN</td>
+      <td>0.36%</td>
+      <td>0.003772</td>
+      <td>172.440002</td>
+      <td>114.299991</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>4.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>52</th>
-      <td>Ball Corporation</td>
-      <td>BALL</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>64.519997</td>
-      <td>15.945001</td>
+      <td>Union Pacific Corp.</td>
+      <td>UNP</td>
+      <td>0.36%</td>
+      <td>0.003772</td>
+      <td>253.470001</td>
+      <td>114.299991</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7758,25 +7751,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>53</th>
-      <td>Baxter International Inc.</td>
-      <td>BAX</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>42.500000</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Pfizer Inc.</td>
+      <td>PFE</td>
+      <td>0.35%</td>
+      <td>0.003668</td>
+      <td>25.889999</td>
+      <td>111.124992</td>
+      <td>4.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>54</th>
-      <td>Bath &amp; Body Works, Inc.</td>
-      <td>BBWI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>45.650002</td>
-      <td>6.378000</td>
+      <td>Amgen Inc</td>
+      <td>AMGN</td>
+      <td>0.35%</td>
+      <td>0.003668</td>
+      <td>279.390015</td>
+      <td>111.124992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7784,12 +7777,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>55</th>
-      <td>Best Buy Company, Inc.</td>
-      <td>BBY</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>77.540001</td>
-      <td>12.756001</td>
+      <td>Lowe's Companies Inc.</td>
+      <td>LOW</td>
+      <td>0.33%</td>
+      <td>0.003458</td>
+      <td>242.100006</td>
+      <td>104.774992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7797,12 +7790,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>56</th>
-      <td>Becton, Dickinson and Co.</td>
-      <td>BDX</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>235.649994</td>
-      <td>51.024002</td>
+      <td>Intuitive Surgical Inc.</td>
+      <td>ISRG</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>400.589996</td>
+      <td>101.599992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7810,25 +7803,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>57</th>
-      <td>Franklin Resources, Inc.</td>
-      <td>BEN</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>27.730000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Philip Morris International Inc.</td>
+      <td>PM</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>90.309998</td>
+      <td>101.599992</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>58</th>
-      <td>Brown-Forman Corporation Class B</td>
-      <td>BF.B</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>60.259998</td>
-      <td>9.567000</td>
+      <td>S&amp;p Global Inc.</td>
+      <td>SPGI</td>
+      <td>0.32%</td>
+      <td>0.003353</td>
+      <td>425.440002</td>
+      <td>101.599992</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7836,12 +7829,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>59</th>
-      <td>Bunge Global Sa</td>
-      <td>BG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>90.089996</td>
-      <td>9.567000</td>
+      <td>Conocophillips</td>
+      <td>COP</td>
+      <td>0.31%</td>
+      <td>0.003248</td>
+      <td>111.639999</td>
+      <td>98.424993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7849,12 +7842,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>60</th>
-      <td>Biogen Inc.</td>
-      <td>BIIB</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>221.020004</td>
-      <td>22.323001</td>
+      <td>Honeywell International, Inc.</td>
+      <td>HON</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>199.240005</td>
+      <td>95.249993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7862,12 +7855,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>61</th>
-      <td>Bio-Rad Laboratories, Inc.Class A</td>
-      <td>BIO</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>334.670013</td>
-      <td>6.378000</td>
+      <td>Lam Research Corp</td>
+      <td>LRCX</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>977.520020</td>
+      <td>95.249993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7875,25 +7868,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>62</th>
-      <td>Bank of New York Mellon Corporation</td>
-      <td>BK</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>55.490002</td>
-      <td>31.890001</td>
-      <td>0.0</td>
+      <td>Rtx Corporation</td>
+      <td>RTX</td>
+      <td>0.30%</td>
+      <td>0.003144</td>
+      <td>89.910004</td>
+      <td>95.249993</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>63</th>
-      <td>Booking Holdings Inc.</td>
-      <td>BKNG</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>3461.399902</td>
-      <td>89.292004</td>
+      <td>Goldman Sachs Group Inc.</td>
+      <td>GS</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>392.250000</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7901,12 +7894,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>64</th>
-      <td>Baker Hughes Company</td>
-      <td>BKR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.430000</td>
-      <td>22.323001</td>
+      <td>American Express Company</td>
+      <td>AXP</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>218.910004</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7914,12 +7907,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>65</th>
-      <td>Builders Firstsource, Inc.</td>
-      <td>BLDR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>200.839996</td>
-      <td>19.134001</td>
+      <td>Nike, Inc.</td>
+      <td>NKE</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>99.540001</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7927,12 +7920,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>66</th>
-      <td>Blackrock, Inc.</td>
-      <td>BLK</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>834.469971</td>
-      <td>82.914004</td>
+      <td>Prologis, Inc.</td>
+      <td>PLD</td>
+      <td>0.29%</td>
+      <td>0.003039</td>
+      <td>133.610001</td>
+      <td>92.074993</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7940,51 +7933,51 @@ movesWithHoldings
     </tr>
     <tr>
       <th>67</th>
-      <td>Bristol-Myers Squibb Co.</td>
-      <td>BMY</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>50.919998</td>
-      <td>76.536003</td>
-      <td>1.0</td>
+      <td>Booking Holdings Inc.</td>
+      <td>BKNG</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>3461.399902</td>
+      <td>88.899993</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>68</th>
-      <td>Broadridge Financial Solutions Inc</td>
-      <td>BR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>205.559998</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>At&amp;t Inc.</td>
+      <td>T</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>16.799999</td>
+      <td>88.899993</td>
+      <td>5.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>5.0</td>
     </tr>
     <tr>
       <th>69</th>
-      <td>Berkshire Hathaway Class B</td>
-      <td>BRK.B</td>
-      <td>1.74%</td>
-      <td>0.018314</td>
-      <td>403.390015</td>
-      <td>554.886025</td>
-      <td>1.0</td>
+      <td>Stryker Corporation</td>
+      <td>SYK</td>
+      <td>0.28%</td>
+      <td>0.002934</td>
+      <td>355.850006</td>
+      <td>88.899993</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>70</th>
-      <td>Brown &amp; Brown, Inc.</td>
-      <td>BRO</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>83.949997</td>
-      <td>15.945001</td>
+      <td>Eaton Corporation, Plcs</td>
+      <td>ETN</td>
+      <td>0.27%</td>
+      <td>0.002829</td>
+      <td>296.579987</td>
+      <td>85.724994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -7992,25 +7985,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>71</th>
-      <td>Boston Scientific Corp.</td>
-      <td>BSX</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>67.430000</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>Elevance Health, Inc.</td>
+      <td>ELV</td>
+      <td>0.27%</td>
+      <td>0.002829</td>
+      <td>504.359985</td>
+      <td>85.724994</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>72</th>
-      <td>Borgwarner Inc.</td>
-      <td>BWA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>30.830000</td>
-      <td>6.378000</td>
+      <td>Blackrock, Inc.</td>
+      <td>BLK</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>834.469971</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8018,12 +8011,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>73</th>
-      <td>Blackstone Inc.</td>
-      <td>BX</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>126.599998</td>
-      <td>66.969003</td>
+      <td>Boeing Company</td>
+      <td>BA</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>200.539993</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8031,38 +8024,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>74</th>
-      <td>Boston Properties, Inc.</td>
-      <td>BXP</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>65.809998</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Nextra Energy, Inc.</td>
+      <td>NEE</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>54.970001</td>
+      <td>82.549994</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>75</th>
-      <td>Citigroup Inc.</td>
-      <td>C</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>56.139999</td>
-      <td>79.725004</td>
-      <td>1.0</td>
+      <td>Tjx Companies, Inc.</td>
+      <td>TJX</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>97.940002</td>
+      <td>82.549994</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>76</th>
-      <td>Conagra Brands, Inc.</td>
-      <td>CAG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>27.700001</td>
-      <td>9.567000</td>
+      <td>Vertex Pharmaceuticals Inc</td>
+      <td>VRTX</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>424.029999</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8070,12 +8063,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>77</th>
-      <td>Cardinal Health, Inc.</td>
-      <td>CAH</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>112.639999</td>
-      <td>19.134001</td>
+      <td>Medtronic Plc</td>
+      <td>MDT</td>
+      <td>0.26%</td>
+      <td>0.002725</td>
+      <td>85.059998</td>
+      <td>82.549994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8083,12 +8076,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>78</th>
-      <td>Carrier Global Corporation</td>
-      <td>CARR</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>57.150002</td>
-      <td>35.079002</td>
+      <td>Progressive Corporation</td>
+      <td>PGR</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>189.240005</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8096,12 +8089,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>79</th>
-      <td>Caterpillar Inc.</td>
-      <td>CAT</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>338.649994</td>
-      <td>127.560006</td>
+      <td>Morgan Stanley</td>
+      <td>MS</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>90.040001</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8109,12 +8102,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>80</th>
-      <td>Chubb Limited</td>
-      <td>CB</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>248.259995</td>
-      <td>76.536003</td>
+      <td>United Parcel Service, Inc. Class B</td>
+      <td>UPS</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>150.610001</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8122,12 +8115,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>81</th>
-      <td>Cboe Global Markets, Inc.</td>
-      <td>CBOE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>189.360001</td>
-      <td>15.945001</td>
+      <td>Starbucks Corp</td>
+      <td>SBUX</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>92.459999</td>
+      <td>79.374994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8135,25 +8128,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>82</th>
-      <td>Cbre Group, Inc.</td>
-      <td>CBRE</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>92.160004</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>Citigroup Inc.</td>
+      <td>C</td>
+      <td>0.25%</td>
+      <td>0.002620</td>
+      <td>56.139999</td>
+      <td>79.374994</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>83</th>
-      <td>Crown Castle Inc.</td>
-      <td>CCI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>112.800003</td>
-      <td>35.079002</td>
+      <td>Regeneron Pharmaceuticals Inc</td>
+      <td>REGN</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>971.190002</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8161,12 +8154,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>84</th>
-      <td>Carnival Corporation</td>
-      <td>CCL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>16.070000</td>
-      <td>12.756001</td>
+      <td>Micron Technology, Inc.</td>
+      <td>MU</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>95.769997</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8174,25 +8167,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>85</th>
-      <td>Cadence Design Systems</td>
-      <td>CDNS</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>317.309998</td>
-      <td>60.591003</td>
-      <td>0.0</td>
+      <td>Bristol-Myers Squibb Co.</td>
+      <td>BMY</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>50.919998</td>
+      <td>76.199994</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>86</th>
-      <td>Cdw Corporation</td>
-      <td>CDW</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>246.669998</td>
-      <td>25.512001</td>
+      <td>Automatic Data Processing</td>
+      <td>ADP</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>246.199997</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8200,12 +8193,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>87</th>
-      <td>Celanese Corporation</td>
-      <td>CE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>154.889999</td>
-      <td>12.756001</td>
+      <td>Chubb Limited</td>
+      <td>CB</td>
+      <td>0.24%</td>
+      <td>0.002515</td>
+      <td>248.259995</td>
+      <td>76.199994</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8213,12 +8206,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>88</th>
-      <td>Constellation Energy Corporation</td>
-      <td>CEG</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>175.990005</td>
-      <td>41.457002</td>
+      <td>Marsh &amp; Mclennan Companies, Inc.</td>
+      <td>MMC</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>201.880005</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8226,25 +8219,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>89</th>
-      <td>Cf Industries Holding, Inc.</td>
-      <td>CF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>79.860001</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>The Charles Schwab Corporation</td>
+      <td>SCHW</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>67.639999</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>90</th>
-      <td>Citizens Financial Group, Inc.</td>
-      <td>CFG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>31.930000</td>
-      <td>9.567000</td>
+      <td>Deere &amp; Company</td>
+      <td>DE</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>364.420013</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8252,38 +8245,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>91</th>
-      <td>Church &amp; Dwight Co., Inc.</td>
-      <td>CHD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>100.940002</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>Mondelez International, Inc. Class A</td>
+      <td>MDLZ</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>71.510002</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>92</th>
-      <td>C.H. Robinson Worldwide, Inc.</td>
-      <td>CHRW</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>70.449997</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Boston Scientific Corp.</td>
+      <td>BSX</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>67.430000</td>
+      <td>73.024995</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>93</th>
-      <td>Charter Comm Inc Del Cl a</td>
-      <td>CHTR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>279.059998</td>
-      <td>22.323001</td>
+      <td>Kla Corporation</td>
+      <td>KLAC</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>717.809998</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8294,9 +8287,9 @@ movesWithHoldings
       <td>The Cigna Group</td>
       <td>CI</td>
       <td>0.23%</td>
-      <td>0.002421</td>
+      <td>0.002410</td>
       <td>336.799988</td>
-      <td>73.347003</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8304,12 +8297,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>95</th>
-      <td>Cincinnati Financial Corp</td>
-      <td>CINF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>112.419998</td>
-      <td>12.756001</td>
+      <td>Analog Devices, Inc.</td>
+      <td>ADI</td>
+      <td>0.23%</td>
+      <td>0.002410</td>
+      <td>194.660004</td>
+      <td>73.024995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8317,12 +8310,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>96</th>
-      <td>Colgate-Palmolive Company</td>
-      <td>CL</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>86.830002</td>
-      <td>54.213002</td>
+      <td>Cvs Health Corporation</td>
+      <td>CVS</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>73.889999</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8330,12 +8323,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>97</th>
-      <td>Clorox Company</td>
-      <td>CLX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>150.940002</td>
-      <td>12.756001</td>
+      <td>Lockheed Martin Corp.</td>
+      <td>LMT</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>431.940002</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8343,12 +8336,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>98</th>
-      <td>Comerica Incorporated</td>
-      <td>CMA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>49.860001</td>
-      <td>6.378000</td>
+      <td>American Tower Corporation</td>
+      <td>AMT</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>206.149994</td>
+      <td>69.849995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8356,25 +8349,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>99</th>
-      <td>Comcast Corp</td>
-      <td>CMCSA</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>41.849998</td>
-      <td>127.560006</td>
-      <td>3.0</td>
+      <td>Palo Alto Networks, Inc.</td>
+      <td>PANW</td>
+      <td>0.22%</td>
+      <td>0.002305</td>
+      <td>299.440002</td>
+      <td>69.849995</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>3.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>100</th>
-      <td>Cme Group Inc.</td>
-      <td>CME</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>221.350006</td>
-      <td>60.591003</td>
+      <td>Blackstone Inc.</td>
+      <td>BX</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>126.599998</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8382,12 +8375,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>101</th>
-      <td>Chipotle Mexican Grill, Inc.</td>
-      <td>CMG</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>2720.300049</td>
-      <td>54.213002</td>
+      <td>Fiserv, Inc.</td>
+      <td>FI</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>149.990005</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8395,12 +8388,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>102</th>
-      <td>Cummins Inc.</td>
-      <td>CMI</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>271.309998</td>
-      <td>28.701001</td>
+      <td>Gilead Sciences Inc</td>
+      <td>GILD</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>72.250000</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8408,12 +8401,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>103</th>
-      <td>Cms Energy Corporation</td>
-      <td>CMS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>58.970001</td>
-      <td>12.756001</td>
+      <td>Synopsys Inc</td>
+      <td>SNPS</td>
+      <td>0.21%</td>
+      <td>0.002201</td>
+      <td>594.320007</td>
+      <td>66.674995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8421,25 +8414,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>104</th>
-      <td>Centene Corporation</td>
-      <td>CNC</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>78.320000</td>
-      <td>31.890001</td>
+      <td>Zoetis Inc.</td>
+      <td>ZTS</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>187.860001</td>
+      <td>63.499995</td>
       <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>ZTS</td>
+      <td>10.0</td>
+      <td>-10.0</td>
     </tr>
     <tr>
       <th>105</th>
-      <td>Centerpoint Energy, Inc.</td>
-      <td>CNP</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>27.940001</td>
-      <td>12.756001</td>
+      <td>Cadence Design Systems</td>
+      <td>CDNS</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>317.309998</td>
+      <td>63.499995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8447,12 +8440,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>106</th>
-      <td>Capital One Financial</td>
-      <td>COF</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>135.990005</td>
-      <td>38.268002</td>
+      <td>Equinix, Inc. Reit</td>
+      <td>EQIX</td>
+      <td>0.20%</td>
+      <td>0.002096</td>
+      <td>913.659973</td>
+      <td>63.499995</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8460,12 +8453,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>107</th>
-      <td>The Cooper Companies, Inc.</td>
-      <td>COO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>102.769997</td>
-      <td>12.756001</td>
+      <td>T-Mobile Us, Inc.</td>
+      <td>TMUS</td>
+      <td>0.19%</td>
+      <td>0.001991</td>
+      <td>163.339996</td>
+      <td>60.324996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8473,12 +8466,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>108</th>
-      <td>Conocophillips</td>
-      <td>COP</td>
-      <td>0.31%</td>
-      <td>0.003263</td>
-      <td>111.639999</td>
-      <td>98.859004</td>
+      <td>Intercontinental Exchange Inc.</td>
+      <td>ICE</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>138.070007</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8486,12 +8479,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>109</th>
-      <td>Cencora, Inc.</td>
-      <td>COR</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>235.800003</td>
-      <td>28.701001</td>
+      <td>The Sherwin-Williams Company</td>
+      <td>SHW</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>337.100006</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8499,12 +8492,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>110</th>
-      <td>Costco Wholesale Corp</td>
-      <td>COST</td>
-      <td>0.77%</td>
-      <td>0.008104</td>
-      <td>759.179993</td>
-      <td>245.553011</td>
+      <td>Cme Group Inc.</td>
+      <td>CME</td>
+      <td>0.18%</td>
+      <td>0.001886</td>
+      <td>221.350006</td>
+      <td>57.149996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8512,25 +8505,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>111</th>
-      <td>Campbell Soup Company</td>
-      <td>CPB</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>43.279999</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Csx Corporation</td>
+      <td>CSX</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>38.380001</td>
+      <td>53.974996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>112</th>
-      <td>Copart Inc</td>
-      <td>CPRT</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>54.099998</td>
-      <td>35.079002</td>
+      <td>Waste Management, Inc.</td>
+      <td>WM</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>206.800003</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8538,12 +8531,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>113</th>
-      <td>Camden Property Trust</td>
-      <td>CPT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>96.739998</td>
-      <td>6.378000</td>
+      <td>Chipotle Mexican Grill, Inc.</td>
+      <td>CMG</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>2720.300049</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8551,12 +8544,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>114</th>
-      <td>Charles River Laboratories International, Inc.</td>
-      <td>CRL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>258.920013</td>
-      <td>9.567000</td>
+      <td>The Southern Company</td>
+      <td>SO</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>68.199997</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8564,12 +8557,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>115</th>
-      <td>Salesforce, Inc.</td>
-      <td>CRM</td>
-      <td>0.70%</td>
-      <td>0.007368</td>
-      <td>314.640015</td>
-      <td>223.230010</td>
+      <td>Arista Networks</td>
+      <td>ANET</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>287.940002</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8577,25 +8570,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>116</th>
-      <td>Cisco Systems, Inc.</td>
-      <td>CSCO</td>
-      <td>0.46%</td>
-      <td>0.004842</td>
-      <td>49.130001</td>
-      <td>146.694007</td>
-      <td>2.0</td>
+      <td>Altria Group, Inc.</td>
+      <td>MO</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>39.730000</td>
+      <td>53.974996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>117</th>
-      <td>Costar Group Inc</td>
-      <td>CSGP</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>88.589996</td>
-      <td>25.512001</td>
+      <td>Target Corporation</td>
+      <td>TGT</td>
+      <td>0.17%</td>
+      <td>0.001781</td>
+      <td>150.490005</td>
+      <td>53.974996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8603,25 +8596,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>118</th>
-      <td>Csx Corporation</td>
-      <td>CSX</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>38.380001</td>
-      <td>54.213002</td>
-      <td>1.0</td>
+      <td>Illinois Tool Works Inc.</td>
+      <td>ITW</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>259.070007</td>
+      <td>50.799996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>119</th>
-      <td>Cintas Corp</td>
-      <td>CTAS</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>629.239990</td>
-      <td>41.457002</td>
+      <td>Colgate-Palmolive Company</td>
+      <td>CL</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>86.830002</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8629,25 +8622,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>120</th>
-      <td>Catalent, Inc.</td>
-      <td>CTLT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>56.950001</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Schlumberger Limited</td>
+      <td>SLB</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>49.419998</td>
+      <td>50.799996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>121</th>
-      <td>Coterra Energy Inc.</td>
-      <td>CTRA</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>26.500000</td>
-      <td>15.945001</td>
+      <td>Duke Energy Corporation</td>
+      <td>DUK</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>92.419998</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8655,12 +8648,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>122</th>
-      <td>Cognizant Technology Solutions</td>
-      <td>CTSH</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>79.080002</td>
-      <td>28.701001</td>
+      <td>Mckesson Corporation</td>
+      <td>MCK</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>534.179993</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8668,12 +8661,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>123</th>
-      <td>Corteva, Inc.</td>
-      <td>CTVA</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>53.610001</td>
-      <td>28.701001</td>
+      <td>Airbnb, Inc. Class A</td>
+      <td>ABNB</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>158.089996</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8681,12 +8674,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>124</th>
-      <td>Cvs Health Corporation</td>
-      <td>CVS</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>73.889999</td>
-      <td>70.158003</td>
+      <td>Parker-Hannifin Corporation</td>
+      <td>PH</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>535.510010</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8694,25 +8687,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>125</th>
-      <td>Chevron Corporation</td>
-      <td>CVX</td>
-      <td>0.62%</td>
-      <td>0.006526</td>
-      <td>148.880005</td>
-      <td>197.718009</td>
-      <td>1.0</td>
+      <td>Becton, Dickinson and Co.</td>
+      <td>BDX</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>235.649994</td>
+      <td>50.799996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>126</th>
-      <td>Caesars Entertainment, Inc.</td>
-      <td>CZR</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>41.570000</td>
-      <td>6.378000</td>
+      <td>Eog Resources, Inc.</td>
+      <td>EOG</td>
+      <td>0.16%</td>
+      <td>0.001677</td>
+      <td>115.830002</td>
+      <td>50.799996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8720,12 +8713,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>127</th>
-      <td>Dominion Energy, Inc</td>
-      <td>D</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>46.700001</td>
-      <td>28.701001</td>
+      <td>Nxp Semiconductors N.v.</td>
+      <td>NXPI</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>254.300003</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8733,12 +8726,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>128</th>
-      <td>Delta Air Lines, Inc.</td>
-      <td>DAL</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>41.570000</td>
-      <td>19.134001</td>
+      <td>Amphenol Corporation</td>
+      <td>APH</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>111.919998</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8746,12 +8739,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>129</th>
-      <td>Dayforce, Inc.</td>
-      <td>DAY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>66.610001</td>
-      <td>6.378000</td>
+      <td>Marathon Petroleum Corporation</td>
+      <td>MPC</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>173.750000</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8759,12 +8752,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>130</th>
-      <td>Dupont De Nemours, Inc.</td>
-      <td>DD</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>69.639999</td>
-      <td>22.323001</td>
+      <td>Transdigm Group Incorporated</td>
+      <td>TDG</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>1173.410034</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8772,12 +8765,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>131</th>
-      <td>Deere &amp; Company</td>
-      <td>DE</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>364.420013</td>
-      <td>73.347003</td>
+      <td>Trane Technologies Plc</td>
+      <td>TT</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>288.130005</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8785,12 +8778,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>132</th>
-      <td>Discover Financial Services</td>
-      <td>DFS</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>120.070000</td>
-      <td>22.323001</td>
+      <td>Paypal Holdings, Inc.</td>
+      <td>PYPL</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>59.980000</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8798,25 +8791,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>133</th>
-      <td>Dollar General Corp.</td>
-      <td>DG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>148.440002</td>
-      <td>22.323001</td>
-      <td>0.0</td>
+      <td>U.S. Bancorp</td>
+      <td>USB</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>42.700001</td>
+      <td>47.624996</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>134</th>
-      <td>Quest Diagnostics Inc.</td>
-      <td>DGX</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>125.309998</td>
-      <td>9.567000</td>
+      <td>Northrop Grumman Corp.</td>
+      <td>NOC</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>460.079987</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8824,12 +8817,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>135</th>
-      <td>D.R. Horton Inc.</td>
-      <td>DHI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>152.470001</td>
-      <td>35.079002</td>
+      <td>O'reilly Automotive, Inc.</td>
+      <td>ORLY</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>1077.979980</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8837,12 +8830,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>136</th>
-      <td>Danaher Corporation</td>
-      <td>DHR</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>256.190002</td>
-      <td>124.371006</td>
+      <td>Phillips 66</td>
+      <td>PSX</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>144.259995</td>
+      <td>47.624996</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8850,25 +8843,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>137</th>
-      <td>The Walt Disney Company</td>
-      <td>DIS</td>
-      <td>0.48%</td>
-      <td>0.005052</td>
-      <td>113.690002</td>
-      <td>153.072007</td>
-      <td>1.0</td>
+      <td>Aon Plc Class A</td>
+      <td>AON</td>
+      <td>0.15%</td>
+      <td>0.001572</td>
+      <td>316.010010</td>
+      <td>47.624996</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>138</th>
-      <td>Digital Realty Trust, Inc.</td>
-      <td>DLR</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>153.710007</td>
-      <td>31.890001</td>
+      <td>Hca Healthcare, Inc.</td>
+      <td>HCA</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>314.079987</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8876,12 +8869,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>139</th>
-      <td>Dollar Tree Inc.</td>
-      <td>DLTR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>146.419998</td>
-      <td>22.323001</td>
+      <td>Marriot International Class A</td>
+      <td>MAR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>247.419998</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8889,12 +8882,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>140</th>
-      <td>Dover Corporation</td>
-      <td>DOV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>167.860001</td>
-      <td>15.945001</td>
+      <td>Emerson Electric Co.</td>
+      <td>EMR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>109.510002</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8902,12 +8895,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>141</th>
-      <td>Dow Inc.</td>
-      <td>DOW</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>57.020000</td>
-      <td>28.701001</td>
+      <td>General Dynamics Corporation</td>
+      <td>GD</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>274.709991</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8915,12 +8908,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>142</th>
-      <td>Domino's Pizza Inc.</td>
-      <td>DPZ</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>449.989990</td>
-      <td>12.756001</td>
+      <td>Moody's Corporation</td>
+      <td>MCO</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>382.500000</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8928,12 +8921,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>143</th>
-      <td>Darden Restaurants, Inc.</td>
-      <td>DRI</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>174.050003</td>
-      <td>15.945001</td>
+      <td>Paccar Inc</td>
+      <td>PCAR</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>112.290001</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8941,12 +8934,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>144</th>
-      <td>Dte Energy Company</td>
-      <td>DTE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>109.800003</td>
-      <td>15.945001</td>
+      <td>Pnc Financial Services Group</td>
+      <td>PNC</td>
+      <td>0.14%</td>
+      <td>0.001467</td>
+      <td>153.740005</td>
+      <td>44.449997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8954,12 +8947,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>145</th>
-      <td>Duke Energy Corporation</td>
-      <td>DUK</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>92.419998</td>
-      <td>54.213002</td>
+      <td>Roper Technologies, Inc.</td>
+      <td>ROP</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>547.219971</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8967,12 +8960,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>146</th>
-      <td>Davita Inc.</td>
-      <td>DVA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>125.730003</td>
-      <td>6.378000</td>
+      <td>Norfolk Southern Corp.</td>
+      <td>NSC</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>259.170013</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8980,12 +8973,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>147</th>
-      <td>Devon Energy Corporation</td>
-      <td>DVN</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>44.369999</td>
-      <td>22.323001</td>
+      <td>Ecolab, Inc.</td>
+      <td>ECL</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>225.899994</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -8993,12 +8986,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>148</th>
-      <td>Dexcom, Inc.</td>
-      <td>DXCM</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>122.300003</td>
-      <td>31.890001</td>
+      <td>Fedex Corporation</td>
+      <td>FDX</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>246.770004</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9006,12 +8999,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>149</th>
-      <td>Electronic Arts Inc</td>
-      <td>EA</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>138.809998</td>
-      <td>25.512001</td>
+      <td>Autodesk Inc</td>
+      <td>ADSK</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>260.700012</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9019,25 +9012,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>150</th>
-      <td>Ebay Inc</td>
-      <td>EBAY</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>48.910000</td>
-      <td>19.134001</td>
-      <td>0.0</td>
+      <td>General Motors Company</td>
+      <td>GM</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>40.930000</td>
+      <td>41.274997</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>151</th>
-      <td>Ecolab, Inc.</td>
-      <td>ECL</td>
+      <td>Motorola Solutions, Inc.</td>
+      <td>MSI</td>
       <td>0.13%</td>
-      <td>0.001368</td>
-      <td>225.899994</td>
-      <td>41.457002</td>
+      <td>0.001362</td>
+      <td>335.769989</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9045,12 +9038,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>152</th>
-      <td>Consolidated Edison, Inc.</td>
-      <td>ED</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>89.129997</td>
-      <td>22.323001</td>
+      <td>Pioneer Natural Resource Co.</td>
+      <td>PXD</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>234.699997</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9058,25 +9051,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>153</th>
-      <td>Equifax, Incorporated</td>
-      <td>EFX</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>269.170013</td>
-      <td>25.512001</td>
-      <td>0.0</td>
+      <td>Freeport-Mcmoran Inc.</td>
+      <td>FCX</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>38.320000</td>
+      <td>41.274997</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>154</th>
-      <td>Everest Group, Ltd.</td>
-      <td>EG</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>367.500000</td>
-      <td>12.756001</td>
+      <td>Cintas Corp</td>
+      <td>CTAS</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>629.239990</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9084,12 +9077,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>155</th>
-      <td>Edison International</td>
-      <td>EIX</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>67.459999</td>
-      <td>19.134001</td>
+      <td>Constellation Energy Corporation</td>
+      <td>CEG</td>
+      <td>0.13%</td>
+      <td>0.001362</td>
+      <td>175.990005</td>
+      <td>41.274997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9097,12 +9090,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>156</th>
-      <td>The Estee Lauder Companies Inc. Class A</td>
-      <td>EL</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>147.779999</td>
-      <td>25.512001</td>
+      <td>Autozone, Inc.</td>
+      <td>AZO</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>3079.939941</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9110,12 +9103,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>157</th>
-      <td>Elevance Health, Inc.</td>
-      <td>ELV</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>504.359985</td>
-      <td>86.103004</td>
+      <td>Lululemon Athletica Inc.</td>
+      <td>LULU</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>450.790009</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9123,12 +9116,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>158</th>
-      <td>Eastman Chemical Company</td>
-      <td>EMN</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>88.209999</td>
-      <td>6.378000</td>
+      <td>Hilton Worldwide Holdings Inc.</td>
+      <td>HLT</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>202.410004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9136,12 +9129,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>159</th>
-      <td>Emerson Electric Co.</td>
-      <td>EMR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>109.510002</td>
-      <td>44.646002</td>
+      <td>Air Products &amp; Chemicals, Inc.</td>
+      <td>APD</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>238.410004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9149,12 +9142,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>160</th>
-      <td>Enphase Energy, Inc.</td>
-      <td>ENPH</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>123.970001</td>
-      <td>12.756001</td>
+      <td>Arthur J. Gallagher &amp; Co.</td>
+      <td>AJG</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>242.520004</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9162,12 +9155,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>161</th>
-      <td>Eog Resources, Inc.</td>
-      <td>EOG</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>115.830002</td>
-      <td>51.024002</td>
+      <td>Capital One Financial</td>
+      <td>COF</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>135.990005</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9175,12 +9168,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>162</th>
-      <td>Epam Systems, Inc.</td>
-      <td>EPAM</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>307.920013</td>
-      <td>12.756001</td>
+      <td>Edwards Lifesciences Corp</td>
+      <td>EW</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>87.019997</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9188,12 +9181,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>163</th>
-      <td>Equinix, Inc. Reit</td>
-      <td>EQIX</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>913.659973</td>
-      <td>60.591003</td>
+      <td>Welltower Inc.</td>
+      <td>WELL</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>93.400002</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9201,12 +9194,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>164</th>
-      <td>Equity Residential</td>
-      <td>EQR</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>62.860001</td>
-      <td>15.945001</td>
+      <td>American International Group, Inc.</td>
+      <td>AIG</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>73.169998</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9214,12 +9207,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>165</th>
-      <td>Eqt Corp</td>
-      <td>EQT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>37.540001</td>
-      <td>12.756001</td>
+      <td>3m Company</td>
+      <td>MMM</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>91.440002</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9227,12 +9220,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>166</th>
-      <td>Eversource Energy</td>
-      <td>ES</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>58.910000</td>
-      <td>15.945001</td>
+      <td>Ross Stores Inc</td>
+      <td>ROST</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>149.960007</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9240,12 +9233,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>167</th>
-      <td>Essex Property Trust, Inc</td>
-      <td>ESS</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>243.580002</td>
-      <td>9.567000</td>
+      <td>The Travelers Companies, Inc.</td>
+      <td>TRV</td>
+      <td>0.12%</td>
+      <td>0.001257</td>
+      <td>219.070007</td>
+      <td>38.099997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9253,12 +9246,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>168</th>
-      <td>Eaton Corporation, Plcs</td>
-      <td>ETN</td>
-      <td>0.27%</td>
-      <td>0.002842</td>
-      <td>296.579987</td>
-      <td>86.103004</td>
+      <td>Simon Property Group, Inc.</td>
+      <td>SPG</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>152.410004</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9266,25 +9259,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>169</th>
-      <td>Entergy Corporation</td>
-      <td>ETR</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>102.019997</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Ford Motor Company</td>
+      <td>F</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>12.740000</td>
+      <td>34.924997</td>
+      <td>2.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>170</th>
-      <td>Etsy, Inc.</td>
-      <td>ETSY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>67.709999</td>
-      <td>6.378000</td>
+      <td>Valero Energy Corporation</td>
+      <td>VLO</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>144.699997</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9292,12 +9285,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>171</th>
-      <td>Evergy, Inc.</td>
-      <td>EVRG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>49.990002</td>
-      <td>9.567000</td>
+      <td>Crown Castle Inc.</td>
+      <td>CCI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>112.800003</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9305,12 +9298,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>172</th>
-      <td>Edwards Lifesciences Corp</td>
-      <td>EW</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>87.019997</td>
-      <td>38.268002</td>
+      <td>Idexx Laboratories Inc</td>
+      <td>IDXX</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>571.280029</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9318,12 +9311,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>173</th>
-      <td>Exelon Corporation</td>
-      <td>EXC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>36.200001</td>
-      <td>25.512001</td>
+      <td>United Rentals, Inc.</td>
+      <td>URI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>712.309998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9331,12 +9324,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>174</th>
-      <td>Expeditors International of Washington, Inc.</td>
-      <td>EXPD</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>119.959999</td>
-      <td>12.756001</td>
+      <td>Carrier Global Corporation</td>
+      <td>CARR</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>57.150002</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9344,12 +9337,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>175</th>
-      <td>Expedia Group, Inc.</td>
-      <td>EXPE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>135.520004</td>
-      <td>12.756001</td>
+      <td>Microchip Technology Inc</td>
+      <td>MCHP</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>86.919998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9357,12 +9350,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>176</th>
-      <td>Extra Space Storage, Inc.</td>
-      <td>EXR</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>147.479996</td>
-      <td>22.323001</td>
+      <td>Dexcom, Inc.</td>
+      <td>DXCM</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>122.300003</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9370,25 +9363,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>177</th>
-      <td>Ford Motor Company</td>
-      <td>F</td>
+      <td>Truist Financial Corporation</td>
+      <td>TFC</td>
       <td>0.11%</td>
-      <td>0.001158</td>
-      <td>12.740000</td>
-      <td>35.079002</td>
-      <td>2.0</td>
+      <td>0.001153</td>
+      <td>36.169998</td>
+      <td>34.924997</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>178</th>
-      <td>Diamondback Energy, Inc.</td>
-      <td>FANG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>178.889999</td>
-      <td>25.512001</td>
+      <td>Nucor Corporation</td>
+      <td>NUE</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>187.160004</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9396,12 +9389,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>179</th>
-      <td>Fastenal Co</td>
-      <td>FAST</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>74.790001</td>
-      <td>31.890001</td>
+      <td>Copart Inc</td>
+      <td>CPRT</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>54.099998</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9409,25 +9402,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>180</th>
-      <td>Freeport-Mcmoran Inc.</td>
-      <td>FCX</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>38.320000</td>
-      <td>41.457002</td>
-      <td>1.0</td>
+      <td>Iqvia Holdings Inc.</td>
+      <td>IQV</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>251.559998</td>
+      <td>34.924997</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>181</th>
-      <td>Factset Research Systems</td>
-      <td>FDS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>464.980011</td>
-      <td>12.756001</td>
+      <td>D.R. Horton Inc.</td>
+      <td>DHI</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>152.470001</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9435,12 +9428,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>182</th>
-      <td>Fedex Corporation</td>
-      <td>FDX</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>246.770004</td>
-      <td>41.457002</td>
+      <td>Digital Realty Trust, Inc.</td>
+      <td>DLR</td>
+      <td>0.11%</td>
+      <td>0.001153</td>
+      <td>153.710007</td>
+      <td>34.924997</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9448,12 +9441,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>183</th>
-      <td>Firstenergy Corp.</td>
-      <td>FE</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>37.270000</td>
-      <td>12.756001</td>
+      <td>Fortinet, Inc.</td>
+      <td>FTNT</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>71.389999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9461,12 +9454,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>184</th>
-      <td>F5, Inc.</td>
-      <td>FFIV</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>193.300003</td>
-      <td>9.567000</td>
+      <td>Public Storage</td>
+      <td>PSA</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>285.079987</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9474,12 +9467,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>185</th>
-      <td>Fiserv, Inc.</td>
-      <td>FI</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>149.990005</td>
-      <td>66.969003</td>
+      <td>Msci, Inc.</td>
+      <td>MSCI</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>558.369995</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9487,12 +9480,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>186</th>
-      <td>Fair Isaac Corporation</td>
-      <td>FICO</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>1301.250000</td>
-      <td>22.323001</td>
+      <td>American Electric Power Company, Inc.</td>
+      <td>AEP</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>84.949997</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9500,12 +9493,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>187</th>
-      <td>Fidelity National Information Services, Inc.</td>
-      <td>FIS</td>
+      <td>Te Connectivity Ltd</td>
+      <td>TEL</td>
       <td>0.10%</td>
-      <td>0.001053</td>
-      <td>69.449997</td>
-      <td>31.890001</td>
+      <td>0.001048</td>
+      <td>143.059998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9513,12 +9506,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>188</th>
-      <td>Fifth Third Bancorp</td>
-      <td>FITB</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>35.480000</td>
-      <td>15.945001</td>
+      <td>Williams Companies Inc.</td>
+      <td>WMB</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>36.369999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9526,12 +9519,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>189</th>
-      <td>Fleetcor Technologies, Inc.</td>
-      <td>FLT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>281.670013</td>
-      <td>15.945001</td>
+      <td>Sempra</td>
+      <td>SRE</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>70.739998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9539,12 +9532,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>190</th>
-      <td>Fmc Corporation</td>
-      <td>FMC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>58.799999</td>
-      <td>6.378000</td>
+      <td>Oneok, Inc.</td>
+      <td>OKE</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>76.559998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9552,12 +9545,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>191</th>
-      <td>Fox Corporation Class A</td>
-      <td>FOXA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>29.040001</td>
-      <td>6.378000</td>
+      <td>Monster Beverage Corporation</td>
+      <td>MNST</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>58.500000</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9565,12 +9558,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>192</th>
-      <td>Federal Realty Investment Trust</td>
-      <td>FRT</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>101.699997</td>
-      <td>6.378000</td>
+      <td>Realty Income Corporation</td>
+      <td>O</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>52.709999</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9578,12 +9571,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>193</th>
-      <td>First Solar, Inc.</td>
-      <td>FSLR</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>156.699997</td>
-      <td>12.756001</td>
+      <td>Metlife, Inc.</td>
+      <td>MET</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>69.910004</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9591,12 +9584,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>194</th>
-      <td>Fortinet, Inc.</td>
-      <td>FTNT</td>
+      <td>Humana Inc.</td>
+      <td>HUM</td>
       <td>0.10%</td>
-      <td>0.001053</td>
-      <td>71.389999</td>
-      <td>31.890001</td>
+      <td>0.001048</td>
+      <td>346.829987</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9604,12 +9597,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>195</th>
-      <td>Fortive Corporation</td>
-      <td>FTV</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>84.790001</td>
-      <td>22.323001</td>
+      <td>W.W. Grainger, Inc.</td>
+      <td>GWW</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>987.599976</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9617,12 +9610,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>196</th>
-      <td>General Dynamics Corporation</td>
-      <td>GD</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>274.709991</td>
-      <td>44.646002</td>
+      <td>Aflac Inc.</td>
+      <td>AFL</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>79.739998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9630,12 +9623,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>197</th>
-      <td>General Electric Company</td>
-      <td>GE</td>
-      <td>0.40%</td>
-      <td>0.004210</td>
-      <td>161.009995</td>
-      <td>127.560006</td>
+      <td>Bank of New York Mellon Corporation</td>
+      <td>BK</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>55.490002</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9643,12 +9636,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>198</th>
-      <td>Ge Healthcare Technologies Inc.</td>
-      <td>GEHC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>92.730003</td>
-      <td>25.512001</td>
+      <td>Ametek, Inc.</td>
+      <td>AME</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>181.100006</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9656,12 +9649,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>199</th>
-      <td>Gen Digital Inc.</td>
-      <td>GEN</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>21.700001</td>
-      <td>9.567000</td>
+      <td>Centene Corporation</td>
+      <td>CNC</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>78.320000</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9669,12 +9662,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>200</th>
-      <td>Gilead Sciences Inc</td>
-      <td>GILD</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>72.250000</td>
-      <td>66.969003</td>
+      <td>Fastenal Co</td>
+      <td>FAST</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>74.790001</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9682,12 +9675,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>201</th>
-      <td>General Mills, Inc.</td>
-      <td>GIS</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>64.370003</td>
-      <td>28.701001</td>
+      <td>Ameriprise Financial, Inc.</td>
+      <td>AMP</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>412.380005</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9695,12 +9688,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>202</th>
-      <td>Globe Life Inc.</td>
-      <td>GL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>126.300003</td>
-      <td>9.567000</td>
+      <td>Kimberly-Clark Corp.</td>
+      <td>KMB</td>
+      <td>0.10%</td>
+      <td>0.001048</td>
+      <td>123.489998</td>
+      <td>31.749998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9708,12 +9701,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>203</th>
-      <td>Corning Incorporated</td>
-      <td>GLW</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>33.380001</td>
-      <td>19.134001</td>
+      <td>Fidelity National Information Services, Inc.</td>
+      <td>FIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>69.449997</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9721,38 +9714,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>204</th>
-      <td>General Motors Company</td>
-      <td>GM</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>40.930000</td>
-      <td>41.457002</td>
-      <td>1.0</td>
+      <td>Hess Corporation</td>
+      <td>HES</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>145.610001</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>205</th>
-      <td>NaN</td>
-      <td>GME</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>Johnson Controls International Plc</td>
+      <td>JCI</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>60.360001</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>GME</td>
-      <td>100.0</td>
-      <td>-100.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>206</th>
-      <td>Generac Holdings Inc</td>
-      <td>GNRC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>113.220001</td>
-      <td>6.378000</td>
+      <td>Agilent Technologies Inc.</td>
+      <td>A</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>142.860001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9760,38 +9753,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>207</th>
-      <td>Alphabet Inc. Class C</td>
-      <td>GOOG</td>
-      <td>1.62%</td>
-      <td>0.017051</td>
-      <td>134.199997</td>
-      <td>516.618023</td>
-      <td>3.0</td>
+      <td>The Allstate Corporation</td>
+      <td>ALL</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>156.380005</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>3.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>208</th>
-      <td>Alphabet Inc. Class A</td>
-      <td>GOOGL</td>
-      <td>1.91%</td>
-      <td>0.020103</td>
-      <td>133.350006</td>
-      <td>609.099027</td>
-      <td>4.0</td>
+      <td>Occidental Petroleum Corporation</td>
+      <td>OXY</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>60.680000</td>
+      <td>28.574998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>4.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>209</th>
-      <td>Genuine Parts Company</td>
-      <td>GPC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>149.970001</td>
-      <td>15.945001</td>
+      <td>Constellation Brands, Inc.</td>
+      <td>STZ</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>248.029999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9799,12 +9792,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>210</th>
-      <td>Global Payments, Inc.</td>
-      <td>GPN</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>128.550003</td>
-      <td>25.512001</td>
+      <td>Lennar Corporation Class A</td>
+      <td>LEN</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>160.529999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9812,12 +9805,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>211</th>
-      <td>Garmin Ltd</td>
-      <td>GRMN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>139.669998</td>
-      <td>15.945001</td>
+      <td>Sysco Corporation</td>
+      <td>SYY</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>79.510002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9825,12 +9818,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>212</th>
-      <td>Goldman Sachs Group Inc.</td>
-      <td>GS</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>392.250000</td>
-      <td>95.670004</td>
+      <td>L3harris Technologies, Inc.</td>
+      <td>LHX</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>215.960007</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9838,12 +9831,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>213</th>
-      <td>W.W. Grainger, Inc.</td>
-      <td>GWW</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>987.599976</td>
-      <td>31.890001</td>
+      <td>Old Dominion Freight Line</td>
+      <td>ODFL</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>446.230011</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9851,12 +9844,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>214</th>
-      <td>Halliburton Company</td>
-      <td>HAL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>35.180000</td>
-      <td>22.323001</td>
+      <td>Cencora, Inc.</td>
+      <td>COR</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>235.800003</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9864,12 +9857,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>215</th>
-      <td>Hasbro, Inc.</td>
-      <td>HAS</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>50.369999</td>
-      <td>3.189000</td>
+      <td>Cognizant Technology Solutions</td>
+      <td>CTSH</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>79.080002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9877,12 +9870,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>216</th>
-      <td>Huntington Bancshares Inc</td>
-      <td>HBAN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>13.360000</td>
-      <td>12.756001</td>
+      <td>Paychex Inc</td>
+      <td>PAYX</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>122.339996</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9890,12 +9883,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>217</th>
-      <td>Hca Healthcare, Inc.</td>
-      <td>HCA</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>314.079987</td>
-      <td>44.646002</td>
+      <td>Otis Worldwide Corporation</td>
+      <td>OTIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>95.389999</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9903,12 +9896,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>218</th>
-      <td>Home Depot, Inc.</td>
-      <td>HD</td>
-      <td>0.89%</td>
-      <td>0.009367</td>
-      <td>380.369995</td>
-      <td>283.821013</td>
+      <td>Dow Inc.</td>
+      <td>DOW</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>57.020000</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9916,12 +9909,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>219</th>
-      <td>Hess Corporation</td>
-      <td>HES</td>
+      <td>Prudential Financial, Inc.</td>
+      <td>PRU</td>
       <td>0.09%</td>
-      <td>0.000947</td>
-      <td>145.610001</td>
-      <td>28.701001</td>
+      <td>0.000943</td>
+      <td>107.089996</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9929,25 +9922,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>220</th>
-      <td>The Hartford Financial Services Group, Inc.</td>
-      <td>HIG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>94.809998</td>
-      <td>22.323001</td>
+      <td>Yum! Brands, Inc.</td>
+      <td>YUM</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>138.550003</td>
+      <td>28.574998</td>
       <td>0.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>YUM</td>
+      <td>100.0</td>
+      <td>-100.0</td>
     </tr>
     <tr>
       <th>221</th>
-      <td>Huntington Ingalls Industries, Inc.</td>
-      <td>HII</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>296.429993</td>
-      <td>9.567000</td>
+      <td>Cummins Inc.</td>
+      <td>CMI</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>271.309998</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9955,12 +9948,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>222</th>
-      <td>Hilton Worldwide Holdings Inc.</td>
-      <td>HLT</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>202.410004</td>
-      <td>38.268002</td>
+      <td>Corteva, Inc.</td>
+      <td>CTVA</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>53.610001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9968,12 +9961,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>223</th>
-      <td>Hologic Inc</td>
-      <td>HOLX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>74.599998</td>
-      <td>12.756001</td>
+      <td>Republic Services Inc.</td>
+      <td>RSG</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>184.940002</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9981,12 +9974,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>224</th>
-      <td>Honeywell International, Inc.</td>
-      <td>HON</td>
-      <td>0.31%</td>
-      <td>0.003263</td>
-      <td>199.240005</td>
-      <td>98.859004</td>
+      <td>Dominion Energy, Inc</td>
+      <td>D</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>46.700001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -9994,12 +9987,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>225</th>
-      <td>Hewlett Packard Enterprise Company</td>
-      <td>HPE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>17.150000</td>
-      <td>15.945001</td>
+      <td>General Mills, Inc.</td>
+      <td>GIS</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>64.370003</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10007,12 +10000,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>226</th>
-      <td>Hp Inc.</td>
-      <td>HPQ</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>29.059999</td>
-      <td>19.134001</td>
+      <td>Ingersoll Rand Inc.</td>
+      <td>IR</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>91.540001</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10020,12 +10013,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>227</th>
-      <td>Hormel Foods Corporation</td>
-      <td>HRL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>33.770000</td>
-      <td>6.378000</td>
+      <td>Gartner, Inc.</td>
+      <td>IT</td>
+      <td>0.09%</td>
+      <td>0.000943</td>
+      <td>469.750000</td>
+      <td>28.574998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10033,12 +10026,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>228</th>
-      <td>Henry Schein Inc</td>
-      <td>HSIC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>76.790001</td>
-      <td>6.378000</td>
+      <td>Newmont Corporation</td>
+      <td>NEM</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>33.480000</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10046,12 +10039,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>229</th>
-      <td>Host Hotels &amp; Resorts, Inc.</td>
-      <td>HST</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>21.070000</td>
-      <td>9.567000</td>
+      <td>Martin Marietta Materials</td>
+      <td>MLM</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>601.900024</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10059,12 +10052,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>230</th>
-      <td>The Hershey Company</td>
-      <td>HSY</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>184.000000</td>
-      <td>22.323001</td>
+      <td>Ge Healthcare Technologies Inc.</td>
+      <td>GEHC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>92.730003</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10072,12 +10065,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>231</th>
-      <td>Hubbell Incorporated</td>
-      <td>HUBB</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>387.739990</td>
-      <td>15.945001</td>
+      <td>Costar Group Inc</td>
+      <td>CSGP</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>88.589996</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10085,12 +10078,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>232</th>
-      <td>Humana Inc.</td>
-      <td>HUM</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>346.829987</td>
-      <td>31.890001</td>
+      <td>Monolithic Power Systems, Inc.</td>
+      <td>MPWR</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>735.679993</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10098,12 +10091,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>233</th>
-      <td>Howmet Aerospace Inc.</td>
-      <td>HWM</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>67.790001</td>
-      <td>19.134001</td>
+      <td>Vulcan Materials Company</td>
+      <td>VMC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>267.850006</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10111,12 +10104,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>234</th>
-      <td>International Business Machines Corporation</td>
-      <td>IBM</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>193.059998</td>
-      <td>124.371006</td>
+      <td>Exelon Corporation</td>
+      <td>EXC</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>36.200001</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10124,12 +10117,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>235</th>
-      <td>Intercontinental Exchange Inc.</td>
-      <td>ICE</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>138.070007</td>
-      <td>57.402003</td>
+      <td>Verisk Analytics, Inc.</td>
+      <td>VRSK</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>239.929993</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10137,12 +10130,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>236</th>
-      <td>Idexx Laboratories Inc</td>
-      <td>IDXX</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>571.280029</td>
-      <td>35.079002</td>
+      <td>Quanta Services, Inc.</td>
+      <td>PWR</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>243.339996</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10150,12 +10143,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>237</th>
-      <td>Idex Corporation</td>
-      <td>IEX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>237.619995</td>
-      <td>12.756001</td>
+      <td>On Semiconductor Corp</td>
+      <td>ON</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>79.879997</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10163,25 +10156,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>238</th>
-      <td>International Flavors &amp; Fragrances Inc.</td>
-      <td>IFF</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>76.040001</td>
-      <td>15.945001</td>
-      <td>0.0</td>
+      <td>Pg&amp;e Corporation</td>
+      <td>PCG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>16.840000</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>239</th>
-      <td>Illumina Inc</td>
-      <td>ILMN</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>137.699997</td>
-      <td>15.945001</td>
+      <td>The Estee Lauder Companies Inc. Class A</td>
+      <td>EL</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>147.779999</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10189,12 +10182,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>240</th>
-      <td>Incyte Genomics Inc</td>
-      <td>INCY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>59.720001</td>
-      <td>9.567000</td>
+      <td>Electronic Arts Inc</td>
+      <td>EA</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>138.809998</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10202,38 +10195,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>241</th>
-      <td>Intel Corp</td>
-      <td>INTC</td>
-      <td>0.42%</td>
-      <td>0.004421</td>
-      <td>45.610001</td>
-      <td>133.938006</td>
-      <td>2.0</td>
+      <td>Global Payments, Inc.</td>
+      <td>GPN</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>128.550003</td>
+      <td>25.399998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>242</th>
-      <td>Intuit Inc</td>
-      <td>INTU</td>
-      <td>0.43%</td>
-      <td>0.004526</td>
-      <td>668.409973</td>
-      <td>137.127006</td>
-      <td>0.0</td>
+      <td>Kinder Morgan, Inc.</td>
+      <td>KMI</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>17.570000</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>243</th>
-      <td>Invitation Homes Inc.</td>
-      <td>INVH</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>35.410000</td>
-      <td>15.945001</td>
+      <td>Equifax, Incorporated</td>
+      <td>EFX</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>269.170013</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10241,12 +10234,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>244</th>
-      <td>International Paper Co.</td>
-      <td>IP</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>35.889999</td>
-      <td>9.567000</td>
+      <td>Rockwell Automation, Inc.</td>
+      <td>ROK</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>288.170013</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10254,12 +10247,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>245</th>
-      <td>The Interpublic Group of Companies, Inc.</td>
-      <td>IPG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>31.940001</td>
-      <td>9.567000</td>
+      <td>Cdw Corporation</td>
+      <td>CDW</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>246.669998</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10267,12 +10260,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>246</th>
-      <td>Iqvia Holdings Inc.</td>
-      <td>IQV</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>251.559998</td>
-      <td>35.079002</td>
+      <td>Ppg Industries, Inc.</td>
+      <td>PPG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>139.220001</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10280,12 +10273,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>247</th>
-      <td>Ingersoll Rand Inc.</td>
-      <td>IR</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>91.540001</td>
-      <td>28.701001</td>
+      <td>Dollar General Corp.</td>
+      <td>DG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>148.440002</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10293,12 +10286,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>248</th>
-      <td>Iron Mountain Inc.</td>
-      <td>IRM</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>78.930000</td>
-      <td>15.945001</td>
+      <td>Diamondback Energy, Inc.</td>
+      <td>FANG</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>178.889999</td>
+      <td>25.399998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10306,25 +10299,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>249</th>
-      <td>Intuitive Surgical Inc.</td>
-      <td>ISRG</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>400.589996</td>
-      <td>102.048005</td>
-      <td>0.0</td>
+      <td>Kenvue Inc.</td>
+      <td>KVUE</td>
+      <td>0.08%</td>
+      <td>0.000838</td>
+      <td>18.959999</td>
+      <td>25.399998</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>250</th>
-      <td>Gartner, Inc.</td>
-      <td>IT</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>469.750000</td>
-      <td>25.512001</td>
+      <td>Arch Capital Group Ltd</td>
+      <td>ACGL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>87.139999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10332,12 +10325,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>251</th>
-      <td>Illinois Tool Works Inc.</td>
-      <td>ITW</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>259.070007</td>
-      <td>54.213002</td>
+      <td>The Kroger Co.</td>
+      <td>KR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>49.369999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10345,12 +10338,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>252</th>
-      <td>Invesco Ltd</td>
-      <td>IVZ</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>15.630000</td>
-      <td>6.378000</td>
+      <td>Fair Isaac Corporation</td>
+      <td>FICO</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>1301.250000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10358,12 +10351,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>253</th>
-      <td>Jacobs Solutions Inc.</td>
-      <td>J</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>147.139999</td>
-      <td>12.756001</td>
+      <td>Biogen Inc.</td>
+      <td>BIIB</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>221.020004</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10371,12 +10364,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>254</th>
-      <td>Jb Hunt Transport Services Inc</td>
-      <td>JBHT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>201.360001</td>
-      <td>12.756001</td>
+      <td>Halliburton Company</td>
+      <td>HAL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>35.180000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10384,12 +10377,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>255</th>
-      <td>Jabil Inc.</td>
-      <td>JBL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>148.619995</td>
-      <td>12.756001</td>
+      <td>Moderna, Inc.</td>
+      <td>MRNA</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>96.000000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10397,12 +10390,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>256</th>
-      <td>Johnson Controls International Plc</td>
-      <td>JCI</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>60.360001</td>
-      <td>28.701001</td>
+      <td>Public Service Enterprise Group Incorporated</td>
+      <td>PEG</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>63.360001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10410,12 +10403,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>257</th>
-      <td>Henry (Jack) &amp; Associates</td>
-      <td>JKHY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>173.550003</td>
-      <td>9.567000</td>
+      <td>Dollar Tree Inc.</td>
+      <td>DLTR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>146.419998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10423,25 +10416,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>258</th>
-      <td>Johnson &amp; Johnson</td>
-      <td>JNJ</td>
-      <td>0.91%</td>
-      <td>0.009578</td>
-      <td>159.839996</td>
-      <td>290.199013</td>
-      <td>1.0</td>
+      <td>Xylem Inc</td>
+      <td>XYL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>127.849998</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>259</th>
-      <td>Juniper Networks Inc</td>
-      <td>JNPR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>37.639999</td>
-      <td>9.567000</td>
+      <td>Vici Properties Inc.</td>
+      <td>VICI</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.719999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10449,25 +10442,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>260</th>
-      <td>Jpmorgan Chase &amp; Co.</td>
-      <td>JPM</td>
-      <td>1.25%</td>
-      <td>0.013157</td>
-      <td>186.679993</td>
-      <td>398.625018</td>
-      <td>2.0</td>
+      <td>Extra Space Storage, Inc.</td>
+      <td>EXR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>147.479996</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>261</th>
-      <td>Kellanova</td>
-      <td>K</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>53.720001</td>
-      <td>9.567000</td>
+      <td>Discover Financial Services</td>
+      <td>DFS</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>120.070000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10475,12 +10468,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>262</th>
-      <td>Keurig Dr Pepper Inc.</td>
-      <td>KDP</td>
+      <td>Fortive Corporation</td>
+      <td>FTV</td>
       <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.100000</td>
-      <td>22.323001</td>
+      <td>0.000734</td>
+      <td>84.790001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10488,12 +10481,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>263</th>
-      <td>Keycorp</td>
-      <td>KEY</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>14.580000</td>
-      <td>9.567000</td>
+      <td>Baker Hughes Company</td>
+      <td>BKR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.430000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10501,12 +10494,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>264</th>
-      <td>Keysight Technologies, Inc.</td>
-      <td>KEYS</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>157.500000</td>
-      <td>19.134001</td>
+      <td>Consolidated Edison, Inc.</td>
+      <td>ED</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>89.129997</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10514,12 +10507,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>265</th>
-      <td>The Kraft Heinz Company</td>
-      <td>KHC</td>
+      <td>Dupont De Nemours, Inc.</td>
+      <td>DD</td>
       <td>0.07%</td>
-      <td>0.000737</td>
-      <td>35.040001</td>
-      <td>22.323001</td>
+      <td>0.000734</td>
+      <td>69.639999</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10527,12 +10520,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>266</th>
-      <td>Kimco Realty Corp.</td>
-      <td>KIM</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>19.620001</td>
-      <td>9.567000</td>
+      <td>Keurig Dr Pepper Inc.</td>
+      <td>KDP</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>29.100000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10540,12 +10533,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>267</th>
-      <td>Kla Corporation</td>
-      <td>KLAC</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>717.809998</td>
-      <td>70.158003</td>
+      <td>Ansys Inc</td>
+      <td>ANSS</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>340.480011</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10553,12 +10546,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>268</th>
-      <td>Kimberly-Clark Corp.</td>
-      <td>KMB</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>123.489998</td>
-      <td>31.890001</td>
+      <td>Charter Comm Inc Del Cl a</td>
+      <td>CHTR</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>279.059998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10566,25 +10559,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>269</th>
-      <td>Kinder Morgan, Inc.</td>
-      <td>KMI</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>17.570000</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Royal Caribbean Group</td>
+      <td>RCL</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>125.300003</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>270</th>
-      <td>Carmax Inc.</td>
-      <td>KMX</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>79.580002</td>
-      <td>9.567000</td>
+      <td>Archer Daniels Midland Company</td>
+      <td>ADM</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>53.220001</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10592,25 +10585,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>271</th>
-      <td>Coca-Cola Company</td>
-      <td>KO</td>
-      <td>0.54%</td>
-      <td>0.005684</td>
-      <td>59.810001</td>
-      <td>172.206008</td>
-      <td>2.0</td>
+      <td>Devon Energy Corporation</td>
+      <td>DVN</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>44.369999</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>272</th>
-      <td>The Kroger Co.</td>
-      <td>KR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>49.369999</td>
-      <td>25.512001</td>
+      <td>The Hartford Financial Services Group, Inc.</td>
+      <td>HIG</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>94.809998</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10618,25 +10611,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>273</th>
-      <td>Kenvue Inc.</td>
-      <td>KVUE</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>18.959999</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Cbre Group, Inc.</td>
+      <td>CBRE</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>92.160004</td>
+      <td>22.224998</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>274</th>
-      <td>Loews Corporation</td>
-      <td>L</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>74.349998</td>
-      <td>9.567000</td>
+      <td>The Hershey Company</td>
+      <td>HSY</td>
+      <td>0.07%</td>
+      <td>0.000734</td>
+      <td>184.000000</td>
+      <td>22.224998</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10644,12 +10637,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>275</th>
-      <td>Leidos Holdings, Inc.</td>
-      <td>LDOS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>129.520004</td>
-      <td>12.756001</td>
+      <td>Willis Towers Watson Public Limited Companys</td>
+      <td>WTW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>272.089996</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10657,12 +10650,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>276</th>
-      <td>Lennar Corporation Class A</td>
-      <td>LEN</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>160.529999</td>
-      <td>28.701001</td>
+      <td>The Kraft Heinz Company</td>
+      <td>KHC</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>35.040001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10670,12 +10663,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>277</th>
-      <td>Laboratory Corporation of America Holdings</td>
-      <td>LH</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>219.100006</td>
-      <td>12.756001</td>
+      <td>Cardinal Health, Inc.</td>
+      <td>CAH</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>112.639999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10683,12 +10676,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>278</th>
-      <td>L3harris Technologies, Inc.</td>
-      <td>LHX</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>215.960007</td>
-      <td>28.701001</td>
+      <td>Keysight Technologies, Inc.</td>
+      <td>KEYS</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>157.500000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10696,12 +10689,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>279</th>
-      <td>Linde Plc</td>
-      <td>LIN</td>
-      <td>0.51%</td>
-      <td>0.005368</td>
-      <td>455.600006</td>
-      <td>162.639007</td>
+      <td>Mettler-Toledo International</td>
+      <td>MTD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>1286.540039</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10709,12 +10702,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>280</th>
-      <td>Lkq Corporation</td>
-      <td>LKQ</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>52.090000</td>
-      <td>9.567000</td>
+      <td>Tractor Supply Co</td>
+      <td>TSCO</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>253.259995</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10722,12 +10715,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>281</th>
-      <td>Eli Lilly &amp; Co.</td>
-      <td>LLY</td>
-      <td>1.40%</td>
-      <td>0.014735</td>
-      <td>792.280029</td>
-      <td>446.460020</td>
+      <td>Xcel Energy, Inc.</td>
+      <td>XEL</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>51.060001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10735,12 +10728,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>282</th>
-      <td>Lockheed Martin Corp.</td>
-      <td>LMT</td>
-      <td>0.22%</td>
-      <td>0.002316</td>
-      <td>431.940002</td>
-      <td>70.158003</td>
+      <td>Delta Air Lines, Inc.</td>
+      <td>DAL</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>41.570000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10748,12 +10741,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>283</th>
-      <td>Alliant Energy Corporation</td>
-      <td>LNT</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>48.540001</td>
-      <td>9.567000</td>
+      <td>Ulta Beauty, Inc.</td>
+      <td>ULTA</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>546.539978</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10761,12 +10754,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>284</th>
-      <td>Lowe's Companies Inc.</td>
-      <td>LOW</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>242.100006</td>
-      <td>102.048005</td>
+      <td>West Pharmaceutical Services, Inc.</td>
+      <td>WST</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>358.790009</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10774,12 +10767,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>285</th>
-      <td>Lam Research Corp</td>
-      <td>LRCX</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>977.520020</td>
-      <td>92.481004</td>
+      <td>Howmet Aerospace Inc.</td>
+      <td>HWM</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>67.790001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10787,12 +10780,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>286</th>
-      <td>Lululemon Athletica Inc.</td>
-      <td>LULU</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>450.790009</td>
-      <td>41.457002</td>
+      <td>Zimmer Biomet Holdings, Inc.</td>
+      <td>ZBH</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>125.510002</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10800,12 +10793,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>287</th>
-      <td>Southwest Airlines Co.</td>
-      <td>LUV</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>34.110001</td>
-      <td>15.945001</td>
+      <td>Resmed Inc.</td>
+      <td>RMD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>180.720001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10813,12 +10806,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>288</th>
-      <td>Las Vegas Sands Corp.</td>
-      <td>LVS</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>50.700001</td>
-      <td>15.945001</td>
+      <td>Hp Inc.</td>
+      <td>HPQ</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>29.059999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10826,12 +10819,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>289</th>
-      <td>Lamb Weston Holdings, Inc.</td>
-      <td>LW</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>102.239998</td>
-      <td>9.567000</td>
+      <td>Weyerhaeuser Company</td>
+      <td>WY</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>35.360001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10839,12 +10832,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>290</th>
-      <td>Lyondellbasell Industries N.v. Class A</td>
-      <td>LYB</td>
+      <td>Wabtec Inc.</td>
+      <td>WAB</td>
       <td>0.06%</td>
-      <td>0.000632</td>
-      <td>101.660004</td>
-      <td>19.134001</td>
+      <td>0.000629</td>
+      <td>142.070007</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10852,12 +10845,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>291</th>
-      <td>Live Nation Entertainment Inc.</td>
-      <td>LYV</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>98.699997</td>
-      <td>9.567000</td>
+      <td>Edison International</td>
+      <td>EIX</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>67.459999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10865,12 +10858,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>292</th>
-      <td>Mastercard Incorporated</td>
-      <td>MA</td>
-      <td>0.92%</td>
-      <td>0.009683</td>
-      <td>468.489990</td>
-      <td>293.388013</td>
+      <td>T Rowe Price Group Inc</td>
+      <td>TROW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>116.550003</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10878,12 +10871,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>293</th>
-      <td>Mid-America Apartment Communities, Inc.</td>
-      <td>MAA</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>129.300003</td>
-      <td>9.567000</td>
+      <td>Lyondellbasell Industries N.v. Class A</td>
+      <td>LYB</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>101.660004</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10891,12 +10884,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>294</th>
-      <td>Marriot International Class A</td>
-      <td>MAR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>247.419998</td>
-      <td>44.646002</td>
+      <td>Avalonbay Communities, Inc.</td>
+      <td>AVB</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>185.169998</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10904,12 +10897,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>295</th>
-      <td>Masco Corporation</td>
-      <td>MAS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>77.879997</td>
-      <td>12.756001</td>
+      <td>Ebay Inc</td>
+      <td>EBAY</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>48.910000</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10917,12 +10910,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>296</th>
-      <td>Mcdonald's Corporation</td>
-      <td>MCD</td>
-      <td>0.49%</td>
-      <td>0.005157</td>
-      <td>290.940002</td>
-      <td>156.261007</td>
+      <td>Corning Incorporated</td>
+      <td>GLW</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>33.380001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10930,12 +10923,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>297</th>
-      <td>Microchip Technology Inc</td>
-      <td>MCHP</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>86.919998</td>
-      <td>35.079002</td>
+      <td>Wec Energy Group, Inc.</td>
+      <td>WEC</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>79.720001</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10943,12 +10936,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>298</th>
-      <td>Mckesson Corporation</td>
-      <td>MCK</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>534.179993</td>
-      <td>51.024002</td>
+      <td>Builders Firstsource, Inc.</td>
+      <td>BLDR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>200.839996</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10956,12 +10949,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>299</th>
-      <td>Moody's Corporation</td>
-      <td>MCO</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>382.500000</td>
-      <td>44.646002</td>
+      <td>Church &amp; Dwight Co., Inc.</td>
+      <td>CHD</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>100.940002</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10969,25 +10962,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>300</th>
-      <td>Mondelez International, Inc. Class A</td>
-      <td>MDLZ</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>71.510002</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>Nvr, Inc.</td>
+      <td>NVR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>7651.830078</td>
+      <td>19.049999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>301</th>
-      <td>Medtronic Plc</td>
-      <td>MDT</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>85.059998</td>
-      <td>82.914004</td>
+      <td>Broadridge Financial Solutions Inc</td>
+      <td>BR</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>205.559998</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -10995,12 +10988,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>302</th>
-      <td>Metlife, Inc.</td>
-      <td>MET</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>69.910004</td>
-      <td>31.890001</td>
+      <td>Pultegroup, Inc.</td>
+      <td>PHM</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>111.029999</td>
+      <td>19.049999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11008,25 +11001,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>303</th>
-      <td>Meta Platforms, Inc. Class A</td>
-      <td>META</td>
-      <td>2.54%</td>
-      <td>0.026734</td>
-      <td>498.190002</td>
-      <td>810.006036</td>
-      <td>1.0</td>
+      <td>Take-Two Interactive Software Inc</td>
+      <td>TTWO</td>
+      <td>0.06%</td>
+      <td>0.000629</td>
+      <td>146.330002</td>
+      <td>19.049999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>304</th>
-      <td>Mgm Resorts International</td>
-      <td>MGM</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>42.009998</td>
-      <td>9.567000</td>
+      <td>Iron Mountain Inc.</td>
+      <td>IRM</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>78.930000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11034,12 +11027,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>305</th>
-      <td>Mohawk Industries, Inc.</td>
-      <td>MHK</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>120.830002</td>
-      <td>3.189000</td>
+      <td>Fifth Third Bancorp</td>
+      <td>FITB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>35.480000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11047,12 +11040,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>306</th>
-      <td>Mccormick &amp; Company, Incorporated Non-Vtg Cs</td>
-      <td>MKC</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>68.480003</td>
-      <td>12.756001</td>
+      <td>Dover Corporation</td>
+      <td>DOV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>167.860001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11060,12 +11053,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>307</th>
-      <td>Marketaxess Holdings Inc.</td>
-      <td>MKTX</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>214.770004</td>
-      <td>6.378000</td>
+      <td>American Water Works Company, Inc</td>
+      <td>AWK</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>121.699997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11073,12 +11066,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>308</th>
-      <td>Martin Marietta Materials</td>
-      <td>MLM</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>601.900024</td>
-      <td>25.512001</td>
+      <td>Steris Plc</td>
+      <td>STE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>233.270004</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11086,12 +11079,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>309</th>
-      <td>Marsh &amp; Mclennan Companies, Inc.</td>
-      <td>MMC</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>201.880005</td>
-      <td>73.347003</td>
+      <td>State Street Corporation</td>
+      <td>STT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>74.000000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11099,12 +11092,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>310</th>
-      <td>3m Company</td>
-      <td>MMM</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>91.440002</td>
-      <td>38.268002</td>
+      <td>M&amp;t Bank Corp.</td>
+      <td>MTB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>139.949997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11112,12 +11105,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>311</th>
-      <td>Monster Beverage Corporation</td>
-      <td>MNST</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>58.500000</td>
-      <td>31.890001</td>
+      <td>Raymond James Financial, Inc.</td>
+      <td>RJF</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>120.870003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11125,25 +11118,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>312</th>
-      <td>Altria Group, Inc.</td>
-      <td>MO</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>39.730000</td>
-      <td>54.213002</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>313</th>
       <td>Molina Healthcare, Inc.</td>
       <td>MOH</td>
       <td>0.05%</td>
-      <td>0.000526</td>
+      <td>0.000524</td>
       <td>386.549988</td>
-      <td>15.945001</td>
+      <td>15.874999</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>313</th>
+      <td>Sba Communications Corp</td>
+      <td>SBAC</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>212.050003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11151,12 +11144,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>314</th>
-      <td>The Mosaic Company</td>
-      <td>MOS</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>31.290001</td>
-      <td>6.378000</td>
+      <td>Aptiv Plc</td>
+      <td>APTV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>78.489998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11164,12 +11157,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>315</th>
-      <td>Marathon Petroleum Corporation</td>
-      <td>MPC</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>173.750000</td>
-      <td>47.835002</td>
+      <td>Ptc, Inc</td>
+      <td>PTC</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>187.220001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11177,12 +11170,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>316</th>
-      <td>Monolithic Power Systems, Inc.</td>
-      <td>MPWR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>735.679993</td>
-      <td>25.512001</td>
+      <td>Dte Energy Company</td>
+      <td>DTE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>109.800003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11190,25 +11183,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>317</th>
-      <td>Merck &amp; Co., Inc.</td>
-      <td>MRK</td>
-      <td>0.75%</td>
-      <td>0.007894</td>
-      <td>124.050003</td>
-      <td>239.175011</td>
-      <td>1.0</td>
+      <td>Axon Enterprise, Inc.</td>
+      <td>AXON</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>319.880005</td>
+      <td>15.874999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>318</th>
-      <td>Moderna, Inc.</td>
-      <td>MRNA</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>96.000000</td>
-      <td>22.323001</td>
+      <td>Illumina Inc</td>
+      <td>ILMN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>137.699997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11216,12 +11209,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>319</th>
-      <td>Marathon Oil Corporation</td>
-      <td>MRO</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>24.260000</td>
-      <td>9.567000</td>
+      <td>Targa Resources Corp.</td>
+      <td>TRGP</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>100.989998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11229,12 +11222,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>320</th>
-      <td>Morgan Stanley</td>
-      <td>MS</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>90.040001</td>
-      <td>79.725004</td>
+      <td>Netapp, Inc</td>
+      <td>NTAP</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>103.330002</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11242,12 +11235,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>321</th>
-      <td>Msci, Inc.</td>
-      <td>MSCI</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>558.369995</td>
-      <td>31.890001</td>
+      <td>Align Technology Inc</td>
+      <td>ALGN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>308.040009</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11255,25 +11248,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>322</th>
-      <td>Microsoft Corp</td>
-      <td>MSFT</td>
-      <td>7.17%</td>
-      <td>0.052626</td>
-      <td>414.920013</td>
-      <td>1594.500072</td>
-      <td>3.0</td>
-      <td>MSFT</td>
-      <td>1.0</td>
-      <td>2.0</td>
+      <td>Entergy Corporation</td>
+      <td>ETR</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>102.019997</td>
+      <td>15.874999</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>323</th>
-      <td>Motorola Solutions, Inc.</td>
-      <td>MSI</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>335.769989</td>
-      <td>41.457002</td>
+      <td>Garmin Ltd</td>
+      <td>GRMN</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>139.669998</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11281,12 +11274,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>324</th>
-      <td>M&amp;t Bank Corp.</td>
-      <td>MTB</td>
+      <td>Genuine Parts Company</td>
+      <td>GPC</td>
       <td>0.05%</td>
-      <td>0.000526</td>
-      <td>139.949997</td>
-      <td>15.945001</td>
+      <td>0.000524</td>
+      <td>149.970001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11294,12 +11287,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>325</th>
-      <td>Match Group, Inc</td>
-      <td>MTCH</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>35.060001</td>
-      <td>6.378000</td>
+      <td>Equity Residential</td>
+      <td>EQR</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>62.860001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11307,12 +11300,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>326</th>
-      <td>Mettler-Toledo International</td>
-      <td>MTD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>1286.540039</td>
-      <td>19.134001</td>
+      <td>Baxter International Inc.</td>
+      <td>BAX</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>42.500000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11320,12 +11313,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>327</th>
-      <td>Micron Technology, Inc.</td>
-      <td>MU</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>95.769997</td>
-      <td>73.347003</td>
+      <td>Hubbell Incorporated</td>
+      <td>HUBB</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>387.739990</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11333,12 +11326,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>328</th>
-      <td>Norwegian Cruise Line Holdings Ltd.s</td>
-      <td>NCLH</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>19.420000</td>
-      <td>6.378000</td>
+      <td>Western Digital Corp.</td>
+      <td>WDC</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>64.320000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11346,12 +11339,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>329</th>
-      <td>Nasdaq, Inc.</td>
-      <td>NDAQ</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>56.970001</td>
-      <td>12.756001</td>
+      <td>Darden Restaurants, Inc.</td>
+      <td>DRI</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>174.050003</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11359,12 +11352,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>330</th>
-      <td>Nordson Corp</td>
-      <td>NDSN</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>265.320007</td>
-      <td>9.567000</td>
+      <td>Waters Corp</td>
+      <td>WAT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>346.760010</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11372,25 +11365,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>331</th>
-      <td>Nextra Energy, Inc.</td>
-      <td>NEE</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>54.970001</td>
-      <td>82.914004</td>
-      <td>1.0</td>
+      <td>Steel Dynamics Inc</td>
+      <td>STLD</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>130.240005</td>
+      <td>15.874999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>332</th>
-      <td>Newmont Corporation</td>
-      <td>NEM</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>33.480000</td>
-      <td>25.512001</td>
+      <td>The Cooper Companies, Inc.</td>
+      <td>COO</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>102.769997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11398,12 +11391,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>333</th>
-      <td>Netflix Inc</td>
-      <td>NFLX</td>
-      <td>0.62%</td>
-      <td>0.006526</td>
-      <td>615.830017</td>
-      <td>197.718009</td>
+      <td>Southwest Airlines Co.</td>
+      <td>LUV</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>34.110001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11411,12 +11404,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>334</th>
-      <td>Nisource Inc.</td>
-      <td>NI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>26.610001</td>
-      <td>6.378000</td>
+      <td>Ball Corporation</td>
+      <td>BALL</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>64.519997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11424,12 +11417,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>335</th>
-      <td>Nike, Inc.</td>
-      <td>NKE</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>99.540001</td>
-      <td>95.670004</td>
+      <td>Eversource Energy</td>
+      <td>ES</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>58.910000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11437,12 +11430,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>336</th>
-      <td>Northrop Grumman Corp.</td>
-      <td>NOC</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>460.079987</td>
-      <td>47.835002</td>
+      <td>Teledyne Technologies Incorporated</td>
+      <td>TDY</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>428.450012</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11450,12 +11443,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>337</th>
-      <td>Servicenow, Inc.</td>
-      <td>NOW</td>
-      <td>0.37%</td>
-      <td>0.003894</td>
-      <td>776.090027</td>
-      <td>117.993005</td>
+      <td>Fleetcor Technologies, Inc.</td>
+      <td>FLT</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>281.670013</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11463,12 +11456,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>338</th>
-      <td>Nrg Energy, Inc.</td>
-      <td>NRG</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>57.689999</td>
-      <td>9.567000</td>
+      <td>Hewlett Packard Enterprise Company</td>
+      <td>HPE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>17.150000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11476,12 +11469,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>339</th>
-      <td>Norfolk Southern Corp.</td>
-      <td>NSC</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>259.170013</td>
-      <td>41.457002</td>
+      <td>Invitation Homes Inc.</td>
+      <td>INVH</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>35.410000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11489,12 +11482,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>340</th>
-      <td>Netapp, Inc</td>
-      <td>NTAP</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>103.330002</td>
-      <td>12.756001</td>
+      <td>Brown &amp; Brown, Inc.</td>
+      <td>BRO</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>83.949997</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11502,12 +11495,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>341</th>
-      <td>Northern Trust Corp</td>
-      <td>NTRS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>84.550003</td>
-      <td>12.756001</td>
+      <td>Cboe Global Markets, Inc.</td>
+      <td>CBOE</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>189.360001</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11515,12 +11508,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>342</th>
-      <td>Nucor Corporation</td>
-      <td>NUE</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>187.160004</td>
-      <td>35.079002</td>
+      <td>Coterra Energy Inc.</td>
+      <td>CTRA</td>
+      <td>0.05%</td>
+      <td>0.000524</td>
+      <td>26.500000</td>
+      <td>15.874999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11528,25 +11521,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>343</th>
-      <td>Nvidia Corp</td>
-      <td>NVDA</td>
-      <td>4.56%</td>
-      <td>0.047995</td>
-      <td>852.369995</td>
-      <td>1454.184065</td>
-      <td>1.0</td>
-      <td>NVDA</td>
-      <td>1.0</td>
+      <td>International Flavors &amp; Fragrances Inc.</td>
+      <td>IFF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>76.040001</td>
+      <td>12.699999</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>344</th>
-      <td>Nvr, Inc.</td>
-      <td>NVR</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>7651.830078</td>
-      <td>19.134001</td>
+      <td>Alexandria Real Estate Equities, Inc.</td>
+      <td>ARE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>126.010002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11554,25 +11547,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>345</th>
-      <td>News Corporation Class A</td>
-      <td>NWSA</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>25.930000</td>
-      <td>6.378000</td>
-      <td>0.0</td>
+      <td>Warner Bros. Discovery, Inc. Series a</td>
+      <td>WBD</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>8.110000</td>
+      <td>12.699999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>346</th>
-      <td>Nxp Semiconductors N.v.</td>
-      <td>NXPI</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>254.300003</td>
-      <td>47.835002</td>
+      <td>Ppl Corporation</td>
+      <td>PPL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>26.740000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11580,12 +11573,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>347</th>
-      <td>Realty Income Corporation</td>
-      <td>O</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>52.709999</td>
-      <td>31.890001</td>
+      <td>Nasdaq, Inc.</td>
+      <td>NDAQ</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>56.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11593,12 +11586,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>348</th>
-      <td>Old Dominion Freight Line</td>
-      <td>ODFL</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>446.230011</td>
-      <td>28.701001</td>
+      <td>Veralto Corporation</td>
+      <td>VLTO</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>87.739998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11606,12 +11599,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>349</th>
-      <td>Oneok, Inc.</td>
-      <td>OKE</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>76.559998</td>
-      <td>31.890001</td>
+      <td>Las Vegas Sands Corp.</td>
+      <td>LVS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>50.700001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11619,12 +11612,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>350</th>
-      <td>Omnicom Group Inc.</td>
-      <td>OMC</td>
+      <td>Firstenergy Corp.</td>
+      <td>FE</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>89.199997</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>37.270000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11632,12 +11625,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>351</th>
-      <td>On Semiconductor Corp</td>
-      <td>ON</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>79.879997</td>
-      <td>25.512001</td>
+      <td>Clorox Company</td>
+      <td>CLX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>150.940002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11645,25 +11638,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>352</th>
-      <td>Oracle Corp</td>
-      <td>ORCL</td>
-      <td>0.41%</td>
-      <td>0.004315</td>
-      <td>114.059998</td>
-      <td>130.749006</td>
-      <td>1.0</td>
+      <td>Jabil Inc.</td>
+      <td>JBL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>148.619995</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>353</th>
-      <td>O'reilly Automotive, Inc.</td>
-      <td>ORLY</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>1077.979980</td>
-      <td>47.835002</td>
+      <td>Seagate Technology Holdings Plcs</td>
+      <td>STX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>98.379997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11671,12 +11664,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>354</th>
-      <td>Otis Worldwide Corporation</td>
-      <td>OTIS</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>95.389999</td>
-      <td>28.701001</td>
+      <td>Huntington Bancshares Inc</td>
+      <td>HBAN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>13.360000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11684,12 +11677,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>355</th>
-      <td>Occidental Petroleum Corporation</td>
-      <td>OXY</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>60.680000</td>
-      <td>28.701001</td>
+      <td>Laboratory Corporation of America Holdings</td>
+      <td>LH</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>219.100006</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11697,12 +11690,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>356</th>
-      <td>Palo Alto Networks, Inc.</td>
-      <td>PANW</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>299.440002</td>
-      <td>73.347003</td>
+      <td>Jacobs Solutions Inc.</td>
+      <td>J</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>147.139999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11710,12 +11703,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>357</th>
-      <td>Paramount Global Class B</td>
-      <td>PARA</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>10.300000</td>
-      <td>3.189000</td>
+      <td>Ameren Corporation</td>
+      <td>AEE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>72.669998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11723,12 +11716,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>358</th>
-      <td>Paycom Software, Inc.</td>
-      <td>PAYC</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.050003</td>
-      <td>6.378000</td>
+      <td>Tyler Technologies, Inc.</td>
+      <td>TYL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>438.140015</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11736,12 +11729,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>359</th>
-      <td>Paychex Inc</td>
-      <td>PAYX</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>122.339996</td>
-      <td>28.701001</td>
+      <td>Expedia Group, Inc.</td>
+      <td>EXPE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>135.520004</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11749,12 +11742,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>360</th>
-      <td>Paccar Inc</td>
-      <td>PCAR</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>112.290001</td>
-      <td>44.646002</td>
+      <td>Hologic Inc</td>
+      <td>HOLX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>74.599998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11762,25 +11755,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>361</th>
-      <td>Pg&amp;e Corporation</td>
-      <td>PCG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>16.840000</td>
-      <td>25.512001</td>
-      <td>1.0</td>
+      <td>Idex Corporation</td>
+      <td>IEX</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>237.619995</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>362</th>
-      <td>Healthpeak Properties, Inc.</td>
-      <td>PEAK</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>16.850000</td>
-      <td>9.567000</td>
+      <td>Cincinnati Financial Corp</td>
+      <td>CINF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>112.419998</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11788,12 +11781,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>363</th>
-      <td>Public Service Enterprise Group Incorporated</td>
-      <td>PEG</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>63.360001</td>
-      <td>22.323001</td>
+      <td>Enphase Energy, Inc.</td>
+      <td>ENPH</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>123.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11801,38 +11794,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>364</th>
-      <td>Pepsico, Inc.</td>
-      <td>PEP</td>
-      <td>0.53%</td>
-      <td>0.005578</td>
-      <td>165.369995</td>
-      <td>169.017008</td>
-      <td>1.0</td>
+      <td>Ventas, Inc.</td>
+      <td>VTR</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>44.099998</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>365</th>
-      <td>Pfizer Inc.</td>
-      <td>PFE</td>
-      <td>0.35%</td>
-      <td>0.003684</td>
-      <td>25.889999</td>
-      <td>111.615005</td>
-      <td>4.0</td>
+      <td>Epam Systems, Inc.</td>
+      <td>EPAM</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>307.920013</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>4.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>366</th>
       <td>Principal Financial Group, Inc.</td>
       <td>PFG</td>
       <td>0.04%</td>
-      <td>0.000421</td>
+      <td>0.000419</td>
       <td>80.680000</td>
-      <td>12.756001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11840,25 +11833,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>367</th>
-      <td>Procter &amp; Gamble Company</td>
-      <td>PG</td>
-      <td>0.87%</td>
-      <td>0.009157</td>
-      <td>159.559998</td>
-      <td>277.443012</td>
-      <td>1.0</td>
+      <td>Expeditors International of Washington, Inc.</td>
+      <td>EXPD</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>119.959999</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>368</th>
-      <td>Progressive Corporation</td>
-      <td>PGR</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>189.240005</td>
-      <td>82.914004</td>
+      <td>Factset Research Systems</td>
+      <td>FDS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>464.980011</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11866,12 +11859,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>369</th>
-      <td>Parker-Hannifin Corporation</td>
-      <td>PH</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>535.510010</td>
-      <td>51.024002</td>
+      <td>Omnicom Group Inc.</td>
+      <td>OMC</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>89.199997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11879,12 +11872,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>370</th>
-      <td>Pultegroup, Inc.</td>
-      <td>PHM</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>111.029999</td>
-      <td>15.945001</td>
+      <td>Avery Dennison Corp.</td>
+      <td>AVY</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>216.130005</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11892,12 +11885,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>371</th>
-      <td>Packaging Corp of America</td>
-      <td>PKG</td>
+      <td>Masco Corporation</td>
+      <td>MAS</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>185.429993</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>77.879997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11905,12 +11898,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>372</th>
-      <td>Prologis, Inc.</td>
-      <td>PLD</td>
-      <td>0.29%</td>
-      <td>0.003052</td>
-      <td>133.610001</td>
-      <td>92.481004</td>
+      <td>Leidos Holdings, Inc.</td>
+      <td>LDOS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>129.520004</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11918,25 +11911,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>373</th>
-      <td>Philip Morris International Inc.</td>
-      <td>PM</td>
-      <td>0.33%</td>
-      <td>0.003473</td>
-      <td>90.309998</td>
-      <td>105.237005</td>
-      <td>1.0</td>
+      <td>Textron, Inc.</td>
+      <td>TXT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>89.389999</td>
+      <td>12.699999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>374</th>
-      <td>Pnc Financial Services Group</td>
-      <td>PNC</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>153.740005</td>
-      <td>44.646002</td>
+      <td>Centerpoint Energy, Inc.</td>
+      <td>CNP</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>27.940001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11944,12 +11937,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>375</th>
-      <td>Pentair Plc</td>
-      <td>PNR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>78.470001</td>
-      <td>9.567000</td>
+      <td>Verisign Inc</td>
+      <td>VRSN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>192.179993</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11957,12 +11950,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>376</th>
-      <td>Pinnacle West Capital Corporation</td>
-      <td>PNW</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>68.889999</td>
-      <td>6.378000</td>
+      <td>Regions Financial Corp.</td>
+      <td>RF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>19.020000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11970,12 +11963,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>377</th>
-      <td>Insulet Corporation</td>
-      <td>PODD</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>167.820007</td>
-      <td>9.567000</td>
+      <td>Northern Trust Corp</td>
+      <td>NTRS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>84.550003</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11983,12 +11976,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>378</th>
-      <td>Pool Corporation</td>
-      <td>POOL</td>
+      <td>Mccormick &amp; Company, Incorporated Non-Vtg Cs</td>
+      <td>MKC</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>402.140015</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>68.480003</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -11996,12 +11989,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>379</th>
-      <td>Ppg Industries, Inc.</td>
-      <td>PPG</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>139.220001</td>
-      <td>25.512001</td>
+      <td>Cms Energy Corporation</td>
+      <td>CMS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>58.970001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12009,12 +12002,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>380</th>
-      <td>Ppl Corporation</td>
-      <td>PPL</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>26.740000</td>
-      <td>15.945001</td>
+      <td>Skyworks Solutions Inc</td>
+      <td>SWKS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>104.900002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12022,12 +12015,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>381</th>
-      <td>Prudential Financial, Inc.</td>
-      <td>PRU</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>107.089996</td>
-      <td>28.701001</td>
+      <td>Synchrony Financial</td>
+      <td>SYF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>40.630001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12035,12 +12028,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>382</th>
-      <td>Public Storage</td>
-      <td>PSA</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>285.079987</td>
-      <td>31.890001</td>
+      <td>First Solar, Inc.</td>
+      <td>FSLR</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>156.699997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12048,12 +12041,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>383</th>
-      <td>Phillips 66</td>
-      <td>PSX</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>144.259995</td>
-      <td>47.835002</td>
+      <td>W.R. Berkley Corporation</td>
+      <td>WRB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>83.610001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12061,12 +12054,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>384</th>
-      <td>Ptc, Inc</td>
-      <td>PTC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>187.220001</td>
-      <td>15.945001</td>
+      <td>Albemarle Corporation</td>
+      <td>ALB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>133.199997</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12074,12 +12067,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>385</th>
-      <td>Quanta Services, Inc.</td>
-      <td>PWR</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>243.339996</td>
-      <td>25.512001</td>
+      <td>Atmos Energy Corporation</td>
+      <td>ATO</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>114.680000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12087,12 +12080,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>386</th>
-      <td>Pioneer Natural Resource Co.</td>
-      <td>PXD</td>
-      <td>0.13%</td>
-      <td>0.001368</td>
-      <td>234.699997</td>
-      <td>41.457002</td>
+      <td>Akamai Technologies Inc</td>
+      <td>AKAM</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>110.760002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12100,12 +12093,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>387</th>
-      <td>Paypal Holdings, Inc.</td>
-      <td>PYPL</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>59.980000</td>
-      <td>47.835002</td>
+      <td>Jb Hunt Transport Services Inc</td>
+      <td>JBHT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>201.360001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12113,12 +12106,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>388</th>
-      <td>Qualcomm Inc</td>
-      <td>QCOM</td>
-      <td>0.41%</td>
-      <td>0.004315</td>
-      <td>166.559998</td>
-      <td>130.749006</td>
+      <td>Teradyne, Inc.</td>
+      <td>TER</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>105.830002</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12126,12 +12119,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>389</th>
-      <td>Qorvo, Inc.</td>
-      <td>QRVO</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>120.220001</td>
-      <td>9.567000</td>
+      <td>Packaging Corp of America</td>
+      <td>PKG</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>185.429993</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12139,12 +12132,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>390</th>
-      <td>Royal Caribbean Group</td>
-      <td>RCL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>125.300003</td>
-      <td>22.323001</td>
+      <td>Carnival Corporation</td>
+      <td>CCL</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>16.070000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12152,12 +12145,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>391</th>
-      <td>Regency Centers Corporation</td>
-      <td>REG</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>62.900002</td>
-      <td>6.378000</td>
+      <td>Everest Group, Ltd.</td>
+      <td>EG</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>367.500000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12165,12 +12158,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>392</th>
-      <td>Regeneron Pharmaceuticals Inc</td>
-      <td>REGN</td>
-      <td>0.24%</td>
-      <td>0.002526</td>
-      <td>971.190002</td>
-      <td>76.536003</td>
+      <td>Cf Industries Holding, Inc.</td>
+      <td>CF</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>79.860001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12178,12 +12171,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>393</th>
-      <td>Regions Financial Corp.</td>
-      <td>RF</td>
+      <td>Pool Corporation</td>
+      <td>POOL</td>
       <td>0.04%</td>
-      <td>0.000421</td>
-      <td>19.020000</td>
-      <td>12.756001</td>
+      <td>0.000419</td>
+      <td>402.140015</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12191,12 +12184,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>394</th>
-      <td>Robert Half Inc.</td>
-      <td>RHI</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>81.739998</td>
-      <td>6.378000</td>
+      <td>Domino's Pizza Inc.</td>
+      <td>DPZ</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>449.989990</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12204,12 +12197,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>395</th>
-      <td>Raymond James Financial, Inc.</td>
-      <td>RJF</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>120.870003</td>
-      <td>15.945001</td>
+      <td>Trimble Inc.</td>
+      <td>TRMB</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>62.549999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12217,12 +12210,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>396</th>
-      <td>Ralph Lauren Corporation</td>
-      <td>RL</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>178.179993</td>
-      <td>6.378000</td>
+      <td>Walgreens Boots Alliance, Inc</td>
+      <td>WBA</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>20.580000</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12230,12 +12223,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>397</th>
-      <td>Resmed Inc.</td>
-      <td>RMD</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>180.720001</td>
-      <td>19.134001</td>
+      <td>Celanese Corporation</td>
+      <td>CE</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>154.889999</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12243,12 +12236,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>398</th>
-      <td>Rockwell Automation, Inc.</td>
-      <td>ROK</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>288.170013</td>
-      <td>25.512001</td>
+      <td>Eqt Corp</td>
+      <td>EQT</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>37.540001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12256,12 +12249,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>399</th>
-      <td>Rollins, Inc.</td>
-      <td>ROL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>45.080002</td>
-      <td>9.567000</td>
+      <td>Tyson Foods, Inc.</td>
+      <td>TSN</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>53.380001</td>
+      <td>12.699999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12269,25 +12262,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>400</th>
-      <td>Roper Technologies, Inc.</td>
-      <td>ROP</td>
-      <td>0.14%</td>
-      <td>0.001474</td>
-      <td>547.219971</td>
-      <td>44.646002</td>
-      <td>0.0</td>
+      <td>Viatris Inc.</td>
+      <td>VTRS</td>
+      <td>0.04%</td>
+      <td>0.000419</td>
+      <td>12.360000</td>
+      <td>12.699999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>401</th>
-      <td>Ross Stores Inc</td>
-      <td>ROST</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>149.960007</td>
-      <td>38.268002</td>
+      <td>Best Buy Company, Inc.</td>
+      <td>BBY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>77.540001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12295,12 +12288,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>402</th>
-      <td>Republic Services Inc.</td>
-      <td>RSG</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>184.940002</td>
-      <td>28.701001</td>
+      <td>Essex Property Trust, Inc</td>
+      <td>ESS</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>243.580002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12308,25 +12301,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>403</th>
-      <td>Rtx Corporation</td>
-      <td>RTX</td>
-      <td>0.30%</td>
-      <td>0.003158</td>
-      <td>89.910004</td>
-      <td>95.670004</td>
-      <td>1.0</td>
+      <td>Zebra Technologies Corporation</td>
+      <td>ZBRA</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>291.649994</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>404</th>
-      <td>Revvity, Inc.</td>
-      <td>RVTY</td>
+      <td>Mid-America Apartment Communities, Inc.</td>
+      <td>MAA</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>108.510002</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>129.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12334,12 +12327,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>405</th>
-      <td>Sba Communications Corp</td>
-      <td>SBAC</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>212.050003</td>
-      <td>15.945001</td>
+      <td>Host Hotels &amp; Resorts, Inc.</td>
+      <td>HST</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>21.070000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12347,12 +12340,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>406</th>
-      <td>Starbucks Corp</td>
-      <td>SBUX</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>92.459999</td>
-      <td>79.725004</td>
+      <td>Citizens Financial Group, Inc.</td>
+      <td>CFG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>31.930000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12360,25 +12353,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>407</th>
-      <td>The Charles Schwab Corporation</td>
-      <td>SCHW</td>
-      <td>0.23%</td>
-      <td>0.002421</td>
-      <td>67.639999</td>
-      <td>73.347003</td>
-      <td>1.0</td>
+      <td>United Airlines Holdings, Inc.</td>
+      <td>UAL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>44.139999</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>408</th>
-      <td>The Sherwin-Williams Company</td>
-      <td>SHW</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>337.100006</td>
-      <td>57.402003</td>
+      <td>Snap-on Incorporated</td>
+      <td>SNA</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>284.510010</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12386,12 +12379,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>409</th>
-      <td>The J.M. Smucker Company</td>
-      <td>SJM</td>
+      <td>Lamb Weston Holdings, Inc.</td>
+      <td>LW</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>121.959999</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>102.239998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12399,25 +12392,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>410</th>
-      <td>Schlumberger Limited</td>
-      <td>SLB</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>49.419998</td>
-      <td>51.024002</td>
-      <td>1.0</td>
+      <td>Kellanova</td>
+      <td>K</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>53.720001</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>411</th>
-      <td>Snap-on Incorporated</td>
-      <td>SNA</td>
+      <td>Marathon Oil Corporation</td>
+      <td>MRO</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>284.510010</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>24.260000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12425,12 +12418,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>412</th>
-      <td>Synopsys Inc</td>
-      <td>SNPS</td>
-      <td>0.20%</td>
-      <td>0.002105</td>
-      <td>594.320007</td>
-      <td>63.780003</td>
+      <td>Nordson Corp</td>
+      <td>NDSN</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>265.320007</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12438,12 +12431,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>413</th>
-      <td>The Southern Company</td>
-      <td>SO</td>
-      <td>0.17%</td>
-      <td>0.001789</td>
-      <td>68.199997</td>
-      <td>54.213002</td>
+      <td>Lkq Corporation</td>
+      <td>LKQ</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>52.090000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12451,12 +12444,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>414</th>
-      <td>Simon Property Group, Inc.</td>
-      <td>SPG</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>152.410004</td>
-      <td>35.079002</td>
+      <td>Quest Diagnostics Inc.</td>
+      <td>DGX</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>125.309998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12464,12 +12457,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>415</th>
-      <td>S&amp;p Global Inc.</td>
-      <td>SPGI</td>
-      <td>0.32%</td>
-      <td>0.003368</td>
-      <td>425.440002</td>
-      <td>102.048005</td>
+      <td>Stanley Black &amp; Decker, Inc.</td>
+      <td>SWK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>89.610001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12477,12 +12470,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>416</th>
-      <td>Sempra</td>
-      <td>SRE</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>70.739998</td>
-      <td>31.890001</td>
+      <td>Live Nation Entertainment Inc.</td>
+      <td>LYV</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>98.699997</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12490,12 +12483,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>417</th>
-      <td>Steris Plc</td>
-      <td>STE</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>233.270004</td>
-      <td>15.945001</td>
+      <td>Loews Corporation</td>
+      <td>L</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>74.349998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12503,12 +12496,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>418</th>
-      <td>Steel Dynamics Inc</td>
-      <td>STLD</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>130.240005</td>
-      <td>15.945001</td>
+      <td>Bunge Global Sa</td>
+      <td>BG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>90.089996</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12516,12 +12509,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>419</th>
-      <td>State Street Corporation</td>
-      <td>STT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>74.000000</td>
-      <td>15.945001</td>
+      <td>Charles River Laboratories International, Inc.</td>
+      <td>CRL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>258.920013</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12529,12 +12522,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>420</th>
-      <td>Seagate Technology Holdings Plcs</td>
-      <td>STX</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>98.379997</td>
-      <td>12.756001</td>
+      <td>Keycorp</td>
+      <td>KEY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>14.580000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12542,12 +12535,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>421</th>
-      <td>Constellation Brands, Inc.</td>
-      <td>STZ</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>248.029999</td>
-      <td>28.701001</td>
+      <td>Revvity, Inc.</td>
+      <td>RVTY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>108.510002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12555,12 +12548,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>422</th>
-      <td>Stanley Black &amp; Decker, Inc.</td>
-      <td>SWK</td>
+      <td>Conagra Brands, Inc.</td>
+      <td>CAG</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>89.610001</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>27.700001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12568,25 +12561,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>423</th>
-      <td>Skyworks Solutions Inc</td>
-      <td>SWKS</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>104.900002</td>
-      <td>12.756001</td>
-      <td>0.0</td>
+      <td>Amcor Plcs</td>
+      <td>AMCR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>9.170000</td>
+      <td>9.524999</td>
+      <td>1.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>424</th>
-      <td>Synchrony Financial</td>
-      <td>SYF</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>40.630001</td>
-      <td>12.756001</td>
+      <td>Pentair Plc</td>
+      <td>PNR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>78.470001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12594,12 +12587,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>425</th>
-      <td>Stryker Corporation</td>
-      <td>SYK</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>355.850006</td>
-      <td>89.292004</td>
+      <td>Nrg Energy, Inc.</td>
+      <td>NRG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>57.689999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12607,12 +12600,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>426</th>
-      <td>Sysco Corporation</td>
-      <td>SYY</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>79.510002</td>
-      <td>31.890001</td>
+      <td>Carmax Inc.</td>
+      <td>KMX</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>79.580002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12620,25 +12613,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>427</th>
-      <td>At&amp;t Inc.</td>
-      <td>T</td>
-      <td>0.28%</td>
-      <td>0.002947</td>
-      <td>16.799999</td>
-      <td>89.292004</td>
-      <td>5.0</td>
+      <td>The J.M. Smucker Company</td>
+      <td>SJM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>121.959999</td>
+      <td>9.524999</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>5.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>428</th>
-      <td>Molson Coors Beverage Company Class B</td>
-      <td>TAP</td>
+      <td>Henry (Jack) &amp; Associates</td>
+      <td>JKHY</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>62.340000</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>173.550003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12646,12 +12639,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>429</th>
-      <td>Transdigm Group Incorporated</td>
-      <td>TDG</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>1173.410034</td>
-      <td>47.835002</td>
+      <td>Rollins, Inc.</td>
+      <td>ROL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>45.080002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12659,12 +12652,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>430</th>
-      <td>Teledyne Technologies Incorporated</td>
-      <td>TDY</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>428.450012</td>
-      <td>15.945001</td>
+      <td>Gen Digital Inc.</td>
+      <td>GEN</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>21.700001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12672,12 +12665,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>431</th>
-      <td>Bio-Techne Corp.</td>
-      <td>TECH</td>
+      <td>International Paper Co.</td>
+      <td>IP</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>74.879997</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>35.889999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12685,12 +12678,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>432</th>
-      <td>Te Connectivity Ltd</td>
-      <td>TEL</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>143.059998</td>
-      <td>31.890001</td>
+      <td>Symbol Not Found</td>
+      <td>PEAK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>16.850000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12698,12 +12691,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>433</th>
-      <td>Teradyne, Inc.</td>
-      <td>TER</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>105.830002</td>
-      <td>12.756001</td>
+      <td>Kimco Realty Corp.</td>
+      <td>KIM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>19.620001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12711,12 +12704,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>434</th>
-      <td>Truist Financial Corporation</td>
-      <td>TFC</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>36.169998</td>
-      <td>35.079002</td>
+      <td>Alliant Energy Corporation</td>
+      <td>LNT</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>48.540001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12724,12 +12717,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>435</th>
-      <td>Teleflex Incorporated</td>
-      <td>TFX</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>225.000000</td>
-      <td>6.378000</td>
+      <td>The Interpublic Group of Companies, Inc.</td>
+      <td>IPG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>31.940001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12737,12 +12730,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>436</th>
-      <td>Target Corporation</td>
-      <td>TGT</td>
-      <td>0.16%</td>
-      <td>0.001684</td>
-      <td>150.490005</td>
-      <td>51.024002</td>
+      <td>Juniper Networks Inc</td>
+      <td>JNPR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>37.639999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12750,12 +12743,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>437</th>
-      <td>Tjx Companies, Inc.</td>
-      <td>TJX</td>
-      <td>0.26%</td>
-      <td>0.002737</td>
-      <td>97.940002</td>
-      <td>82.914004</td>
+      <td>Insulet Corporation</td>
+      <td>PODD</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>167.820007</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12763,12 +12756,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>438</th>
-      <td>Thermo Fisher Scientific, Inc.</td>
-      <td>TMO</td>
-      <td>0.51%</td>
-      <td>0.005368</td>
-      <td>581.640015</td>
-      <td>162.639007</td>
+      <td>Bio-Techne Corp.</td>
+      <td>TECH</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>74.879997</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12776,12 +12769,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>439</th>
-      <td>T-Mobile Us, Inc.</td>
-      <td>TMUS</td>
-      <td>0.19%</td>
-      <td>0.002000</td>
-      <td>163.339996</td>
-      <td>60.591003</td>
+      <td>Mgm Resorts International</td>
+      <td>MGM</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>42.009998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12789,12 +12782,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>440</th>
-      <td>Tapestry, Inc.</td>
-      <td>TPR</td>
+      <td>Qorvo, Inc.</td>
+      <td>QRVO</td>
       <td>0.03%</td>
-      <td>0.000316</td>
-      <td>47.279999</td>
-      <td>9.567000</td>
+      <td>0.000314</td>
+      <td>120.220001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12802,12 +12795,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>441</th>
-      <td>Targa Resources Corp.</td>
-      <td>TRGP</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>100.989998</td>
-      <td>15.945001</td>
+      <td>Huntington Ingalls Industries, Inc.</td>
+      <td>HII</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>296.429993</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12815,12 +12808,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>442</th>
-      <td>Trimble Inc.</td>
-      <td>TRMB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>62.549999</td>
-      <td>12.756001</td>
+      <td>Molson Coors Beverage Company Class B</td>
+      <td>TAP</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>62.340000</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12828,12 +12821,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>443</th>
-      <td>T Rowe Price Group Inc</td>
-      <td>TROW</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>116.550003</td>
-      <td>19.134001</td>
+      <td>Westrock Company</td>
+      <td>WRK</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>44.970001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12841,12 +12834,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>444</th>
-      <td>The Travelers Companies, Inc.</td>
-      <td>TRV</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>219.070007</td>
-      <td>38.268002</td>
+      <td>Evergy, Inc.</td>
+      <td>EVRG</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>49.990002</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12854,12 +12847,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>445</th>
-      <td>Tractor Supply Co</td>
-      <td>TSCO</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>253.259995</td>
-      <td>19.134001</td>
+      <td>F5, Inc.</td>
+      <td>FFIV</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>193.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12867,12 +12860,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>446</th>
-      <td>Tyson Foods, Inc.</td>
-      <td>TSN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>53.380001</td>
-      <td>12.756001</td>
+      <td>Allegion Public Limited Company</td>
+      <td>ALLE</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>128.789993</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12880,12 +12873,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>447</th>
-      <td>Trane Technologies Plc</td>
-      <td>TT</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>288.130005</td>
-      <td>47.835002</td>
+      <td>Incyte Genomics Inc</td>
+      <td>INCY</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>59.720001</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12893,12 +12886,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>448</th>
-      <td>Take-Two Interactive Software Inc</td>
-      <td>TTWO</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>146.330002</td>
-      <td>15.945001</td>
+      <td>Brown-Forman Corporation Class B</td>
+      <td>BF.B</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>60.259998</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12906,12 +12899,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>449</th>
-      <td>Texas Instruments Incorporated</td>
-      <td>TXN</td>
-      <td>0.35%</td>
-      <td>0.003684</td>
-      <td>172.440002</td>
-      <td>111.615005</td>
+      <td>Udr, Inc.</td>
+      <td>UDR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>37.279999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12919,12 +12912,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>450</th>
-      <td>Textron, Inc.</td>
-      <td>TXT</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>89.389999</td>
-      <td>12.756001</td>
+      <td>Tapestry, Inc.</td>
+      <td>TPR</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>47.279999</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12932,12 +12925,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>451</th>
-      <td>Tyler Technologies, Inc.</td>
-      <td>TYL</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>438.140015</td>
-      <td>12.756001</td>
+      <td>Globe Life Inc.</td>
+      <td>GL</td>
+      <td>0.03%</td>
+      <td>0.000314</td>
+      <td>126.300003</td>
+      <td>9.524999</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12945,12 +12938,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>452</th>
-      <td>United Airlines Holdings, Inc.</td>
-      <td>UAL</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>44.139999</td>
-      <td>9.567000</td>
+      <td>Nisource Inc.</td>
+      <td>NI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>26.610001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12958,25 +12951,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>453</th>
-      <td>Uber Technologies, Inc.</td>
-      <td>UBER</td>
-      <td>0.38%</td>
-      <td>0.004000</td>
-      <td>81.300003</td>
-      <td>121.182005</td>
-      <td>1.0</td>
+      <td>Teleflex Incorporated</td>
+      <td>TFX</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>225.000000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>454</th>
-      <td>Udr, Inc.</td>
-      <td>UDR</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>37.279999</td>
-      <td>9.567000</td>
+      <td>Dayforce, Inc.</td>
+      <td>DAY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>66.610001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12987,9 +12980,9 @@ movesWithHoldings
       <td>Universal Health Services, Inc. Class B</td>
       <td>UHS</td>
       <td>0.02%</td>
-      <td>0.000211</td>
+      <td>0.000210</td>
       <td>174.600006</td>
-      <td>6.378000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -12997,12 +12990,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>456</th>
-      <td>Ulta Beauty, Inc.</td>
-      <td>ULTA</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>546.539978</td>
-      <td>19.134001</td>
+      <td>Bath &amp; Body Works, Inc.</td>
+      <td>BBWI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>45.650002</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13010,12 +13003,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>457</th>
-      <td>Unitedhealth Group Incorporated</td>
-      <td>UNH</td>
-      <td>1.06%</td>
-      <td>0.011157</td>
-      <td>481.869995</td>
-      <td>338.034015</td>
+      <td>Aes Corporation</td>
+      <td>AES</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>16.070000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13023,12 +13016,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>458</th>
-      <td>Union Pacific Corp.</td>
-      <td>UNP</td>
-      <td>0.36%</td>
-      <td>0.003789</td>
-      <td>253.470001</td>
-      <td>114.804005</td>
+      <td>Catalent, Inc.</td>
+      <td>CTLT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>56.950001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13036,12 +13029,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>459</th>
-      <td>United Parcel Service, Inc. Class B</td>
-      <td>UPS</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>150.610001</td>
-      <td>79.725004</td>
+      <td>Eastman Chemical Company</td>
+      <td>EMN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>88.209999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13049,12 +13042,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>460</th>
-      <td>United Rentals, Inc.</td>
-      <td>URI</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>712.309998</td>
-      <td>35.079002</td>
+      <td>The Mosaic Company</td>
+      <td>MOS</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>31.290001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13062,38 +13055,38 @@ movesWithHoldings
     </tr>
     <tr>
       <th>461</th>
-      <td>U.S. Bancorp</td>
-      <td>USB</td>
-      <td>0.15%</td>
-      <td>0.001579</td>
-      <td>42.700001</td>
-      <td>47.835002</td>
-      <td>1.0</td>
+      <td>A.O. Smith Corporation</td>
+      <td>AOS</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>85.099998</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>462</th>
-      <td>Visa Inc.</td>
-      <td>V</td>
-      <td>1.05%</td>
-      <td>0.011051</td>
-      <td>280.529999</td>
-      <td>334.845015</td>
-      <td>1.0</td>
+      <td>Camden Property Trust</td>
+      <td>CPT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>96.739998</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>463</th>
-      <td>V.F. Corporation</td>
-      <td>VFC</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>15.730000</td>
-      <td>3.189000</td>
+      <td>American Airlines Group Inc.</td>
+      <td>AAL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>14.810000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13101,12 +13094,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>464</th>
-      <td>Vici Properties Inc.</td>
-      <td>VICI</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>29.719999</td>
-      <td>22.323001</td>
+      <td>Regency Centers Corporation</td>
+      <td>REG</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>62.900002</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13114,12 +13107,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>465</th>
-      <td>Valero Energy Corporation</td>
-      <td>VLO</td>
-      <td>0.11%</td>
-      <td>0.001158</td>
-      <td>144.699997</td>
-      <td>35.079002</td>
+      <td>Henry Schein Inc</td>
+      <td>HSIC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>76.790001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13127,12 +13120,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>466</th>
-      <td>Veralto Corporation</td>
-      <td>VLTO</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>87.739998</td>
-      <td>12.756001</td>
+      <td>News Corporation Class A</td>
+      <td>NWSA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>25.930000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13140,12 +13133,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>467</th>
-      <td>Vulcan Materials Company</td>
-      <td>VMC</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>267.850006</td>
-      <td>25.512001</td>
+      <td>Match Group, Inc</td>
+      <td>MTCH</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>35.060001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13153,12 +13146,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>468</th>
-      <td>Verisk Analytics, Inc.</td>
-      <td>VRSK</td>
-      <td>0.08%</td>
-      <td>0.000842</td>
-      <td>239.929993</td>
-      <td>25.512001</td>
+      <td>Wynn Resorts Ltd</td>
+      <td>WYNN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>99.730003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13166,12 +13159,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>469</th>
-      <td>Verisign Inc</td>
-      <td>VRSN</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>192.179993</td>
-      <td>12.756001</td>
+      <td>Hormel Foods Corporation</td>
+      <td>HRL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>33.770000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13179,12 +13172,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>470</th>
-      <td>Vertex Pharmaceuticals Inc</td>
-      <td>VRTX</td>
-      <td>0.25%</td>
-      <td>0.002631</td>
-      <td>424.029999</td>
-      <td>79.725004</td>
+      <td>Assurant, Inc.</td>
+      <td>AIZ</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.029999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13192,12 +13185,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>471</th>
-      <td>Ventas, Inc.</td>
-      <td>VTR</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>44.099998</td>
-      <td>12.756001</td>
+      <td>Apa Corporation</td>
+      <td>APA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>30.030001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13205,12 +13198,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>472</th>
-      <td>Viatris Inc.</td>
-      <td>VTRS</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>12.360000</td>
-      <td>9.567000</td>
+      <td>Boston Properties, Inc.</td>
+      <td>BXP</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>65.809998</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13218,25 +13211,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>473</th>
-      <td>Verizon Communications</td>
-      <td>VZ</td>
-      <td>0.39%</td>
-      <td>0.004105</td>
-      <td>40.310001</td>
-      <td>124.371006</td>
-      <td>3.0</td>
+      <td>Caesars Entertainment, Inc.</td>
+      <td>CZR</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>41.570000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>3.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>474</th>
-      <td>Wabtec Inc.</td>
-      <td>WAB</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>142.070007</td>
-      <td>19.134001</td>
+      <td>Paycom Software, Inc.</td>
+      <td>PAYC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.050003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13244,12 +13237,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>475</th>
-      <td>Waters Corp</td>
-      <td>WAT</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>346.760010</td>
-      <td>15.945001</td>
+      <td>C.H. Robinson Worldwide, Inc.</td>
+      <td>CHRW</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>70.449997</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13257,12 +13250,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>476</th>
-      <td>Walgreens Boots Alliance, Inc</td>
-      <td>WBA</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>20.580000</td>
-      <td>12.756001</td>
+      <td>Robert Half Inc.</td>
+      <td>RHI</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>81.739998</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13270,25 +13263,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>477</th>
-      <td>Warner Bros. Discovery, Inc. Series a</td>
-      <td>WBD</td>
-      <td>0.05%</td>
-      <td>0.000526</td>
-      <td>8.110000</td>
-      <td>15.945001</td>
-      <td>1.0</td>
+      <td>Campbell Soup Company</td>
+      <td>CPB</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>43.279999</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>478</th>
-      <td>Western Digital Corp.</td>
-      <td>WDC</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>64.320000</td>
-      <td>12.756001</td>
+      <td>Etsy, Inc.</td>
+      <td>ETSY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>67.709999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13296,12 +13289,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>479</th>
-      <td>Wec Energy Group, Inc.</td>
-      <td>WEC</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>79.720001</td>
-      <td>19.134001</td>
+      <td>Marketaxess Holdings Inc.</td>
+      <td>MKTX</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>214.770004</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13309,12 +13302,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>480</th>
-      <td>Welltower Inc.</td>
-      <td>WELL</td>
-      <td>0.12%</td>
-      <td>0.001263</td>
-      <td>93.400002</td>
-      <td>38.268002</td>
+      <td>Norwegian Cruise Line Holdings Ltd.s</td>
+      <td>NCLH</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>19.420000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13322,25 +13315,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>481</th>
-      <td>Wells Fargo &amp; Co.</td>
-      <td>WFC</td>
-      <td>0.47%</td>
-      <td>0.004947</td>
-      <td>55.810001</td>
-      <td>149.883007</td>
-      <td>2.0</td>
+      <td>Franklin Resources, Inc.</td>
+      <td>BEN</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>27.730000</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>482</th>
-      <td>Whirlpool Corp.</td>
-      <td>WHR</td>
-      <td>0.01%</td>
-      <td>0.000105</td>
-      <td>106.550003</td>
-      <td>3.189000</td>
+      <td>Pinnacle West Capital Corporation</td>
+      <td>PNW</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>68.889999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13348,12 +13341,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>483</th>
-      <td>Waste Management, Inc.</td>
-      <td>WM</td>
-      <td>0.18%</td>
-      <td>0.001895</td>
-      <td>206.800003</td>
-      <td>57.402003</td>
+      <td>Ralph Lauren Corporation</td>
+      <td>RL</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>178.179993</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13361,12 +13354,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>484</th>
-      <td>Williams Companies Inc.</td>
-      <td>WMB</td>
-      <td>0.10%</td>
-      <td>0.001053</td>
-      <td>36.369999</td>
-      <td>31.890001</td>
+      <td>Borgwarner Inc.</td>
+      <td>BWA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>30.830000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13374,25 +13367,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>485</th>
-      <td>Walmart Inc.</td>
-      <td>WMT</td>
-      <td>0.58%</td>
-      <td>0.006105</td>
-      <td>59.299999</td>
-      <td>184.962008</td>
-      <td>3.0</td>
+      <td>Federal Realty Investment Trust</td>
+      <td>FRT</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>101.699997</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>3.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>486</th>
-      <td>W.R. Berkley Corporation</td>
-      <td>WRB</td>
-      <td>0.04%</td>
-      <td>0.000421</td>
-      <td>83.610001</td>
-      <td>12.756001</td>
+      <td>Fox Corporation Class A</td>
+      <td>FOXA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>29.040001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13400,12 +13393,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>487</th>
-      <td>Westrock Company</td>
-      <td>WRK</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>44.970001</td>
-      <td>9.567000</td>
+      <td>Fmc Corporation</td>
+      <td>FMC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>58.799999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13413,12 +13406,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>488</th>
-      <td>West Pharmaceutical Services, Inc.</td>
-      <td>WST</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>358.790009</td>
-      <td>19.134001</td>
+      <td>Dentsply Sirona Inc.</td>
+      <td>XRAY</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>33.279999</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13426,12 +13419,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>489</th>
-      <td>Willis Towers Watson Public Limited Companys</td>
-      <td>WTW</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>272.089996</td>
-      <td>22.323001</td>
+      <td>Generac Holdings Inc</td>
+      <td>GNRC</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>113.220001</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13439,12 +13432,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>490</th>
-      <td>Weyerhaeuser Company</td>
-      <td>WY</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>35.360001</td>
-      <td>19.134001</td>
+      <td>Invesco Ltd</td>
+      <td>IVZ</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>15.630000</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13452,12 +13445,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>491</th>
-      <td>Wynn Resorts Ltd</td>
-      <td>WYNN</td>
+      <td>Bio-Rad Laboratories, Inc.Class A</td>
+      <td>BIO</td>
       <td>0.02%</td>
-      <td>0.000211</td>
-      <td>99.730003</td>
-      <td>6.378000</td>
+      <td>0.000210</td>
+      <td>334.670013</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13465,12 +13458,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>492</th>
-      <td>Xcel Energy, Inc.</td>
-      <td>XEL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>51.060001</td>
-      <td>22.323001</td>
+      <td>Davita Inc.</td>
+      <td>DVA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>125.730003</td>
+      <td>6.350000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13478,25 +13471,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>493</th>
-      <td>Exxon Mobil Corporation</td>
-      <td>XOM</td>
-      <td>0.98%</td>
-      <td>0.010315</td>
-      <td>104.360001</td>
-      <td>312.522014</td>
-      <td>2.0</td>
+      <td>Comerica Incorporated</td>
+      <td>CMA</td>
+      <td>0.02%</td>
+      <td>0.000210</td>
+      <td>49.860001</td>
+      <td>6.350000</td>
+      <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
-      <td>2.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>494</th>
-      <td>Dentsply Sirona Inc.</td>
-      <td>XRAY</td>
-      <td>0.02%</td>
-      <td>0.000211</td>
-      <td>33.279999</td>
-      <td>6.378000</td>
+      <td>Hasbro, Inc.</td>
+      <td>HAS</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>50.369999</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13504,12 +13497,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>495</th>
-      <td>Xylem Inc</td>
-      <td>XYL</td>
-      <td>0.07%</td>
-      <td>0.000737</td>
-      <td>127.849998</td>
-      <td>22.323001</td>
+      <td>Mohawk Industries, Inc.</td>
+      <td>MHK</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>120.830002</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13517,25 +13510,25 @@ movesWithHoldings
     </tr>
     <tr>
       <th>496</th>
-      <td>Yum! Brands, Inc.</td>
-      <td>YUM</td>
-      <td>0.09%</td>
-      <td>0.000947</td>
-      <td>138.550003</td>
-      <td>28.701001</td>
+      <td>Whirlpool Corp.</td>
+      <td>WHR</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>106.550003</td>
+      <td>3.175000</td>
       <td>0.0</td>
-      <td>YUM</td>
-      <td>100.0</td>
-      <td>-100.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>497</th>
-      <td>Zimmer Biomet Holdings, Inc.</td>
-      <td>ZBH</td>
-      <td>0.06%</td>
-      <td>0.000632</td>
-      <td>125.510002</td>
-      <td>19.134001</td>
+      <td>Zions Bancorporation N.a.</td>
+      <td>ZION</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>39.169998</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13543,12 +13536,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>498</th>
-      <td>Zebra Technologies Corporation</td>
-      <td>ZBRA</td>
-      <td>0.03%</td>
-      <td>0.000316</td>
-      <td>291.649994</td>
-      <td>9.567000</td>
+      <td>V.F. Corporation</td>
+      <td>VFC</td>
+      <td>0.01%</td>
+      <td>0.000105</td>
+      <td>15.730000</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13556,12 +13549,12 @@ movesWithHoldings
     </tr>
     <tr>
       <th>499</th>
-      <td>Zions Bancorporation N.a.</td>
-      <td>ZION</td>
+      <td>Paramount Global Class B</td>
+      <td>PARA</td>
       <td>0.01%</td>
       <td>0.000105</td>
-      <td>39.169998</td>
-      <td>3.189000</td>
+      <td>10.300000</td>
+      <td>3.175000</td>
       <td>0.0</td>
       <td>NaN</td>
       <td>0.0</td>
@@ -13569,16 +13562,16 @@ movesWithHoldings
     </tr>
     <tr>
       <th>500</th>
-      <td>Zoetis Inc.</td>
-      <td>ZTS</td>
-      <td>0.21%</td>
-      <td>0.002210</td>
-      <td>187.860001</td>
-      <td>66.969003</td>
+      <td>NaN</td>
+      <td>GME</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>0.0</td>
-      <td>ZTS</td>
-      <td>10.0</td>
-      <td>-10.0</td>
+      <td>GME</td>
+      <td>100.0</td>
+      <td>-100.0</td>
     </tr>
   </tbody>
 </table>
@@ -13620,24 +13613,24 @@ movesWithHoldings[movesWithHoldings["SharesDifference"] < 0][["Symbol", "SharesD
   </thead>
   <tbody>
     <tr>
-      <th>32</th>
+      <th>3</th>
       <td>AMZN</td>
       <td>-4.0</td>
     </tr>
     <tr>
-      <th>205</th>
-      <td>GME</td>
-      <td>-100.0</td>
+      <th>104</th>
+      <td>ZTS</td>
+      <td>-10.0</td>
     </tr>
     <tr>
-      <th>496</th>
+      <th>220</th>
       <td>YUM</td>
       <td>-100.0</td>
     </tr>
     <tr>
       <th>500</th>
-      <td>ZTS</td>
-      <td>-10.0</td>
+      <td>GME</td>
+      <td>-100.0</td>
     </tr>
   </tbody>
 </table>
@@ -13679,257 +13672,267 @@ movesWithHoldings[movesWithHoldings["SharesDifference"] > 0][["Symbol", "SharesD
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td>AAPL</td>
-      <td>9.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ABBV</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>ABT</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>AMCR</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>AMD</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>BAC</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>BMY</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>BRK.B</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>BSX</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>C</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>CMCSA</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>116</th>
-      <td>CSCO</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>CSX</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>CVX</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>137</th>
-      <td>DIS</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>177</th>
-      <td>F</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>180</th>
-      <td>FCX</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>204</th>
-      <td>GM</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>207</th>
-      <td>GOOG</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>208</th>
-      <td>GOOGL</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>241</th>
-      <td>INTC</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>258</th>
-      <td>JNJ</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>260</th>
-      <td>JPM</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>269</th>
-      <td>KMI</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>271</th>
-      <td>KO</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>273</th>
-      <td>KVUE</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>300</th>
-      <td>MDLZ</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>303</th>
-      <td>META</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>312</th>
-      <td>MO</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>317</th>
-      <td>MRK</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>322</th>
+      <th>0</th>
       <td>MSFT</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>331</th>
-      <td>NEE</td>
+      <th>1</th>
+      <td>AAPL</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>META</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>352</th>
-      <td>ORCL</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>361</th>
-      <td>PCG</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>364</th>
-      <td>PEP</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>365</th>
-      <td>PFE</td>
+      <th>5</th>
+      <td>GOOGL</td>
       <td>4.0</td>
     </tr>
     <tr>
-      <th>367</th>
-      <td>PG</td>
+      <th>6</th>
+      <td>BRK.B</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>373</th>
-      <td>PM</td>
-      <td>1.0</td>
+      <th>7</th>
+      <td>GOOG</td>
+      <td>3.0</td>
     </tr>
     <tr>
-      <th>403</th>
-      <td>RTX</td>
-      <td>1.0</td>
+      <th>10</th>
+      <td>JPM</td>
+      <td>2.0</td>
     </tr>
     <tr>
-      <th>407</th>
-      <td>SCHW</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>410</th>
-      <td>SLB</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>427</th>
-      <td>T</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>453</th>
-      <td>UBER</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>461</th>
-      <td>USB</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>462</th>
+      <th>12</th>
       <td>V</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>473</th>
-      <td>VZ</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>477</th>
-      <td>WBD</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>481</th>
-      <td>WFC</td>
+      <th>13</th>
+      <td>XOM</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>485</th>
+      <th>15</th>
+      <td>JNJ</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>PG</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AMD</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>MRK</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>ABBV</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>CVX</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
       <td>WMT</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>493</th>
-      <td>XOM</td>
+      <th>28</th>
+      <td>BAC</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>KO</td>
       <td>2.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>ABT</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>DIS</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>WFC</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>CSCO</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>INTC</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>ORCL</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>CMCSA</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>VZ</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>UBER</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>PFE</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>PM</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>RTX</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>T</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>NEE</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>C</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>BMY</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>SCHW</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>MDLZ</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>BSX</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>CSX</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>MO</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>SLB</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>USB</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>GM</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>FCX</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>F</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>PCG</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>KMI</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>249</th>
+      <td>KVUE</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>345</th>
+      <td>WBD</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>400</th>
+      <td>VTRS</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>423</th>
+      <td>AMCR</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
+
+
+```python
+
+```
+
+
+```python
+
+```
